@@ -40,6 +40,9 @@ export default function Hero() {
           </NextLink>
         </CustomButtonGroup>
       </Contents>
+      <Contents>
+        Hi
+      </Contents>
       
       {/* <Card       
         style={{
@@ -58,7 +61,7 @@ export default function Hero() {
       
     </HeroWrapper>
 
-    <ImageContainerOverlay>
+      <ImageContainerOverlay>
         <NextImage src="/assets/astronaut.svg" alt="image nei hawa" width={150} height={500} />
       </ImageContainerOverlay>
     </>
@@ -117,6 +120,17 @@ const ImageContainerOverlay = styled.div`
     max-width: 45rem;
   }
 
+  animation-name: floating;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+
+  @keyframes floating {
+    0% { transform: translate(0, 0px); }
+    50% { transform: translate(0, 15px); }
+    100% { transform: translate(0, -0px); } 
+  }
+
   ${media('<=desktop')} {
     margin-top: 2rem;
     justify-content: center;
@@ -163,5 +177,21 @@ const Heading3 = styled.div`
   ${media('<=tablet')} {
     font-size: 2rem;
     margin-bottom: 2rem;
+  }
+`;
+
+
+const FloatingContainer = styled.div`
+  animation-name: floating;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  margin-left: 30px;
+  margin-top: 5px;
+
+  @keyframes floating {
+    0% { transform: translate(0, 0px); }
+    50% { transform: translate(0, 15px); }
+    100% { transform: translate(0, -0px); } 
   }
 `;
