@@ -12,6 +12,8 @@ import Hero from 'views/HomePage/Hero';
 import Partners from 'views/HomePage/Partners';
 import ScrollableBlogPosts from 'views/HomePage/ScrollableBlogPosts';
 import Testimonials from 'views/HomePage/Testimonials';
+import About from './about';
+import Timeline from './timeline';
 
 export default function Homepage({ posts }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
@@ -27,7 +29,7 @@ export default function Homepage({ posts }: InferGetStaticPropsType<typeof getSt
         <WhiteBackgroundContainer>
           <Hero />
           <Partners />
-          <BasicSection imageUrl="/demo-illustration-1.svg" title="Lorem ipsum dolor sit amet consectetur." overTitle="sit amet gogo">
+          {/* <BasicSection imageUrl="/demo-illustration-1.svg" title="Lorem ipsum dolor sit amet consectetur." overTitle="&ldquo;Information flow is what the Internet is about&rdquo;">
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, quidem error incidunt a doloremque voluptatem porro inventore
               voluptate quo deleniti animi laboriosam.{' '}
@@ -46,10 +48,11 @@ export default function Homepage({ posts }: InferGetStaticPropsType<typeof getSt
               <li>Professional remark 2</li>
               <li>Professional feature 3</li>
             </ul>
-          </BasicSection>
+          </BasicSection> */}
         </WhiteBackgroundContainer>
         <DarkerBackgroundContainer>
-          <Cta />
+          <About/>
+          <Timeline/>
           <FeaturesGallery />
           <Features />
           <Testimonials />
