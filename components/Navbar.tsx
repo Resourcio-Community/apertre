@@ -1,19 +1,17 @@
-import dynamic from 'next/dynamic';
+'use client'
 import NextLink from 'next/link';
 import NextImage from 'next/image';
 import { useRouter } from 'next/router';
 import React, { useRef, useState } from 'react';
 import styled from 'styled-components';
-import { useNewsletterModalContext } from 'contexts/newsletter-modal.context';
 import { ScrollPositionEffectProps, useScrollPosition } from 'hooks/useScrollPosition';
 import { NavItems, SingleNavItem } from 'types';
 import { media } from 'utils/media';
-import Button from './Button';
 import Container from './Container';
 import Drawer from './Drawer';
 import { HamburgerIcon } from './HamburgerIcon';
 
-const ColorSwitcher = dynamic(() => import('../components/ColorSwitcher'), { ssr: false });
+// const ColorSwitcher = dynamic(() => import('../components/ColorSwitcher'), { ssr: false });
 
 type NavbarProps = { items: NavItems };
 type ScrollingDirections = 'up' | 'down' | 'none';
@@ -68,21 +66,18 @@ export default function Navbar({ items }: NavbarProps) {
     <NavbarContainer hidden={isNavbarHidden} transparent={isTransparent}>
       <Content>
         <NextLink href="/" passHref>
-
           <LogoWrapper>
-          <NextImage src={"/assets/logo.svg"} alt="asd" width={155} height={40} />
-            {/* <Logo /> */}
-            {/* <img src={Logo} /> */}
+            <NextImage src={"/static/assets/logo.svg"} alt="asd" width={200} height={60} />
           </LogoWrapper>
         </NextLink>
         <NavItemList>
-          {items.map((singleItem) => (
-            <NavItem key={singleItem.href} {...singleItem} />
+          {items.map((singleItem, idx) => (
+            <NavItem key={idx} {...singleItem} />
           ))}
         </NavItemList>
-        <ColorSwitcherContainer>
+        {/* <ColorSwitcherContainer>
           <ColorSwitcher />
-        </ColorSwitcherContainer>
+        </ColorSwitcherContainer> */}
         <HamburgerMenuWrapper>
           <HamburgerIcon aria-label="Toggle menu" onClick={toggle} />
         </HamburgerMenuWrapper>
@@ -92,29 +87,16 @@ export default function Navbar({ items }: NavbarProps) {
 }
 
 function NavItem({ href, title, outlined }: SingleNavItem) {
-  const { setIsModalOpened } = useNewsletterModalContext();
-
-  function showNewsletterModal() {
-    setIsModalOpened(true);
-  }
-
-  if (outlined) {
-    return <CustomButton onClick={showNewsletterModal}>{title}</CustomButton>;
-  }
 
   return (
     <NavItemWrapper outlined={outlined}>
       <NextLink href={href} passHref>
-        <a>{title}</a>
+        {title}
       </NextLink>
     </NavItemWrapper>
   );
 }
 
-const CustomButton = styled(Button)`
-  padding: 0.75rem 1.5rem;
-  line-height: 1.8;
-`;
 
 const NavItemList = styled.div`
   display: flex;
@@ -131,7 +113,7 @@ const HamburgerMenuWrapper = styled.div`
   }
 `;
 
-const LogoWrapper = styled.a`
+const LogoWrapper = styled.span`
   display: flex;
   margin-right: auto;
   text-decoration: none;
@@ -153,11 +135,16 @@ const NavItemWrapper = styled.li<Partial<SingleNavItem>>`
 
   a {
     display: flex;
-    color: ${(p) => (p.outlined ? 'rgb(var(--textSecondary))' : 'rgb(var(--text), 0.75)')};
+    color: #fbce1f;
     letter-spacing: 0.025em;
     text-decoration: none;
     padding: 0.75rem 1.5rem;
     font-weight: 700;
+  }
+
+  a:hover {
+    color: rgb(var(--primary));
+    transition: color 0.2s;
   }
 
   &:not(:last-child) {
@@ -169,7 +156,7 @@ const NavbarContainer = styled.div<NavbarContainerProps>`
   display: flex;
   position: sticky;
   top: 0;
-  padding: 1.5rem 0;
+  padding: 4.8rem 0;
   width: 100%;
   height: 8rem;
   z-index: var(--z-navbar);
@@ -186,7 +173,7 @@ const NavbarContainer = styled.div<NavbarContainerProps>`
 
 const Content = styled(Container)`
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
 `;
 

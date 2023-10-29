@@ -1,68 +1,45 @@
-import NextLink from 'next/link';
 import styled from 'styled-components';
 import Button from 'components/Button';
-import ButtonGroup from 'components/ButtonGroup';
 import Container from 'components/Container';
-import HeroIllustration from 'components/HeroIllustation';
 import OverTitle from 'components/OverTitle';
-import { useNewsletterModalContext } from 'contexts/newsletter-modal.context';
 import { media } from 'utils/media';
 import NextImage from "next/image";
-import Card from 'react-animated-3d-card';
+import ParticlesBackgroud from 'components/ParticlesBackgroud';
 
 
 export default function Hero() {
-  const { setIsModalOpened } = useNewsletterModalContext();
+  return (
+    <>
+      <HeroWrapper>
+        <ParticlesBackgroud/>
 
-  return (<>
-    <HeroWrapper>
-      <Contents>
-      {/* <NextImage src="/assets/logo.svg" alt="image nei hawa" width={200} height={200} /> */}
-        <CustomOverTitle>The coolest, open source program you have ever seen</CustomOverTitle>
-        <Heading>An Open Source Event</Heading>
-        <Heading3>
-          Presented By
-        </Heading3>
+        <Contents style={{ padding: '0px 1rem' }}>
+          <Heading>An <span style={{ color: '#fbce1f' }}>Open Source</span> Event</Heading>
+          <Heading3 style={{ margin: '15rem 0 2rem 0' }}>Presented By</Heading3>
 
-        <ImageContainer>
-        <NextImage src="/assets/resourcio.svg" alt="image nei hawa" width={200} height={100} />
-        <NextImage src="/assets/gdsc_aot.svg" alt="image nei hawa" width={200} height={100} />
-        </ImageContainer>
+          <ImageContainer>
+            <NextImage src="/static/assets/resourcio.svg" alt="rc" width={200} height={100} />
+            <NextImage src="/static/assets/gdsc_aot.svg" alt="gdscaot" width={200} height={100} />
+          </ImageContainer>
+        </Contents>
 
-        <CustomButtonGroup>
-          <Button onClick={() => setIsModalOpened(true)}>
-            Register Now <span>&rarr;</span>
+        <Contents style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+          <Span />
+          <Heading2>03 JAN 2024</Heading2>
+          <Span />
+          <Heading3>TO</Heading3>
+          <Span />
+          <Heading2>17 JAN 2024</Heading2>
+          <Span />
+
+          <Button style={{ marginTop: '5rem' }}>
+            Register Now
           </Button>
-          <NextLink href="#whitepaper" passHref>
-            <Button transparent>
-              Learn More <span>&rarr;</span>
-            </Button>
-          </NextLink>
-        </CustomButtonGroup>
-      </Contents>
-      <Contents>
-        Hi
-      </Contents>
-      
-      {/* <Card       
-        style={{
-          backgroundColor: 'black',
-          backgroundImage: `url('/assets/logo.svg')`,
-          backgroundSize: 'contain',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat',
-          width: '450px',
-          height: '300px',
-          cursor: 'pointer',
-        }}
-        onClick={() => console.log('Card clicked')}
-      /> */}
-
-      
-    </HeroWrapper>
+        </Contents>
+      </HeroWrapper>
 
       <ImageContainerOverlay>
-        <NextImage src="/assets/astronaut.svg" alt="image nei hawa" width={150} height={500} />
+        <NextImage src="/static/assets/astronaut.svg" alt="image nei hawa" width={150} height={500} />
       </ImageContainerOverlay>
     </>
   );
@@ -70,7 +47,10 @@ export default function Hero() {
 
 const HeroWrapper = styled(Container)`
   display: flex;
-  padding-top: 5rem;
+  align-items: center;
+  justify-content: space-between;
+  height: 90vh;
+  gap: 4rem;
 
   ${media('<=desktop')} {
     padding-top: 1rem;
@@ -88,15 +68,10 @@ const Contents = styled.div`
   }
 `;
 
-const CustomButtonGroup = styled(ButtonGroup)`
-  margin-top: 4rem;
-`;
-
 const ImageContainer = styled.div`
   display: flex;
   flex: 1;
-  justify-content: flex-start;
-  align-items: flex-start;
+  margin-left: -30px;
 
   svg {
     max-width: 45rem;
@@ -127,8 +102,8 @@ const ImageContainerOverlay = styled.div`
 
   @keyframes floating {
     0% { transform: translate(0, 0px); }
-    50% { transform: translate(0, 15px); }
-    100% { transform: translate(0, -0px); } 
+    50% { transform: translate(0, 12px); }
+    100% { transform: translate(0, 0px); } 
   }
 
   ${media('<=desktop')} {
@@ -155,11 +130,9 @@ const CustomOverTitle = styled(OverTitle)`
 `;
 
 const Heading = styled.h1`
-  font-size: 7.2rem;
-  font-weight: bold;
-  line-height: 1.1;
-  margin-bottom: 4rem;
-  letter-spacing: -0.03em;
+  font-size: 7rem;
+  line-height: 1.2;
+  margin-bottom: 8rem;
 
   ${media('<=tablet')} {
     font-size: 4.6rem;
@@ -167,17 +140,34 @@ const Heading = styled.h1`
   }
 `;
 
+const Heading2 = styled.h2`
+  font-size: 4.5rem;
+  line-height: 1.1;
+  padding: 1.5rem 0;
+  letter-spacing: -0.03em;
+
+  ${media('<=tablet')} {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+  }
+`;
+
 const Heading3 = styled.div`
-  font-size: 2.5rem;
+  font-size: 2.2rem;
   line-height: 1.1;
   margin-top: 3rem;
-  margin-bottom: 3rem;
-  letter-spacing: -0.03em;
+  margin-bottom: 2rem;
+  letter-spacing: 2px;
 
   ${media('<=tablet')} {
     font-size: 2rem;
     margin-bottom: 2rem;
   }
+`;
+
+const Span = styled.span`
+  width: 56%; 
+  border: 1px solid #fbce1f;
 `;
 
 

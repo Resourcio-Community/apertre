@@ -1,6 +1,5 @@
 export const EnvVars = {
-  SITE_NAME: 'APERTRE',
+  SITE_NAME: 'Apertre',
   OG_IMAGES_URL: '',
-  URL: '',
-  MAILCHIMP_SUBSCRIBE_URL: '',
+  URL: ''
 };

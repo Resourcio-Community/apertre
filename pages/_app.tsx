@@ -4,32 +4,26 @@ import 'swiper/css/navigation';
 import 'swiper/css/autoplay';
 
 import { AppProps } from 'next/dist/shared/lib/router/router';
-import dynamic from 'next/dynamic';
 import Head from 'next/head';
 import { ColorModeScript } from 'nextjs-color-mode';
-import React, { PropsWithChildren } from 'react';
-import { TinaEditProvider } from 'tinacms/dist/edit-state';
+import React from 'react';
 
 import Footer from 'components/Footer';
 import { GlobalStyle } from 'components/GlobalStyles';
 import Navbar from 'components/Navbar';
-import NavigationDrawer from 'components/NavigationDrawer';
-import NewsletterModal from 'components/NewsletterModal';
 import WaveCta from 'components/WaveCta';
-import { NewsletterModalContextProvider, useNewsletterModalContext } from 'contexts/newsletter-modal.context';
 import { NavItems } from 'types';
 
 const navItems: NavItems = [
-  { title: 'About', href: '/features' },
-  { title: 'Project', href: '/pricing' },
-  { title: 'Leaderboard', href: '/contact' },
-  { title: 'FAQ', href: '/sign-up'},
-  { title: 'Team', href: '/contact' },
-  { title: 'Contact', href: '/contact' },
-  { title: 'Register Now', href: '/sign-up', outlined: true },
+  { title: 'About', href: '' },
+  { title: 'Projects', href: '/projects' },
+  { title: 'Sponsors', href: '' },
+  { title: 'Leaderboard', href: '/leaderboard' },
+  { title: 'FAQ', href: '' },
+  { title: 'Team', href: '' },
+  { title: 'Contact', href: '/contact' }
 ];
 
-const TinaCMS = dynamic(() => import('tinacms'), { ssr: false });
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -37,61 +31,17 @@ function MyApp({ Component, pageProps }: AppProps) {
       <Head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
-        <link rel="icon" type="image/png" href="/favicon.ico" />
-        {/* <link rel="alternate" type="application/rss+xml" href={EnvVars.URL + 'rss'} title="RSS 2.0" /> */}
-        {/* <script
-          dangerouslySetInnerHTML={{
-            __html: `window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-          ga('create', 'UA-117119829-1', 'auto');
-          ga('send', 'pageview');`,
-          }}
-        /> */}
-        {/* <script async src="https://www.google-analytics.com/analytics.js"></script> */}
+        <link rel="icon" href="/favicon.png" type='image/png'/>
       </Head>
-      <ColorModeScript />
+      {/* <ColorModeScript /> */}
       <GlobalStyle />
 
-      <Providers>
-        <Modals />
-        <Navbar items={navItems} />
-        <TinaEditProvider
-          editMode={
-            <TinaCMS
-              query={pageProps.query}
-              variables={pageProps.variables}
-              data={pageProps.data}
-              isLocalClient={!process.env.NEXT_PUBLIC_TINA_CLIENT_ID}
-              branch={process.env.NEXT_PUBLIC_EDIT_BRANCH}
-              clientId={process.env.NEXT_PUBLIC_TINA_CLIENT_ID}
-              {...pageProps}
-            >
-              {(livePageProps: any) => <Component {...livePageProps} />}
-            </TinaCMS>
-          }
-        >
-          <Component {...pageProps} />
-        </TinaEditProvider>
-        <WaveCta />
-        <Footer />
-      </Providers>
+      <Navbar items={navItems} />
+      <Component {...pageProps} />
+      <Footer />
     </>
   );
 }
 
-function Providers<T>({ children }: PropsWithChildren<T>) {
-  return (
-    <NewsletterModalContextProvider>
-      <NavigationDrawer items={navItems}>{children}</NavigationDrawer>
-    </NewsletterModalContextProvider>
-  );
-}
-
-function Modals() {
-  const { isModalOpened, setIsModalOpened } = useNewsletterModalContext();
-  if (!isModalOpened) {
-    return null;
-  }
-  return <NewsletterModal onClose={() => setIsModalOpened(false)} />;
-}
 
 export default MyApp;

@@ -17,11 +17,17 @@ export default function BasicSection({ imageUrl, title, overTitle, reversed, chi
   return (
     <BasicSectionWrapper reversed={reversed}>
       <ImageContainer>
-        <NextImage src={imageUrl} alt={title} layout="fill" objectFit="cover" />
+        <NextImage src={imageUrl} alt={title} layout="fill" objectFit="cover" style={{ borderRadius: '10px' }} />
       </ImageContainer>
       <ContentContainer>
-        <CustomOverTitle>{overTitle}</CustomOverTitle>
-        <Title>{title}</Title>
+        <CustomOverTitle>
+          <span style={{ color: '#fbce1f', fontSize: '2rem', marginRight: '1rem' }}>&#8605;</span>
+          {overTitle}
+        </CustomOverTitle>
+        <Title>
+          {title.split(' ')[0]} &nbsp;
+          <span style={{ color: '#fbce1f' }}>{title.split(' ')[1]}</span>
+        </Title>
         <RichText>{children}</RichText>
       </ContentContainer>
     </BasicSectionWrapper>

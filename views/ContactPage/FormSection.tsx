@@ -1,3 +1,4 @@
+'use client'
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import styled from 'styled-components';
@@ -18,26 +19,26 @@ export default function FormSection() {
   const { register, handleSubmit, formState } = useForm();
   const { isSubmitSuccessful, isSubmitting, isSubmitted, errors } = formState;
 
-  async function onSubmit(payload: EmailPayload) {
-    try {
-      const res = await fetch('/api/sendEmail', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ subject: 'Email from contact form', ...payload }),
-      });
+  // async function onSubmit(payload: EmailPayload) {
+  //   try {
+  //     const res = await fetch('/api/sendEmail', {
+  //       method: 'POST',
+  //       headers: {
+  //         'Content-Type': 'application/json',
+  //       },
+  //       body: JSON.stringify({ subject: 'Email from contact form', ...payload }),
+  //     });
 
-      if (res.status !== 204) {
-        setHasErrored(true);
-      }
-    } catch {
-      setHasErrored(true);
-      return;
-    }
+  //     if (res.status !== 204) {
+  //       setHasErrored(true);
+  //     }
+  //   } catch(err) {
+  //     setHasErrored(true);
+  //     return err;
+  //   }
 
-    setHasSuccessfullySentMail(true);
-  }
+  //   setHasSuccessfullySentMail(true);
+  // }
 
   const isSent = isSubmitSuccessful && isSubmitted;
   const isDisabled = isSubmitting || isSent;
@@ -49,7 +50,7 @@ export default function FormSection() {
 
   return (
     <Wrapper>
-      <Form onSubmit={handleSubmit(onSubmit)}>
+      <Form>
         {hasErrored && <ErrorMessage>Couldn&apos;t send email. Please try again.</ErrorMessage>}
         <InputGroup>
           <InputStack>

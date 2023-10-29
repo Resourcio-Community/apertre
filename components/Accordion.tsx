@@ -1,3 +1,4 @@
+'use client'
 import { PropsWithChildren, useState } from 'react';
 import styled from 'styled-components';
 import { media } from 'utils/media';

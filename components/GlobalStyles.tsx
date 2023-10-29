@@ -23,9 +23,9 @@ export const GlobalStyle = createGlobalStyle`
   --inputBackground: 255,255,255;
   --navbarBackground: 255,255,255;
   --modalBackground: 251,251,253;
-  --errorColor: 207,34,46;
+  --errorColor: 207,34,46;                     
   --logoColor: #243A5A;
-}
+} 
 
 .next-dark-theme {
   --background: 26,32,44;
@@ -60,6 +60,10 @@ export const GlobalStyle = createGlobalStyle`
 *::before,
 *::after {
   box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+  display: none;
 }
 
 /* Remove default margin */
@@ -157,5 +161,4 @@ select {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
-
 }`;

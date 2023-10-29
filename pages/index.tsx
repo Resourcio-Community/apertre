@@ -1,64 +1,40 @@
-import { InferGetStaticPropsType } from 'next';
 import Head from 'next/head';
 import styled from 'styled-components';
-import BasicSection from 'components/BasicSection';
-import Link from 'components/Link';
 import { EnvVars } from 'env';
-import { getAllPosts } from 'utils/postsFetcher';
-import Cta from 'views/HomePage/Cta';
 import Features from 'views/HomePage/Features';
 import FeaturesGallery from 'views/HomePage/FeaturesGallery';
 import Hero from 'views/HomePage/Hero';
 import Partners from 'views/HomePage/Partners';
-import ScrollableBlogPosts from 'views/HomePage/ScrollableBlogPosts';
 import Testimonials from 'views/HomePage/Testimonials';
-import About from './about';
-import Timeline from './timeline';
+import About from 'views/HomePage/About';
+import Timeline from 'views/HomePage/Timeline';
+import ParticlesBackgroud from 'components/ParticlesBackgroud';
+import WaveCta from 'components/WaveCta';
 
-export default function Homepage({ posts }: InferGetStaticPropsType<typeof getStaticProps>) {
+export default function Homepage() {
   return (
     <>
       <Head>
         <title>{EnvVars.SITE_NAME}</title>
         <meta
           name="description"
-          content="Tempor nostrud velit fugiat nostrud duis incididunt Lorem deserunt est tempor aute dolor ad elit."
+          content="An open source contribution program"
         />
       </Head>
       <HomepageWrapper>
-        <WhiteBackgroundContainer>
+      <WhiteBackgroundContainer>
           <Hero />
           <Partners />
-          {/* <BasicSection imageUrl="/demo-illustration-1.svg" title="Lorem ipsum dolor sit amet consectetur." overTitle="&ldquo;Information flow is what the Internet is about&rdquo;">
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, quidem error incidunt a doloremque voluptatem porro inventore
-              voluptate quo deleniti animi laboriosam.{' '}
-              <Link href="/help-center">Possimus ullam velit rem itaque consectetur, in distinctio?</Link> Lorem ipsum, dolor sit amet
-              consectetur adipisicing elit. Soluta repellendus quia quos obcaecati nihil. Laudantium non accusantium, voluptate eum nesciunt
-              at suscipit quis est soluta?
-            </p>
-          </BasicSection>
-          <BasicSection imageUrl="/demo-illustration-2.svg" title="Lorem ipsum dolor sit." overTitle="lorem ipsum" reversed>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, quidem error incidunt a doloremque voluptatem porro inventore{' '}
-              <strong>voluptate quo deleniti animi laboriosam</strong>. Possimus ullam velit rem itaque consectetur, in distinctio?
-            </p>
-            <ul>
-              <li>Professional point 1</li>
-              <li>Professional remark 2</li>
-              <li>Professional feature 3</li>
-            </ul>
-          </BasicSection> */}
         </WhiteBackgroundContainer>
         <DarkerBackgroundContainer>
-          <About/>
-          <Timeline/>
+          <About />
+          <Timeline />
           <FeaturesGallery />
           <Features />
           <Testimonials />
-          <ScrollableBlogPosts posts={posts} />
         </DarkerBackgroundContainer>
       </HomepageWrapper>
+      <WaveCta />
     </>
   );
 }
@@ -78,11 +54,9 @@ const DarkerBackgroundContainer = styled.div`
 `;
 
 const WhiteBackgroundContainer = styled.div`
-  background: #000; //rgb(var(--secondBackground));
-
-  background-image: url('/assets/homeBG.svg');
-
-  // background-repeat: "no-repeat",
+  background: #000;
+  background-image: url('/static/assets/homeBG.svg');
+  background-repeat: "no-repeat",
   background-size: "cover",
   background-position: "center",
   object-fit: "cover",
@@ -95,11 +69,3 @@ const WhiteBackgroundContainer = styled.div`
     margin-top: 15rem;
   }
 `;
-
-export async function getStaticProps() {
-  return {
-    props: {
-      posts: await getAllPosts(),
-    },
-  };
-}

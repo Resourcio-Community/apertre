@@ -1,26 +1,20 @@
-import { PropsWithChildren } from 'react';
 import styled from 'styled-components';
 
-type ButtonProps = PropsWithChildren<{ transparent?: boolean }>;
-
-const Button = styled.a<ButtonProps>`
+const Button = styled.button`
+  color: white;
   border: none;
-  background: none;
+  background: rgb(var(--primary));
   display: inline-block;
   text-decoration: none;
   text-align: center;
-  background: ${(p) => (p.transparent ? 'transparent' : 'rgb(var(--primary))')};
   padding: 1.75rem 2.25rem;
-  font-size: 1.2rem;
-  color: ${(p) => (p.transparent ? 'rgb(var(--text))' : 'rgb(var(--textSecondary))')};
-  text-transform: uppercase;
+  font-size: 1.5rem;
   font-family: var(--font);
   font-weight: bold;
-  border-radius: 0.4rem;
-  border: ${(p) => (p.transparent ? 'none' : '2px solid rgb(var(--primary))')};
-  transition: transform 0.3s;
+  border: 2px solid rgb(var(--primary));
+  border-radius: 0.8rem;
+  transition: background 250ms ease-in;
   backface-visibility: hidden;
-  will-change: transform;
   cursor: pointer;
 
   span {
@@ -28,7 +22,8 @@ const Button = styled.a<ButtonProps>`
   }
 
   &:hover {
-    transform: scale(1.025);
+    background: transparent;
+    border: 2px solid #fbce1f;
   }
 `;
 
