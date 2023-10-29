@@ -4,14 +4,14 @@ import Container from 'components/Container';
 import OverTitle from 'components/OverTitle';
 import { media } from 'utils/media';
 import NextImage from "next/image";
-import ParticlesBackgroud from 'components/ParticlesBackgroud';
+import ParticlesBackground from 'components/ParticlesBackground';
 
 
 export default function Hero() {
   return (
     <>
       <HeroWrapper>
-        <ParticlesBackgroud/>
+        <ParticlesBackground/>
 
         <Contents style={{ padding: '0px 1rem' }}>
           <Heading>An <span style={{ color: '#fbce1f' }}>Open Source</span> Event</Heading>

@@ -12,6 +12,7 @@ import { GiRocketThruster, GiRocketFlight } from 'react-icons/gi';
 
 export default function Timeline() {
   return (
+    // TODO: fix date font size
     <>
       <Container>
         <Stack>

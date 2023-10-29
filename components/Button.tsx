@@ -16,6 +16,7 @@ const Button = styled.button`
   transition: background 250ms ease-in;
   backface-visibility: hidden;
   cursor: pointer;
+  z-index: 999;
 
   span {
     margin-left: 2rem;

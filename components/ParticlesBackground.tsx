@@ -4,7 +4,7 @@ import { loadFull } from 'tsparticles';
 import type { Container, Engine } from "tsparticles-engine";
 import ParticlesConfig from 'config/particlesjs-config';
 
-const ParticlesBackgroud = () => {
+const ParticlesBackground = () => {
   const particlesInit = useCallback(async (engine: Engine) => {
     console.log(engine);
     await loadFull(engine);
@@ -27,4 +27,4 @@ const ParticlesBackgroud = () => {
   )
 };
 
-export default ParticlesBackgroud;
+export default ParticlesBackground;

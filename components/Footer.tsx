@@ -69,7 +69,7 @@ export default function Footer() {
               <LinkedinIcon size={50} round={true} />
             </NextLink>
           </ShareBar>
-          <Copyright>&copy; Copyright {new Date().getFullYear()} <span style={{ color: '#fbce1f' }}>Resourcio Community</span></Copyright>
+          <Copyright>&copy; Copyright {new Date().getFullYear()} <span style={{ color: '#fbce1f' }}>APERTRE</span></Copyright>
         </BottomBar>
       </Container>
     </FooterWrapper>

@@ -8,7 +8,7 @@ import Partners from 'views/HomePage/Partners';
 import Testimonials from 'views/HomePage/Testimonials';
 import About from 'views/HomePage/About';
 import Timeline from 'views/HomePage/Timeline';
-import ParticlesBackgroud from 'components/ParticlesBackgroud';
+import ParticlesBackgroud from 'components/ParticlesBackground';
 import WaveCta from 'components/WaveCta';
 
 export default function Homepage() {

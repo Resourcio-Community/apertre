@@ -29,7 +29,7 @@ const FEATURES = [
   },
   {
     imageUrl: '/grid-icons/asset-4.svg',
-    title: 'Add a Shade to GSSOC',
+    title: 'Add a Shade to APERTRE',
     description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis error dolorem ipsa dolore facere est consequuntur aut, eos doloribus voluptate?',
     buttonText: 'Sponsor us',
     buttonhref: ''

@@ -1,4 +1,3 @@
-// 'use client'
 import NextImage from 'next/image';
 import React, { useState } from 'react';
 import styled from 'styled-components';
