@@ -29,12 +29,12 @@ export default function Homepage() {
         <DarkerBackgroundContainer>
           <About />
           <Timeline />
-          <FeaturesGallery />
+          {/* <FeaturesGallery /> */}
           <Features />
           <Testimonials />
         </DarkerBackgroundContainer>
       </HomepageWrapper>
-      <WaveCta />
+      {/* <WaveCta /> */}
     </>
   );
 }

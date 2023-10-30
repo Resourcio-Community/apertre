@@ -11,10 +11,12 @@ type FooterItems = SingleFooterList[];
 
 const footerItems: FooterItems = [
   {
-    title: 'Company',
+    title: 'About',
     items: [
-      { title: 'Privacy Policy', href: '/privacy-policy' },
-      { title: 'Cookies Policy', href: '/cookies-policy' },
+      // { title: 'Privacy Policy', href: '/privacy-policy' },
+      // { title: 'Cookies Policy', href: '/cookies-policy' },
+      { title: 'Code of Conduct', href: '/' },
+      { title: 'Contact Us', href: '/contact' },      
     ],
   },
   {
@@ -26,24 +28,24 @@ const footerItems: FooterItems = [
       { title: 'And something else', href: '/and-something-else' },
     ],
   },
-  {
-    title: 'Knowledge',
-    items: [
-      { title: 'Blog', href: '/blog' },
-      { title: 'Contact', href: '/contact' },
-      { title: 'FAQ', href: '/faq' },
-      { title: 'Help Center', href: '/help-center' },
-    ],
-  },
-  {
-    title: 'Something',
-    items: [
-      { title: 'Features2', href: '/features2' },
-      { title: 'Something2', href: '/something2' },
-      { title: 'Something else2', href: '/something-else2' },
-      { title: 'And something else2', href: '/and-something-else2' },
-    ],
-  },
+  // {
+  //   title: 'Knowledge',
+  //   items: [
+  //     { title: 'Blog', href: '/blog' },
+  //     { title: 'Contact', href: '/contact' },
+  //     { title: 'FAQ', href: '/faq' },
+  //     { title: 'Help Center', href: '/help-center' },
+  //   ],
+  // },
+  // {
+  //   title: 'Something',
+  //   items: [
+  //     { title: 'Features2', href: '/features2' },
+  //     { title: 'Something2', href: '/something2' },
+  //     { title: 'Something else2', href: '/something-else2' },
+  //     { title: 'And something else2', href: '/and-something-else2' },
+  //   ],
+  // },
 ];
 
 export default function Footer() {
@@ -51,6 +53,10 @@ export default function Footer() {
     <FooterWrapper>
       <Container>
         <ListContainer>
+          <div> 
+            {/* Apertre Img  + about tagline */}
+          </div>
+
           {footerItems.map((singleItem) => (
             <FooterList key={singleItem.title} {...singleItem} />
           ))}
@@ -69,7 +75,9 @@ export default function Footer() {
               <LinkedinIcon size={50} round={true} />
             </NextLink>
           </ShareBar>
-          <Copyright>&copy; Copyright {new Date().getFullYear()} <span style={{ color: '#fbce1f' }}>APERTRE</span></Copyright>
+
+          
+          <Copyright>&copy; Copyright {new Date().getFullYear()} <span style={{ color: '#fbce1f' }}>APERTRE</span>. All Rights Reserved.</Copyright>
         </BottomBar>
       </Container>
     </FooterWrapper>

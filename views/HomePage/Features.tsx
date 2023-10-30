@@ -4,46 +4,63 @@ import AutofitGrid from 'components/AutofitGrid';
 import BasicCard from 'components/BasicCard';
 import Container from 'components/Container';
 import { media } from 'utils/media';
+import OverTitle from 'components/OverTitle';
+import SectionTitle from 'components/SectionTitle';
+import Separator from 'components/Separator';
 
 const FEATURES = [
   {
     imageUrl: '/grid-icons/asset-1.svg',
     title: 'Start your Journey',
-    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis error dolorem ipsa dolore facere est consequuntur aut, eos doloribus voluptate?',
+    description:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis error dolorem ipsa dolore facere est consequuntur aut, eos doloribus voluptate?',
     buttonText: 'Apply as Contributor',
-    buttonhref: ''
+    buttonhref: '',
   },
   {
     imageUrl: '/grid-icons/asset-2.svg',
     title: 'Lead the Pack',
-    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis error dolorem ipsa dolore facere est consequuntur aut, eos doloribus voluptate?',
+    description:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis error dolorem ipsa dolore facere est consequuntur aut, eos doloribus voluptate?',
     buttonText: 'Apply as Mentor',
-    buttonhref: ''
+    buttonhref: '',
   },
   {
     imageUrl: '/grid-icons/asset-3.svg',
     title: 'Inviting Projects & NGOs',
-    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis error dolorem ipsa dolore facere est consequuntur aut, eos doloribus voluptate?',
+    description:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis error dolorem ipsa dolore facere est consequuntur aut, eos doloribus voluptate?',
     buttonText: 'Apply as an Organization/Project Admin',
-    buttonhref: ''
+    buttonhref: '',
   },
   {
     imageUrl: '/grid-icons/asset-4.svg',
     title: 'Add a Shade to APERTRE',
-    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis error dolorem ipsa dolore facere est consequuntur aut, eos doloribus voluptate?',
+    description:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis error dolorem ipsa dolore facere est consequuntur aut, eos doloribus voluptate?',
     buttonText: 'Sponsor us',
-    buttonhref: ''
-  }
+    buttonhref: '',
+  },
 ];
 
 export default function Features() {
   return (
     <Container>
-      <CustomAutofitGrid>
-        {FEATURES.map((singleFeature, idx) => (
-          <BasicCard key={idx} {...singleFeature} />
-        ))}
-      </CustomAutofitGrid>
+      {/* <Separator /> */}
+      <Stack>
+        <OverTitle>
+          <span style={{ color: '#fbce1f', fontSize: '2rem', marginRight: '1rem' }}>&#8605;</span>
+          &ldquo;I often compare open source to science&rdquo; - Linus Torvalds
+        </OverTitle>
+
+        <SectionTitle>Join <span style={{ color: '#fbce1f' }}>Apertre</span></SectionTitle>
+
+        <CustomAutofitGrid>
+          {FEATURES.map((singleFeature, idx) => (
+            <BasicCard key={idx} {...singleFeature} />
+          ))}
+        </CustomAutofitGrid>
+      </Stack>
     </Container>
   );
 }
@@ -51,6 +68,7 @@ export default function Features() {
 const CustomAutofitGrid = styled(AutofitGrid)`
   --autofit-grid-item-size: 40rem;
   grid-gap: 4rem;
+  padding-top: 2rem;
 
   ${media('<=tablet')} {
     --autofit-grid-item-size: 30rem;
@@ -58,5 +76,26 @@ const CustomAutofitGrid = styled(AutofitGrid)`
 
   ${media('<=phone')} {
     --autofit-grid-item-size: 100%;
+  }
+`;
+
+const Stack = styled.div`
+  display: flex;
+  flex-direction: column;
+  color: rgb(var(--textSecondary));
+  align-items: center;
+
+  & > *:not(:first-child) {
+    max-width: 80%;
+    margin-top: 4rem;
+  }
+
+  ${media('<=tablet')} {
+    text-align: center;
+
+    & > *:not(:first-child) {
+      max-width: 100%;
+      margin-top: 2rem;
+    }
   }
 `;
