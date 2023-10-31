@@ -1,15 +1,15 @@
 import Head from 'next/head';
 import styled from 'styled-components';
+import WaveCta from 'components/WaveCta';
 import { EnvVars } from 'env';
-import Features from 'views/HomePage/Features';
+import About from 'views/HomePage/About';
+import Features from 'views/HomePage/JoinEvent';
 import FeaturesGallery from 'views/HomePage/FeaturesGallery';
 import Hero from 'views/HomePage/Hero';
 import Partners from 'views/HomePage/Partners';
 import Testimonials from 'views/HomePage/Testimonials';
-import About from 'views/HomePage/About';
 import Timeline from 'views/HomePage/Timeline';
-import ParticlesBackgroud from 'components/ParticlesBackground';
-import WaveCta from 'components/WaveCta';
+import Sponsors from 'views/HomePage/Sponsors';
 
 export default function Homepage() {
   return (
@@ -31,6 +31,7 @@ export default function Homepage() {
           <Timeline />
           {/* <FeaturesGallery /> */}
           <Features />
+          <Sponsors />
           <Testimonials />
         </DarkerBackgroundContainer>
       </HomepageWrapper>
@@ -41,7 +42,7 @@ export default function Homepage() {
 
 const HomepageWrapper = styled.div`
   & > :last-child {
-    margin-bottom: 15rem;
+    // margin-bottom: 15rem;
   }
 `;
 

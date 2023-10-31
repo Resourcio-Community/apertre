@@ -59,7 +59,7 @@ function DrawerCloseButton() {
   const ref = useRef(null)
   const a11yProps = OriginalDrawer.useA11yCloseButton(ref)
 
-  return <CloseIcon className="close-icon" _ref={ref} {...a11yProps} />
+  return <CloseIcon className="close-icon" style={{ width: '3.2rem', height: '3.2rem', fontWeight: 'bold' }} _ref={ref} {...a11yProps} />
 }
 
 const Wrapper = styled.div`
@@ -112,7 +112,7 @@ const Wrapper = styled.div`
 
 const NavItem = styled.li`
   a {
-    font-size: 3rem;
+    font-size: 2rem;
     text-transform: uppercase;
     display: block;
     color: currentColor;

@@ -43,9 +43,9 @@ const FEATURES = [
   },
 ];
 
-export default function Features() {
+export default function JoinEvent() {
   return (
-    <Container>
+    <CtaWrapper>
       {/* <Separator /> */}
       <Stack>
         <OverTitle>
@@ -61,13 +61,13 @@ export default function Features() {
           ))}
         </CustomAutofitGrid>
       </Stack>
-    </Container>
+    </CtaWrapper>
   );
 }
 
 const CustomAutofitGrid = styled(AutofitGrid)`
   --autofit-grid-item-size: 40rem;
-  grid-gap: 4rem;
+  grid-gap: 3.5rem 3.5rem;
   padding-top: 2rem;
 
   ${media('<=tablet')} {
@@ -98,4 +98,9 @@ const Stack = styled.div`
       margin-top: 2rem;
     }
   }
+`;
+
+const CtaWrapper = styled.div`
+  padding: 10rem;
+  background: rgb(var(--secondary));
 `;

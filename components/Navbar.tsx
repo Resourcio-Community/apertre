@@ -1,6 +1,5 @@
-'use client'
-import NextLink from 'next/link';
 import NextImage from 'next/image';
+import NextLink from 'next/link';
 import { useRouter } from 'next/router';
 import React, { useRef, useState } from 'react';
 import styled from 'styled-components';
@@ -67,7 +66,7 @@ export default function Navbar({ items }: NavbarProps) {
       <Content>
         <NextLink href="/" passHref>
           <LogoWrapper>
-            <NextImage src={"/static/assets/logo.svg"} alt="asd" width={200} height={60} />
+            <Image src={"/static/assets/logo.svg"} alt="apertre" width={200} height={60} />
           </LogoWrapper>
         </NextLink>
         <NavItemList>
@@ -169,6 +168,12 @@ const NavbarContainer = styled.div<NavbarContainerProps>`
   transition-property: transform, visibility, height, box-shadow, background-color;
   transition-duration: 0.15s;
   transition-timing-function: ease-in-out;
+
+
+  ${media('<=tablet')} {
+    height: 5rem;
+    padding: 4rem 0;
+  }
 `;
 
 const Content = styled(Container)`
@@ -177,7 +182,17 @@ const Content = styled(Container)`
   align-items: center;
 `;
 
-const ColorSwitcherContainer = styled.div`
-  width: 4rem;
-  margin: 0 1rem;
+// const ColorSwitcherContainer = styled.div`
+//   width: 4rem;
+//   margin: 0 1rem;
+// `;
+
+const Image = styled(NextImage)`
+  width: 200px;
+  height: 60px;
+
+  ${media('<=tablet')} {
+    width: 130px;
+    height: 40px;
+  }
 `;

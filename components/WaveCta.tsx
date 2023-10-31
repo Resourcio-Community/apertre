@@ -1,10 +1,3 @@
-import styled from 'styled-components';
-import Button from 'components/Button';
-import ButtonGroup from 'components/ButtonGroup';
-import Container from 'components/Container';
-import SectionTitle from 'components/SectionTitle';
-import { media } from 'utils/media';
-
 export default function WaveCta() {
   return (
     <>
@@ -19,26 +12,26 @@ export default function WaveCta() {
   );
 }
 
-const CtaWrapper = styled.div`
-  background: rgb(var(--secondary));
-  margin-top: -1rem;
-  padding-bottom: 16rem;
+// const CtaWrapper = styled.div`
+//   background: rgb(var(--secondary));
+//   margin-top: -1rem;
+//   padding-bottom: 16rem;
 
-  ${media('<=tablet')} {
-    padding-top: 8rem;
-  }
-`;
+//   ${media('<=tablet')} {
+//     padding-top: 8rem;
+//   }
+// `;
 
-const Title = styled(SectionTitle)`
-  color: rgb(var(--textSecondary));
-  margin-bottom: 4rem;
-`;
+// const Title = styled(SectionTitle)`
+//   color: rgb(var(--textSecondary));
+//   margin-bottom: 4rem;
+// `;
 
-const OutlinedButton = styled(Button)`
-  border: 1px solid rgb(var(--textSecondary));
-  color: rgb(var(--textSecondary));
-`;
+// const OutlinedButton = styled(Button)`
+//   border: 1px solid rgb(var(--textSecondary));
+//   color: rgb(var(--textSecondary));
+// `;
 
-const CustomButtonGroup = styled(ButtonGroup)`
-  justify-content: center;
-`;
+// const CustomButtonGroup = styled(ButtonGroup)`
+//   justify-content: center;
+// `;

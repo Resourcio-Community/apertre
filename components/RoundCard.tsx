@@ -2,7 +2,7 @@ import NextImage from 'next/image';
 import styled from 'styled-components';
 import Button from './Button';
 
-interface BasicCardProps {
+interface RoundCardProps {
   title: string;
   description: string;
   imageUrl: string;
@@ -10,15 +10,12 @@ interface BasicCardProps {
   buttonhref: string;
 }
 
-export default function BasicCard({ title, description, imageUrl, buttonText, buttonhref }: BasicCardProps) {
+export default function RoundCard({ title, description, imageUrl }: RoundCardProps) {
   return (
     <Card>
       <NextImage src={imageUrl} width={128} height={128} alt={title} />
       <Title>{title}</Title>
-      <Description>{description}</Description>
-      <Button>
-        <a href={buttonhref} target='_blank' style={{ textDecoration: 'none', color: 'white' }}>{buttonText}</a>
-      </Button>
+      <Description>{description || "\u00A0"}</Description>
     </Card>
   );
 }
@@ -34,7 +31,7 @@ const Card = styled.div`
   text-align: center;
   width: 100%;
   border: 1px solid #fbce1f;
-  border-radius: 1rem;
+  border-radius: 50%;
   color: rgb(var(--text));
   font-size: 1.6rem;
 

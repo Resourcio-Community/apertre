@@ -1,51 +1,60 @@
+import NextImage from 'next/image';
 import NextLink from 'next/link';
-import { FacebookIcon, LinkedinIcon, TwitterIcon } from 'react-share';
+import { BsFacebook, BsInstagram, BsLinkedin, BsWhatsapp } from 'react-icons/bs';
+import { FaXTwitter } from 'react-icons/fa6';
 import styled from 'styled-components';
 import Container from 'components/Container';
 import { media } from 'utils/media';
 
-type SingleFooterListItem = { title: string; href: string };
+type SingleFooterListItem = { title: string; logo: any; href: string };
 type FooterListItems = SingleFooterListItem[];
-type SingleFooterList = { title: string; items: FooterListItems };
+type SingleFooterList = { title: string; image: string; items: FooterListItems };
 type FooterItems = SingleFooterList[];
+type SingleFooterLeftItem = { title: string; href: string };
+type FooterLeftItems = SingleFooterLeftItem[];
 
 const footerItems: FooterItems = [
   {
-    title: 'About',
+    title: 'GDSC AOT',
+    image: '/static/assets/gdsc_aot.svg',
     items: [
-      // { title: 'Privacy Policy', href: '/privacy-policy' },
-      // { title: 'Cookies Policy', href: '/cookies-policy' },
-      { title: 'Code of Conduct', href: '/' },
-      { title: 'Contact Us', href: '/contact' },      
+      { title: 'Whatsapp', logo: <BsWhatsapp />, href: 'https://chat.whatsapp.com/EQPRJZxqOBL4nHEdMyUcF1' },
+      { title: 'LinkedIn', logo: <BsLinkedin />, href: 'https://www.linkedin.com/company/gdsc-aot/' },
+      { title: 'Facebook', logo: <BsFacebook />, href: 'https://www.facebook.com/profile.php?id=61550853321668' },
+      { title: 'Instagram', logo: <BsInstagram />, href: 'https://instagram.com/gdscaot' },
+      { title: 'Twitter', logo: <FaXTwitter />, href: 'https://twitter.com/gdsc_aot' },
     ],
   },
   {
-    title: 'Product',
+    title: 'Resourcio Commnity',
+    image: '/static/assets/resourcio.svg',
     items: [
-      { title: 'Features', href: '/features' },
-      { title: 'Something', href: '/something' },
-      { title: 'Something else', href: '/something-else' },
-      { title: 'And something else', href: '/and-something-else' },
+      { title: 'Whatsapp', logo: <BsWhatsapp />, href: 'https://chat.whatsapp.com/Km6AX9di04ZLIpFEcXTiNK' },
+      { title: 'LinkedIn', logo: <BsLinkedin />, href: 'https://www.linkedin.com/company/resourcio-community2022/' },
+      { title: 'Facebook', logo: <BsFacebook />, href: 'https://www.facebook.com/profile.php?id=100088472180461' },
+      { title: 'Instagram', logo: <BsInstagram />, href: 'https://www.instagram.com/resourciocommunity/' },
+      { title: 'Twitter', logo: <FaXTwitter />, href: 'https://twitter.com/ResourcioC' },
     ],
   },
-  // {
-  //   title: 'Knowledge',
-  //   items: [
-  //     { title: 'Blog', href: '/blog' },
-  //     { title: 'Contact', href: '/contact' },
-  //     { title: 'FAQ', href: '/faq' },
-  //     { title: 'Help Center', href: '/help-center' },
-  //   ],
-  // },
-  // {
-  //   title: 'Something',
-  //   items: [
-  //     { title: 'Features2', href: '/features2' },
-  //     { title: 'Something2', href: '/something2' },
-  //     { title: 'Something else2', href: '/something-else2' },
-  //     { title: 'And something else2', href: '/and-something-else2' },
-  //   ],
-  // },
+];
+
+const footerLeftItems: FooterLeftItems = [
+  {
+    title: 'Privacy',
+    href: '/',
+  },
+  {
+    title: 'Code Of Conduct',
+    href: '/',
+  },
+  {
+    title: 'Terms',
+    href: '/',
+  },
+  {
+    title: 'Get Started',
+    href: '/',
+  },
 ];
 
 export default function Footer() {
@@ -53,63 +62,80 @@ export default function Footer() {
     <FooterWrapper>
       <Container>
         <ListContainer>
-          <div> 
-            {/* Apertre Img  + about tagline */}
-          </div>
+          <Info>
+            <Heading>Legal</Heading>
+            {footerLeftItems.map((singleItem) => (
+              <ListLeftItem key={singleItem.title} {...singleItem} />
+            ))}
+          </Info>
 
           {footerItems.map((singleItem) => (
             <FooterList key={singleItem.title} {...singleItem} />
           ))}
         </ListContainer>
         <BottomBar>
-          <ShareBar>
-            <NextLink href="https://www.twitter.com/my-saas-startup" passHref>
+          {/* <ShareBar>
+            <NextLink href="" passHref>
               <TwitterIcon size={50} round={true} />
             </NextLink>
 
-            <NextLink href="https://www.facebook.com/my-saas-startup" passHref>
+            <NextLink href="" passHref>
               <FacebookIcon size={50} round={true} />
             </NextLink>
 
-            <NextLink href="https://www.linkedin.com/my-saas-startup" passHref>
+            <NextLink href="" passHref>
               <LinkedinIcon size={50} round={true} />
             </NextLink>
-          </ShareBar>
-
-          
-          <Copyright>&copy; Copyright {new Date().getFullYear()} <span style={{ color: '#fbce1f' }}>APERTRE</span>. All Rights Reserved.</Copyright>
+          </ShareBar> */}
+          <Copyright>
+            Copyright &copy; {new Date().getFullYear()} All Rights Reserved
+            <A href="https://www.linkedin.com/showcase/apertre" target="_blank">
+              &nbsp;Apertre
+            </A>
+          </Copyright>
         </BottomBar>
       </Container>
     </FooterWrapper>
   );
 }
 
-function FooterList({ title, items }: SingleFooterList) {
+function FooterList({ title, image, items }: SingleFooterList) {
   return (
     <ListWrapper>
-      <ListHeader>{title}</ListHeader>
-      {items.map((singleItem) => (
-        <ListItem key={singleItem.href} {...singleItem} />
-      ))}
+      <Image src={image} alt="socials" width={200} height={100} />
+      <Socials>
+        {items.map((singleItem) => (
+          <ListItem key={singleItem.title} {...singleItem} />
+        ))}
+      </Socials>
     </ListWrapper>
   );
 }
 
-function ListItem({ title, href }: SingleFooterListItem) {
+function ListItem({ title, logo, href }: SingleFooterListItem) {
   return (
     <ListItemWrapper>
-      <NextLink href={href} passHref>
-        {title}
+      <NextLink href={href} target="_blank">
+        <Span>{logo}</Span>
       </NextLink>
     </ListItemWrapper>
   );
 }
 
+function ListLeftItem({ title, href }: SingleFooterLeftItem) {
+  return (
+    <InfoWrapper>
+      <A href={href} target="_blank">{title}</A>
+    </InfoWrapper>
+  );
+}
+
 const FooterWrapper = styled.div`
-  padding-top: 10rem;
-  padding-bottom: 4rem;
-  background: rgb(var(--secondary));
+  padding: 10rem 0 4rem 0;
+  background: #040301;
   color: rgb(var(--textSecondary));
+  border-top: 2px solid #fbce1f;
+  z-index: 999;
 `;
 
 const ListContainer = styled.div`
@@ -119,15 +145,10 @@ const ListContainer = styled.div`
   justify-content: space-between;
 `;
 
-const ListHeader = styled.p`
-  font-weight: bold;
-  font-size: 2.25rem;
-  margin-bottom: 2.5rem;
-`;
-
 const ListWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
   margin-bottom: 5rem;
   margin-right: 5rem;
 
@@ -147,6 +168,7 @@ const ListWrapper = styled.div`
 `;
 
 const ListItemWrapper = styled.p`
+  display: flex;
   font-size: 1.6rem;
 
   a {
@@ -155,15 +177,22 @@ const ListItemWrapper = styled.p`
   }
 `;
 
-const ShareBar = styled.div`
-  & > *:not(:first-child) {
-    margin-left: 1rem;
-  }
-`;
+// const ShareBar = styled.div`
+//   & > *:not(:first-child) {
+//     margin-left: 1rem;
+//   }
+// `;
 
 const Copyright = styled.p`
-  font-size: 1.5rem;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  font-size: 1.4rem;
   margin-top: 0.5rem;
+
+  ${media('<=tablet')} {
+    font-size: 1.2rem;
+  }
 `;
 
 const BottomBar = styled.div`
@@ -174,5 +203,66 @@ const BottomBar = styled.div`
 
   ${media('<=tablet')} {
     flex-direction: column;
+  }
+`;
+
+const Image = styled(NextImage)`
+  width: 280px;
+  height: 120px;
+
+  ${media('<=tablet')} {
+    width: 140px;
+    height: 60px;
+  }
+`;
+
+const Span = styled.span`
+  font-size: 2.8rem;
+  z-index: 999;
+
+  ${media('<=tablet')} {
+    font-size: 2.2rem;
+  }
+`;
+
+const Socials = styled.div`
+  display: flex;
+  gap: 2rem;
+
+  ${media('<=tablet')} {
+    gap: 1rem;
+  }
+`;
+
+const A = styled.a`
+  text-decoration: none;
+  color: #fbce1f;
+
+  &:hover {
+    color: rgb(var(--primary));
+  }
+`;
+
+const Heading = styled.div`
+  font-size: 2rem;
+`;
+
+const Info = styled.div`
+  font-size: 1.6rem;
+`;
+
+const InfoWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin: 2rem 0 0 0;
+
+  ${media('<=tablet')} {
+    flex: 0 40%;
+    margin-right: 1.5rem;
+  }
+
+  ${media('<=phone')} {
+    flex: 0 100%;
+    margin-right: 0rem;
   }
 `;

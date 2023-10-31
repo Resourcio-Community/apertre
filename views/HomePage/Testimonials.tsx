@@ -41,8 +41,8 @@ const TESTIMONIALS = [
 
 export default function Testimonials() {
   return (
-    <Container>
-      {/* <Separator /> */}
+    // <Container>
+       <CtaWrapper> 
       <Stack>
       <OverTitle>
         <span style={{ color: '#fbce1f', fontSize: '2rem', marginRight: '1rem' }}>&#8605;</span>
@@ -75,9 +75,9 @@ export default function Testimonials() {
           ))}
         </Swiper>
       </TestimonialsWrapper>
-      {/* <Separator /> */}
       </Stack>
-    </Container>
+    {/* </Container> */}
+      </CtaWrapper>      
   );
 }
 
@@ -173,4 +173,9 @@ const Stack = styled.div`
       margin-top: 2rem;
     }
   }
+`;
+
+const CtaWrapper = styled.div`
+  padding: 10rem;
+  background: rgb(var(--secondary));
 `;

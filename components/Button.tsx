@@ -24,7 +24,7 @@ const Button = styled.button`
 
   &:hover {
     background: transparent;
-    border: 2px solid #fbce1f;
+    border: 2px solid rgb(var(--primary));
   }
 `;
 
