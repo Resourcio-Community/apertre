@@ -1,15 +1,13 @@
 import Head from 'next/head';
 import styled from 'styled-components';
-import WaveCta from 'components/WaveCta';
 import { EnvVars } from 'env';
 import About from 'views/HomePage/About';
-import Features from 'views/HomePage/JoinEvent';
-import FeaturesGallery from 'views/HomePage/FeaturesGallery';
 import Hero from 'views/HomePage/Hero';
+import Features from 'views/HomePage/JoinEvent';
 import Partners from 'views/HomePage/Partners';
+import Sponsors from 'views/HomePage/Sponsors';
 import Testimonials from 'views/HomePage/Testimonials';
 import Timeline from 'views/HomePage/Timeline';
-import Sponsors from 'views/HomePage/Sponsors';
 
 export default function Homepage() {
   return (

@@ -1,13 +1,10 @@
 import NextImage from 'next/image';
 import styled from 'styled-components';
-import Button from './Button';
 
 interface RoundCardProps {
   title: string;
   description: string;
   imageUrl: string;
-  buttonText: string;
-  buttonhref: string;
 }
 
 export default function RoundCard({ title, description, imageUrl }: RoundCardProps) {
