@@ -55,19 +55,19 @@ export default function Footer() {
     <FooterWrapper>
       <Container>
         <ListContainer>
-          {footerItems.map((singleItem) => (
-            <FooterList key={singleItem.title} {...singleItem} />
-          ))}
+          <Info>
+            <Heading>Legal</Heading>
+              {footerLeftItems.map((singleItem) => (
+                <ListLeftItem key={singleItem.title} {...singleItem} />
+              ))}
+          </Info>
 
-        </ListContainer>
-        <Info>
-          <Heading>Legal</Heading>
-          <div style={{ display: 'flex' }}>
-            {footerLeftItems.map((singleItem) => (
-              <ListLeftItem key={singleItem.title} {...singleItem} />
+          <Div>
+            {footerItems.map((singleItem) => (
+              <FooterList key={singleItem.title} {...singleItem} />
             ))}
-          </div>
-        </Info>
+          </Div>
+        </ListContainer>
         <BottomBar>
           <Copyright>
             Copyright &copy; {new Date().getFullYear()} All Rights Reserved
@@ -128,8 +128,11 @@ const FooterWrapper = styled.div`
 const ListContainer = styled.div`
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
   justify-content: space-between;
+  
+  ${media('<=tablet')} {
+    flex-wrap: wrap-reverse;
+  }
 `;
 
 const ListWrapper = styled.div`
@@ -252,3 +255,12 @@ const InfoWrapper = styled.div`
     margin-right: 0rem;
   }
 `;
+
+const Div = styled.div`
+  display: flex;
+  justify-content: space-between;
+  
+  ${media('<=tablet')} {
+    width: 100%;
+  }
+`
