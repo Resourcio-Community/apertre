@@ -1,8 +1,8 @@
 import NextImage from 'next/image';
+import { BsBookHalf } from 'react-icons/bs';
 import styled from 'styled-components';
 import { media } from 'utils/media';
 import Button from './Button';
-import { BsBookHalf } from 'react-icons/bs';
 
 interface BasicCardProps {
   title: string;
