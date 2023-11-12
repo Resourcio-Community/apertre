@@ -6,7 +6,7 @@ import BasicSection from 'components/BasicSection';
 
 export default function About() {
   return (
-    <CtaWrapper>
+    <CtaWrapper id='about'>
       <Stack>
         <BasicSection imageUrl="/static/assets/apertre.jpg" title="About Apertre" overTitle="&ldquo;Information flow is what the Internet is about&rdquo; - Vint Cerf">
           <p>

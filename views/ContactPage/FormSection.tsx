@@ -9,35 +9,47 @@ import MailSentState from '../../components/MailSentState';
 interface EmailPayload {
   name: string;
   email: string;
-  description: string;
+  body: string;
+}
+
+interface IFormInput {
+  name: string;
+  email: string;
+  body: string;
 }
 
 export default function FormSection() {
   const [hasSuccessfullySentMail, setHasSuccessfullySentMail] = useState(false);
+  const [sendingMail, setSendingMail] = useState(false);
   const [hasErrored, setHasErrored] = useState(false);
-  const { register, handleSubmit, formState } = useForm();
+  const { register, handleSubmit, formState } = useForm<IFormInput>();
   const { isSubmitSuccessful, isSubmitting, isSubmitted, errors } = formState;
 
-  // async function onSubmit(payload: EmailPayload) {
-  //   try {
-  //     const res = await fetch('/api/sendEmail', {
-  //       method: 'POST',
-  //       headers: {
-  //         'Content-Type': 'application/json',
-  //       },
-  //       body: JSON.stringify({ subject: 'Email from contact form', ...payload }),
-  //     });
+  async function onSubmit(payload: EmailPayload) {
+    try {
+      setSendingMail(true)
 
-  //     if (res.status !== 204) {
-  //       setHasErrored(true);
-  //     }
-  //   } catch(err) {
-  //     setHasErrored(true);
-  //     return err;
-  //   }
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(payload)
+      })
 
-  //   setHasSuccessfullySentMail(true);
-  // }
+      if (res.status !== 200) {
+        setHasErrored(true);
+      }
+    } catch (err) {
+      console.log(err)
+      setHasErrored(true);
+      return err;
+    }
+    finally {
+      setSendingMail(false)
+    }
+    setHasSuccessfullySentMail(true);
+  }
 
   const isSent = isSubmitSuccessful && isSubmitted;
   const isDisabled = isSubmitting || isSent;
@@ -49,7 +61,7 @@ export default function FormSection() {
 
   return (
     <Wrapper>
-      <Form>
+      <Form onSubmit={handleSubmit(onSubmit)}>
         {hasErrored && <ErrorMessage>Couldn&apos;t send email. Please try again.</ErrorMessage>}
         <InputGroup>
           <InputStack>
@@ -62,17 +74,17 @@ export default function FormSection() {
           </InputStack>
         </InputGroup>
         <InputStack>
-          {errors.description && <ErrorMessage>Description is required</ErrorMessage>}
+          {errors.body && <ErrorMessage>Description is required</ErrorMessage>}
           <Textarea
             as="textarea"
             placeholder="Enter Your Message..."
             id="description"
             disabled={isDisabled}
-            {...register('description', { required: true })}
+            {...register('body', { required: true })}
           />
         </InputStack>
         <Button as="button" type="submit" disabled={isSubmitDisabled}>
-          Send Message
+          {!sendingMail ? 'Send Message' : 'Sending . . . . . .'}
         </Button>
       </Form>
     </Wrapper>

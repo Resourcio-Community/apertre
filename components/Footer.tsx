@@ -41,19 +41,19 @@ const footerItems: FooterItems = [
 const footerLeftItems: FooterLeftItems = [
   {
     title: 'Privacy',
-    href: '/',
+    href: '',
   },
   {
     title: 'Code Of Conduct',
-    href: '/',
+    href: '/downloads/apertre-cof.pdf',
   },
   {
     title: 'Terms',
-    href: '/',
+    href: '',
   },
   {
     title: 'Get Started',
-    href: '/',
+    href: '',
   },
 ];
 
@@ -74,19 +74,7 @@ export default function Footer() {
           ))}
         </ListContainer>
         <BottomBar>
-          {/* <ShareBar>
-            <NextLink href="" passHref>
-              <TwitterIcon size={50} round={true} />
-            </NextLink>
 
-            <NextLink href="" passHref>
-              <FacebookIcon size={50} round={true} />
-            </NextLink>
-
-            <NextLink href="" passHref>
-              <LinkedinIcon size={50} round={true} />
-            </NextLink>
-          </ShareBar> */}
           <Copyright>
             Copyright &copy; {new Date().getFullYear()} All Rights Reserved
             <A href="https://www.linkedin.com/showcase/apertre" target="_blank">
@@ -131,7 +119,10 @@ function ListLeftItem({ title, href }: SingleFooterLeftItem) {
 }
 
 const FooterWrapper = styled.div`
-  padding: 10rem 0 4rem 0;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  padding: 8rem 0 4rem 0;
   background: #040301;
   color: rgb(var(--textSecondary));
   border-top: 2px solid #fbce1f;

@@ -7,60 +7,60 @@ import { media } from 'utils/media';
 import SectionTitle from 'components/SectionTitle';
 import OverTitle from 'components/OverTitle';
 
-const FEATURES = [
+const SPONSORS = [
   {
-    imageUrl: '/grid-icons/asset-1.svg',
+    imageUrl: '/static/sponsors/asset-1.svg',
     title: 'EduHub Community',
     description: 'Platinum Sponsor',
   },
   {
-    imageUrl: '/grid-icons/asset-2.svg',
-    title: 'Lorem ipsum dolor sit amet.',
+    imageUrl: '/static/sponsors/asset-1.svg',
+    title: 'Lorem ipsum',
     description: 'Gold Sponsor',
   },
   {
-    imageUrl: '/grid-icons/asset-3.svg',
-    title: 'Lorem ipsum dolor sit amet.',
+    imageUrl: '/static/sponsors/asset-1.svg',
+    title: 'Lorem ipsum',
     description: 'Bronze Sponsor',
   },
   {
-    imageUrl: '/grid-icons/asset-4.svg',
-    title: 'Lorem ipsum dolor sit amet.',
+    imageUrl: '/static/sponsors/asset-1.svg',
+    title: 'Lorem ipsum',
     description: '',
   },
   {
-    imageUrl: '/grid-icons/asset-4.svg',
-    title: 'Lorem ipsum dolor sit amet.',
+    imageUrl: '/static/sponsors/asset-1.svg',
+    title: 'Lorem ipsum',
     description: '',
   },
   {
-    imageUrl: '/grid-icons/asset-4.svg',
-    title: 'Lorem ipsum dolor sit amet.',
+    imageUrl: '/static/sponsors/asset-1.svg',
+    title: 'Lorem ipsum',
     description: '',
   },
   {
-    imageUrl: '/grid-icons/asset-4.svg',
-    title: 'Lorem ipsum dolor sit amet.',
+    imageUrl: '/static/sponsors/asset-1.svg',
+    title: 'Lorem ipsum',
     description: '',
   },
   {
-    imageUrl: '/grid-icons/asset-4.svg',
-    title: 'Lorem ipsum dolor sit amet.',
+    imageUrl: '/static/sponsors/asset-1.svg',
+    title: 'Lorem ipsum',
     description: '',
   },
 ];
 
 export default function Sponsors() {
   return (
-    <Stack>
+    <Stack id='sponsors'>
       <OverTitle>
         <span style={{ color: '#fbce1f', fontSize: '2rem', marginRight: '1rem' }}>&#8605;</span>
         &ldquo;Open source is about collaborating; not competing.&rdquo; - Kelsey Hightower
       </OverTitle>
-      <SectionTitle>Our Sponsors</SectionTitle>
+      <SectionTitle>Our <span style={{ color: '#fbce1f' }}>Sponsors</span></SectionTitle>
       <CustomAutofitGrid>
-        {FEATURES.map((singleFeature, idx) => (
-          <RoundCard key={singleFeature.title} {...singleFeature} />
+        {SPONSORS.map((sponsor, idx) => (
+          <RoundCard key={sponsor.title} {...sponsor} />
         ))}
       </CustomAutofitGrid>
     </Stack>

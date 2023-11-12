@@ -9,7 +9,7 @@ import { media } from 'utils/media';
 import OverTitle from 'components/OverTitle';
 import SectionTitle from 'components/SectionTitle';
 
-const TESTIMONIALS = [
+const PRIZES = [
   {
     companyLogoUrl: '/prizes/company-logo-1.svg',
     content: `Really good. I am so pleased with this product. I didn't even need training.`,
@@ -39,45 +39,45 @@ const TESTIMONIALS = [
   },
 ];
 
-export default function Testimonials() {
+export default function Prizes() {
   return (
     // <Container>
-       <CtaWrapper> 
+    <CtaWrapper>
       <Stack>
-      <OverTitle>
-        <span style={{ color: '#fbce1f', fontSize: '2rem', marginRight: '1rem' }}>&#8605;</span>
-        &ldquo;Open source is about collaborating; not competing.&rdquo; - Kelsey Hightower
-      </OverTitle>
-      <SectionTitle>Testimonials</SectionTitle>
-      <TestimonialsWrapper>
-        <Swiper modules={[Navigation, Autoplay]} slidesPerView={1} autoplay={{ delay: 8000 }} centeredSlides navigation loop>
-          {TESTIMONIALS.map((singleTestimonial, idx) => (
-            <SwiperSlide key={idx}>
-              <TestimonialCard>
-                <NextImage
-                  src={singleTestimonial.companyLogoUrl}
-                  alt={`${singleTestimonial.author.name}'s company logo`}
-                  width={200}
-                  height={40}
-                />
-                <Content>“{singleTestimonial.content}”</Content>
-                <AuthorContainer>
-                  <AuthorImageContainer>
-                    <NextImage src={singleTestimonial.author.avatarUrl} alt={singleTestimonial.author.name} width={48} height={48} />
-                  </AuthorImageContainer>
-                  <AuthorContent>
-                    <AuthorName>{singleTestimonial.author.name}</AuthorName>
-                    <AuthorTitle>{singleTestimonial.author.title}</AuthorTitle>
-                  </AuthorContent>
-                </AuthorContainer>
-              </TestimonialCard>
-            </SwiperSlide>
-          ))}
-        </Swiper>
-      </TestimonialsWrapper>
+        <OverTitle>
+          <span style={{ color: '#fbce1f', fontSize: '2rem', marginRight: '1rem' }}>&#8605;</span>
+          &ldquo;Open source is about collaborating; not competing.&rdquo; - Kelsey Hightower
+        </OverTitle>
+        <SectionTitle style={{ marginTop: '4rem' }}>Prizes</SectionTitle>
+        <TestimonialsWrapper>
+          <Swiper modules={[Navigation, Autoplay]} slidesPerView={1} autoplay={{ delay: 8000 }} centeredSlides navigation loop>
+            {PRIZES.map((prize, idx) => (
+              <SwiperSlide key={idx}>
+                <TestimonialCard>
+                  <NextImage
+                    src={prize.companyLogoUrl}
+                    alt={`${prize.author.name}'s company logo`}
+                    width={200}
+                    height={40}
+                  />
+                  <Content>“{prize.content}”</Content>
+                  <AuthorContainer>
+                    <AuthorImageContainer>
+                      <NextImage src={prize.author.avatarUrl} alt={prize.author.name} width={48} height={48} />
+                    </AuthorImageContainer>
+                    <AuthorContent>
+                      <AuthorName>{prize.author.name}</AuthorName>
+                      <AuthorTitle>{prize.author.title}</AuthorTitle>
+                    </AuthorContent>
+                  </AuthorContainer>
+                </TestimonialCard>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </TestimonialsWrapper>
       </Stack>
-    {/* </Container> */}
-      </CtaWrapper>      
+      {/* </Container> */}
+    </CtaWrapper>
   );
 }
 
@@ -87,21 +87,18 @@ const TestimonialsWrapper = styled(Container)`
 
   .swiper-button-prev,
   .swiper-button-next {
-    color: rgb(var(--secondary));
-
+    
     ${media('<=desktop')} {
       display: none;
     }
   }
-
+  
   .swiper-button-prev {
-    color: rgb(var(--textSecondary));
-    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M0%2C22L22%2C0l2.1%2C2.1L4.2%2C22l19.9%2C19.9L22%2C44L0%2C22L0%2C22L0%2C22z'%20fill%3D'%23FFFFFF'%2F%3E%3C%2Fsvg%3E");
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M0%2C22L22%2C0l2.1%2C2.1L4.2%2C22l19.9%2C19.9L22%2C44L0%2C22L0%2C22L0%2C22z'%20fill%3D'%23FBCE1F'%2F%3E%3C%2Fsvg%3E");
   }
 
   .swiper-button-next {
-    color: rgb(var(--textSecondary));
-    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M27%2C22L27%2C22L5%2C44l-2.1-2.1L22.8%2C22L2.9%2C2.1L5%2C0L27%2C22L27%2C22z'%20fill%3D'%23FFFFFF'%2F%3E%3C%2Fsvg%3E");
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M27%2C22L27%2C22L5%2C44l-2.1-2.1L22.8%2C22L2.9%2C2.1L5%2C0L27%2C22L27%2C22z'%20fill%3D'%23FBCE1F'%2F%3E%3C%2Fsvg%3E");
   }
 `;
 

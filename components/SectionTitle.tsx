@@ -9,7 +9,7 @@ const SectionTitle = styled.div`
   text-align: center;
 
   ${media('<=tablet')} {
-    font-size: 4.6rem;
+    font-size: 4.5rem;
   }
 `;
 

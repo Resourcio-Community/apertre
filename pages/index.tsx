@@ -3,10 +3,10 @@ import styled from 'styled-components';
 import { EnvVars } from 'env';
 import About from 'views/HomePage/About';
 import Hero from 'views/HomePage/Hero';
-import Features from 'views/HomePage/JoinEvent';
+import Event from 'views/HomePage/JoinEvent';
 import Partners from 'views/HomePage/Partners';
+import Prizes from 'views/HomePage/Prizes';
 import Sponsors from 'views/HomePage/Sponsors';
-import Testimonials from 'views/HomePage/Testimonials';
 import Timeline from 'views/HomePage/Timeline';
 
 export default function Homepage() {
@@ -20,7 +20,7 @@ export default function Homepage() {
         />
       </Head>
       <HomepageWrapper>
-      <WhiteBackgroundContainer>
+        <WhiteBackgroundContainer>
           <Hero />
           <Partners />
         </WhiteBackgroundContainer>
@@ -28,9 +28,9 @@ export default function Homepage() {
           <About />
           <Timeline />
           {/* <FeaturesGallery /> */}
-          <Features />
+          <Event />
           <Sponsors />
-          <Testimonials />
+          <Prizes />
         </DarkerBackgroundContainer>
       </HomepageWrapper>
       {/* <WaveCta /> */}

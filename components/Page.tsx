@@ -16,7 +16,7 @@ export default function Page({ title, description, children }: PropsWithChildren
     <>
       <Head>
         <title>
-          {title} | {EnvVars.SITE_NAME}
+          {EnvVars.SITE_NAME}
         </title>
         <meta name="description" content={description} />
       </Head>
@@ -44,7 +44,7 @@ const HeaderContainer = styled.div`
   align-items: center;
   justify-content: center;
   background: rgb(var(--secondary));
-  min-height: 40rem;
+  min-height: 30rem;
 `;
 
 const Title = styled(SectionTitle)`

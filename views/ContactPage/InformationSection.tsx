@@ -4,8 +4,9 @@ export default function InformationSection() {
   return (
     <Wrapper>
       <h3>Contact Info</h3>
-      <p>
-        <span>Email:</span> support@myawesomesaas.com
+      <p style={{ display: 'flex', flexDirection: 'column' }}>
+        <span style={{ color: '#fbce1f' }}> resourciocommunity22@gmail.com</span>
+        <span style={{ color: '#fbce1f' }}> gdsc.aot@gmail.com</span>
       </p>
     </Wrapper>
   );

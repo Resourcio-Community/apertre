@@ -33,7 +33,7 @@ export default function Hero() {
           <Span />
 
           <Button style={{ marginTop: '5rem' }}>
-            Register Now
+            <a href='#event' style={{ textDecoration: 'none', color: 'white' }}>Register Now</a>
           </Button>
         </TimelineContent>
       </HeroWrapper>

@@ -2,51 +2,44 @@ import React from 'react';
 import styled from 'styled-components';
 import AutofitGrid from 'components/AutofitGrid';
 import BasicCard from 'components/BasicCard';
-import Container from 'components/Container';
 import { media } from 'utils/media';
 import OverTitle from 'components/OverTitle';
 import SectionTitle from 'components/SectionTitle';
-import Separator from 'components/Separator';
 
 const FEATURES = [
   {
-    imageUrl: '/grid-icons/asset-1.svg',
+    imageUrl: '/static/event/mentee.webp',
     title: 'Start your Journey',
-    description:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis error dolorem ipsa dolore facere est consequuntur aut, eos doloribus voluptate?',
+    description: "Express your interest and willingness to contribute your skills, knowledge, or efforts. A contributor often implies a collaborative spirit and a desire to actively participate in a shared goal.",
     buttonText: 'Apply as Contributor',
-    buttonhref: '',
+    buttonhref: 'https://bit.ly/apertrementee',
   },
   {
-    imageUrl: '/grid-icons/asset-2.svg',
+    imageUrl: '/static/event/mentor.webp',
     title: 'Lead the Pack',
-    description:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis error dolorem ipsa dolore facere est consequuntur aut, eos doloribus voluptate?',
+    description: "Express a willingness to guide, support, and share your expertise with others who are seeking to learn and grow. Mentors play a crucial role in fostering the development of mentees, providing valuable insights, advice, and encouragement.",
     buttonText: 'Apply as Mentor',
-    buttonhref: '',
+    buttonhref: 'https://bit.ly/apertrementors',
   },
   {
-    imageUrl: '/grid-icons/asset-3.svg',
-    title: 'Inviting Projects & NGOs',
-    description:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis error dolorem ipsa dolore facere est consequuntur aut, eos doloribus voluptate?',
-    buttonText: 'Apply as an Organization/Project Admin',
-    buttonhref: '',
+    imageUrl: '/static/event/projectadmin.webp',
+    title: 'Inviting Projects',
+    description: "Understanding of project's objectives, your commitment to maintaining timelines. Also, demonstrating flexibility, adaptability, and a proactive approach to addressing challenges can make you a valuable asset in a project administration role.",
+    buttonText: 'Apply as Project Admin',
+    buttonhref: 'http://bit.ly/apertreprojects',
   },
   {
-    imageUrl: '/grid-icons/asset-4.svg',
-    title: 'Add a Shade to APERTRE',
-    description:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis error dolorem ipsa dolore facere est consequuntur aut, eos doloribus voluptate?',
+    imageUrl: '/static/event/sponsors.webp',
+    title: 'Call for Sponsors',
+    description: "Are you excited to sponsor us in our flagship event Apertre which in turn will provide an opportunity for your company to gain exposure and popularity? ",
     buttonText: 'Sponsor us',
-    buttonhref: '',
+    buttonhref: 'https://bit.ly/Apertresponsor',
   },
 ];
 
 export default function JoinEvent() {
   return (
-    <CtaWrapper>
-      {/* <Separator /> */}
+    <CtaWrapper id='event'>
       <Stack>
         <OverTitle>
           <span style={{ color: '#fbce1f', fontSize: '2rem', marginRight: '1rem' }}>&#8605;</span>
@@ -103,4 +96,9 @@ const Stack = styled.div`
 const CtaWrapper = styled.div`
   padding: 10rem;
   background: rgb(var(--secondary));
+
+  ${media('<=tablet')} {
+    display: flex;
+    justify-content: center;
+  }
 `;

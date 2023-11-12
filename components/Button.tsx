@@ -26,6 +26,11 @@ const Button = styled.button`
     background: transparent;
     border: 2px solid rgb(var(--primary));
   }
+
+  &:disabled {
+    cursor: wait;
+    opacity: 0.9;
+  }
 `;
 
 export default Button;
