@@ -6,6 +6,7 @@ import styled from 'styled-components';
 import Container from 'components/Container';
 import { media } from 'utils/media';
 
+
 type SingleFooterListItem = { title: string; logo: any; href: string };
 type FooterListItems = SingleFooterListItem[];
 type SingleFooterList = { title: string; image: string; items: FooterListItems };
@@ -40,21 +41,13 @@ const footerItems: FooterItems = [
 
 const footerLeftItems: FooterLeftItems = [
   // {
-  //   title: 'FAQ',
+  //   title: 'Privacy',
   //   href: '',
   // },
   {
-    title: 'Privacy',
-    href: '',
-  },
-  {
     title: 'Code Of Conduct',
-    href: '/downloads/apertre-cof.pdf',
-  },
-  {
-    title: 'Contact Us',
-    href: '',
-  },
+    href: 'https://drive.google.com/file/d/135ngnvae6TRZKIO1brrDBVjVC8jzhp63/view?usp=drive_link',
+  }
 ];
 
 export default function Footer() {
@@ -67,14 +60,14 @@ export default function Footer() {
           ))}
 
         </ListContainer>
-          <Info>
-            <Heading>Legal</Heading>
-            <div style={{display: 'flex'}}>
-              {footerLeftItems.map((singleItem) => (
-                <ListLeftItem key={singleItem.title} {...singleItem} />
-              ))}
-            </div>
-          </Info>
+        <Info>
+          <Heading>Legal</Heading>
+          <div style={{ display: 'flex' }}>
+            {footerLeftItems.map((singleItem) => (
+              <ListLeftItem key={singleItem.title} {...singleItem} />
+            ))}
+          </div>
+        </Info>
         <BottomBar>
           <Copyright>
             Copyright &copy; {new Date().getFullYear()} All Rights Reserved
@@ -170,12 +163,6 @@ const ListItemWrapper = styled.p`
     color: rgba(var(--textSecondary), 0.75);
   }
 `;
-
-// const ShareBar = styled.div`
-//   & > *:not(:first-child) {
-//     margin-left: 1rem;
-//   }
-// `;
 
 const Copyright = styled.p`
   display: flex;

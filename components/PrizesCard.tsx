@@ -7,8 +7,6 @@ import RichText from './RichText';
 
 interface PrizesCardProps {
   title: string;
-  // description: string;
-  // image: string;
   benefits: string[];
   isOutlined?: boolean;
 }
@@ -19,8 +17,6 @@ export default function PrizesCard({ title, benefits, isOutlined, children }: Pr
   return (
     <Wrapper isOutlined={isOutlined}>
       {/* <Title>{title}</Title> */}
-      {/* <Image src={image} alt="1st Prize"/> */}
-      {/* <Description>{description}</Description> */}
       <PriceContainer>
         {children}
         {isAnyBenefitPresent && (
@@ -33,7 +29,6 @@ export default function PrizesCard({ title, benefits, isOutlined, children }: Pr
           </CustomRichText>
         )}
       </PriceContainer>
-      {/* <CustomButton>Get started</CustomButton> */}
     </Wrapper>
   );
 }
@@ -96,8 +91,4 @@ const CustomRichText = styled(RichText)`
     margin: auto;
     width: fit-content;
   }
-`;
-
-const CustomButton = styled(Button)`
-  width: 100%;
 `;

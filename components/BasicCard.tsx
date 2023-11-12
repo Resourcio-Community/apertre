@@ -1,24 +1,29 @@
 import NextImage from 'next/image';
 import styled from 'styled-components';
-import Button from './Button';
 import { media } from 'utils/media';
+import Button from './Button';
+import { BsBookHalf } from 'react-icons/bs';
 
 interface BasicCardProps {
   title: string;
   description: string;
+  manual?: string;
   imageUrl: string;
   buttonText: string;
   buttonhref: string;
 }
 
-export default function BasicCard({ title, description, imageUrl, buttonText, buttonhref }: BasicCardProps) {
+export default function BasicCard({ title, description, imageUrl, buttonText, buttonhref, manual }: BasicCardProps) {
   return (
     <Card>
       <NextImage src={imageUrl} width={128} height={128} alt={title} style={{ borderRadius: '45% 45% 60% 85%' }} />
-      <Title>{title}</Title>
+      <Div>
+        <Title>{title}</Title>
+        {manual && <A href={manual} target='_blank'><BsBookHalf /></A>}
+      </Div>
       <Description>{description}</Description>
       <RegisterButton>
-        <a href={buttonhref} target='_blank' style={{ textDecoration: 'none', color: 'white' }}>{buttonText}</a>
+        <A href={buttonhref} target='_blank'>{buttonText}</A>
       </RegisterButton>
     </Card>
   );
@@ -68,3 +73,15 @@ const RegisterButton = styled(Button)`
     font-size: 1.4rem;
   }
 `;
+
+const A = styled.a`
+  text-decoration: none; 
+  color: white;
+  z-index: 99;
+`
+
+const Div = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+`
