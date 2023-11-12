@@ -59,9 +59,12 @@ export default function Sponsors() {
       </OverTitle>
       <SectionTitle>Our <span style={{ color: '#fbce1f' }}>Sponsors</span></SectionTitle>
       <CustomAutofitGrid>
-        {SPONSORS.map((sponsor, idx) => (
+        {/* {SPONSORS.map((sponsor, idx) => (
           <RoundCard key={sponsor.title} {...sponsor} />
-        ))}
+        ))} */}
+        <span style={{ fontSize: '3rem', textAlign: 'center' }}>
+          TO BE ANNOUNCED
+        </span>
       </CustomAutofitGrid>
     </Stack>
   );

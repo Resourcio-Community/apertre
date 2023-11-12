@@ -13,6 +13,7 @@ const FEATURES = [
     description: "Express your interest and willingness to contribute your skills, knowledge, or efforts. A contributor often implies a collaborative spirit and a desire to actively participate in a shared goal.",
     buttonText: 'Apply as Contributor',
     buttonhref: 'https://bit.ly/apertrementee',
+    manual: "https://drive.google.com/file/d/1TXyBVigwenlxqRq022b6qUh94WewdbKA/view?usp=drive_link"
   },
   {
     imageUrl: '/static/event/mentor.webp',
@@ -20,6 +21,7 @@ const FEATURES = [
     description: "Express a willingness to guide, support, and share your expertise with others who are seeking to learn and grow. Mentors play a crucial role in fostering the development of mentees, providing valuable insights, advice, and encouragement.",
     buttonText: 'Apply as Mentor',
     buttonhref: 'https://bit.ly/apertrementors',
+    manual: "https://drive.google.com/file/d/1I9zlXrnUV_VrmfGMlKcfbnOhVroohAzL/view?usp=drive_link"
   },
   {
     imageUrl: '/static/event/projectadmin.webp',

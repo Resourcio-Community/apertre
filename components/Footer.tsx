@@ -6,6 +6,7 @@ import styled from 'styled-components';
 import Container from 'components/Container';
 import { media } from 'utils/media';
 
+
 type SingleFooterListItem = { title: string; logo: any; href: string };
 type FooterListItems = SingleFooterListItem[];
 type SingleFooterList = { title: string; image: string; items: FooterListItems };
@@ -39,22 +40,14 @@ const footerItems: FooterItems = [
 ];
 
 const footerLeftItems: FooterLeftItems = [
-  {
-    title: 'Privacy',
-    href: '',
-  },
+  // {
+  //   title: 'Privacy',
+  //   href: '',
+  // },
   {
     title: 'Code Of Conduct',
-    href: '/downloads/apertre-cof.pdf',
-  },
-  {
-    title: 'Terms',
-    href: '',
-  },
-  {
-    title: 'Get Started',
-    href: '',
-  },
+    href: 'https://drive.google.com/file/d/135ngnvae6TRZKIO1brrDBVjVC8jzhp63/view?usp=drive_link',
+  }
 ];
 
 export default function Footer() {
@@ -64,17 +57,18 @@ export default function Footer() {
         <ListContainer>
           <Info>
             <Heading>Legal</Heading>
-            {footerLeftItems.map((singleItem) => (
-              <ListLeftItem key={singleItem.title} {...singleItem} />
-            ))}
+              {footerLeftItems.map((singleItem) => (
+                <ListLeftItem key={singleItem.title} {...singleItem} />
+              ))}
           </Info>
 
-          {footerItems.map((singleItem) => (
-            <FooterList key={singleItem.title} {...singleItem} />
-          ))}
+          <Div>
+            {footerItems.map((singleItem) => (
+              <FooterList key={singleItem.title} {...singleItem} />
+            ))}
+          </Div>
         </ListContainer>
         <BottomBar>
-
           <Copyright>
             Copyright &copy; {new Date().getFullYear()} All Rights Reserved
             <A href="https://www.linkedin.com/showcase/apertre" target="_blank">
@@ -113,7 +107,9 @@ function ListItem({ title, logo, href }: SingleFooterListItem) {
 function ListLeftItem({ title, href }: SingleFooterLeftItem) {
   return (
     <InfoWrapper>
-      <A href={href} target="_blank">{title}</A>
+      <A href={href} target="_blank">
+        {title}
+      </A>
     </InfoWrapper>
   );
 }
@@ -132,8 +128,11 @@ const FooterWrapper = styled.div`
 const ListContainer = styled.div`
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
   justify-content: space-between;
+  
+  ${media('<=tablet')} {
+    flex-wrap: wrap-reverse;
+  }
 `;
 
 const ListWrapper = styled.div`
@@ -167,12 +166,6 @@ const ListItemWrapper = styled.p`
     color: rgba(var(--textSecondary), 0.75);
   }
 `;
-
-// const ShareBar = styled.div`
-//   & > *:not(:first-child) {
-//     margin-left: 1rem;
-//   }
-// `;
 
 const Copyright = styled.p`
   display: flex;
@@ -240,6 +233,11 @@ const Heading = styled.div`
 
 const Info = styled.div`
   font-size: 1.6rem;
+
+  ${media('<=tablet')} {
+    display: flex;
+    flex-direction: column;
+  }
 `;
 
 const InfoWrapper = styled.div`
@@ -257,3 +255,12 @@ const InfoWrapper = styled.div`
     margin-right: 0rem;
   }
 `;
+
+const Div = styled.div`
+  display: flex;
+  justify-content: space-between;
+  
+  ${media('<=tablet')} {
+    width: 100%;
+  }
+`

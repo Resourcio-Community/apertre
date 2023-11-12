@@ -10,13 +10,16 @@ import 'swiper/css/autoplay';
 import 'swiper/css/navigation';
 
 const PARTNER_LOGOS = [
-  'logoipsum-logo-1.svg',
-  'logoipsum-logo-2.svg',
-  'logoipsum-logo-3.svg',
-  'logoipsum-logo-4.svg',
-  'logoipsum-logo-5.svg',
-  'logoipsum-logo-6.svg',
-  'logoipsum-logo-7.svg',
+  'comingsoon.png',
+  'comingsoon.png',
+  'comingsoon.png',
+  'comingsoon.png',
+  'comingsoon.png',
+  'comingsoon.png',
+  'comingsoon.png',
+  'comingsoon.png',
+  'comingsoon.png',
+  'comingsoon.png',
 ];
 
 export default function Partners() {
@@ -41,7 +44,7 @@ export default function Partners() {
       >
         {PARTNER_LOGOS.map((logo) => (
           <SwiperSlide key={logo}>
-            <NextImage src={`/partners/${logo}`} alt={normalizePartnerLogoName(logo)} width={128} height={128} />
+            <NextImage src={`/partners/${logo}`} alt={normalizePartnerLogoName(logo)} width={60} height={60} />
           </SwiperSlide>
         ))}
       </Swiper>
