@@ -39,6 +39,10 @@ const footerItems: FooterItems = [
 ];
 
 const footerLeftItems: FooterLeftItems = [
+  // {
+  //   title: 'FAQ',
+  //   href: '',
+  // },
   {
     title: 'Privacy',
     href: '',
@@ -48,11 +52,7 @@ const footerLeftItems: FooterLeftItems = [
     href: '/downloads/apertre-cof.pdf',
   },
   {
-    title: 'Terms',
-    href: '',
-  },
-  {
-    title: 'Get Started',
+    title: 'Contact Us',
     href: '',
   },
 ];
@@ -62,19 +62,20 @@ export default function Footer() {
     <FooterWrapper>
       <Container>
         <ListContainer>
-          <Info>
-            <Heading>Legal</Heading>
-            {footerLeftItems.map((singleItem) => (
-              <ListLeftItem key={singleItem.title} {...singleItem} />
-            ))}
-          </Info>
-
           {footerItems.map((singleItem) => (
             <FooterList key={singleItem.title} {...singleItem} />
           ))}
-        </ListContainer>
-        <BottomBar>
 
+        </ListContainer>
+          <Info>
+            <Heading>Legal</Heading>
+            <div style={{display: 'flex'}}>
+              {footerLeftItems.map((singleItem) => (
+                <ListLeftItem key={singleItem.title} {...singleItem} />
+              ))}
+            </div>
+          </Info>
+        <BottomBar>
           <Copyright>
             Copyright &copy; {new Date().getFullYear()} All Rights Reserved
             <A href="https://www.linkedin.com/showcase/apertre" target="_blank">
@@ -113,7 +114,9 @@ function ListItem({ title, logo, href }: SingleFooterListItem) {
 function ListLeftItem({ title, href }: SingleFooterLeftItem) {
   return (
     <InfoWrapper>
-      <A href={href} target="_blank">{title}</A>
+      <A href={href} target="_blank">
+        {title}
+      </A>
     </InfoWrapper>
   );
 }
@@ -240,6 +243,11 @@ const Heading = styled.div`
 
 const Info = styled.div`
   font-size: 1.6rem;
+
+  ${media('<=tablet')} {
+    display: flex;
+    flex-direction: column;
+  }
 `;
 
 const InfoWrapper = styled.div`

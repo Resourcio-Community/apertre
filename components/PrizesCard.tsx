@@ -1,25 +1,28 @@
+import Image from 'next/image';
 import { PropsWithChildren } from 'react';
 import styled from 'styled-components';
 import { media } from 'utils/media';
 import Button from './Button';
 import RichText from './RichText';
 
-interface PricingCardProps {
+interface PrizesCardProps {
   title: string;
-  description: string;
+  // description: string;
+  // image: string;
   benefits: string[];
   isOutlined?: boolean;
 }
 
-export default function PricingCard({ title, description, benefits, isOutlined, children }: PropsWithChildren<PricingCardProps>) {
+export default function PrizesCard({ title, benefits, isOutlined, children }: PropsWithChildren<PrizesCardProps>) {
   const isAnyBenefitPresent = benefits?.length;
 
   return (
     <Wrapper isOutlined={isOutlined}>
-      <Title>{title}</Title>
-      <Description>{description}</Description>
+      {/* <Title>{title}</Title> */}
+      {/* <Image src={image} alt="1st Prize"/> */}
+      {/* <Description>{description}</Description> */}
       <PriceContainer>
-        <Price>{children}</Price>
+        {children}
         {isAnyBenefitPresent && (
           <CustomRichText>
             <ul>
@@ -30,7 +33,7 @@ export default function PricingCard({ title, description, benefits, isOutlined, 
           </CustomRichText>
         )}
       </PriceContainer>
-      <CustomButton>Get started</CustomButton>
+      {/* <CustomButton>Get started</CustomButton> */}
     </Wrapper>
   );
 }
@@ -39,6 +42,7 @@ const Wrapper = styled.div<{ isOutlined?: boolean }>`
   display: flex;
   flex-direction: column;
   padding: 3rem;
+  border-radius: 1rem;
   background: rgb(var(--cardBackground));
   box-shadow: ${(p) => (p.isOutlined ? 'var(--shadow-lg)' : 'var(--shadow-md)')};
   transform: ${(p) => (p.isOutlined ? 'scale(1.1)' : 'scale(1.0)')};
@@ -66,6 +70,7 @@ const Description = styled.p`
 
 const PriceContainer = styled.div`
   margin: auto;
+  padding: 0rem 5rem;
 
   & > *:not(:first-child) {
     margin-top: 2rem;

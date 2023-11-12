@@ -9,9 +9,9 @@ import NavigationDrawer from 'components/NavigationDrawer';
 import { NavItems } from 'types';
 
 const navItems: NavItems = [
-  { title: 'About', href: '#about' },
+  { title: 'About', href: '/#about' },
   { title: 'Projects', href: '/projects' },
-  { title: 'Sponsors', href: '#sponsors' },
+  { title: 'Sponsors', href: '/#sponsors' },
   // { title: 'Leaderboard', href: '/leaderboard' },
   { title: 'FAQ', href: '' },
   // { title: 'Team', href: '' },
