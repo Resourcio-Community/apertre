@@ -10,7 +10,7 @@ import 'swiper/css/autoplay';
 import 'swiper/css/navigation';
 
 const PARTNER_LOGOS = [
-  'SC CSE.jpg',
+  'SC CSE.png',
   'Samarth.png',
   //'ThePhoenixGuild.png',
   //'Nexabyte.png',
