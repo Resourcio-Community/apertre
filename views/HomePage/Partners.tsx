@@ -10,16 +10,20 @@ import 'swiper/css/autoplay';
 import 'swiper/css/navigation';
 
 const PARTNER_LOGOS = [
-  'comingsoon.png',
-  'comingsoon.png',
-  'comingsoon.png',
-  'comingsoon.png',
-  'comingsoon.png',
-  'comingsoon.png',
-  'comingsoon.png',
-  'comingsoon.png',
-  'comingsoon.png',
-  'comingsoon.png',
+  'SC CSE.jpg',
+  'Samarth.png',
+  'ThePhoenixGuild.png',
+  'Nexabyte.png',
+  'GDSC KGEC.png',
+  'GDSC NIET.png',
+  'SC EEE.png',
+  'GDSC Asansol.png',
+  'Flutter_Kolkata.png',
+  'Devorld.png',
+  'DDC.png',
+  'CNH.png',
+  'IEEE SBAOT.png',
+  'GDSC SNU.png',
 ];
 
 export default function Partners() {
