@@ -1,11 +1,9 @@
 import styled from 'styled-components';
 import { media } from 'utils/media';
-
+import ProjectsView from 'views/ProjectPage/Project';
 const projects = () => {
   return (
-    <Div>
-      Coming Soon
-    </Div>
+    <ProjectsView/>
   )
 }
 
