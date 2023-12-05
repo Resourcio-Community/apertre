@@ -121,18 +121,28 @@ const ProjectsPage: React.FC = () => {
     if (selectedFilters.length === 0) {
       setFilteredProjects(projectsData);
     } else {
-      const filtered = projectsData.filter((project) => project.tags.some((tag) => selectedFilters.includes(tag)));
+      const filtered = projectsData.filter((project) =>
+        project.tags.some((tag) => selectedFilters.includes(tag))
+      );
       setFilteredProjects(filtered);
     }
   };
 
-const Div = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100vw;
-  height: 30vh;
-  font-size: 4rem;
+  return (
+    <ProjectsContainer>
+      <ProjectsHeader>Our Projects</ProjectsHeader>
+      <Filters onFilterChange={handleFilterChange} />
+      <ProjectsList>
+        {filteredProjects.map((project) => (
+          <ProjectCard key={project.id} project={project} />
+        ))}
+      </ProjectsList>
+    </ProjectsContainer>
+  );
+};
+
+const ProjectsContainer = styled.div`
+  padding: 25rem;
 
   ${media('<=tablet')} {
     padding: 1rem;
@@ -156,5 +166,5 @@ const ProjectsList = styled.div`
   gap: 50px; 
 `;
 
-export default ProjectPage;
+export default ProjectsPage;
 
