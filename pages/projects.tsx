@@ -1,10 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import ProjectCard from 'views/ProjectPage/ProjectCard';
-import Filters from 'views/ProjectPage/Filters';
 import { media } from 'utils/media';
-
-// List
 const projectsData = [
   {
     id: 1,
@@ -128,51 +124,18 @@ const ProjectsPage: React.FC = () => {
     }
   };
 
-  return (
-    <ProjectsContainer>
-      <ProjectsHeader>Our Projects</ProjectsHeader>
-      <FiltersContainer>
-        <Filters onFilterChange={handleFilterChange} />
-      </FiltersContainer>
-      <ProjectsList>
-        {filteredProjects.map((project) => (
-          <ProjectCard key={project.id} project={project} />
-        ))}
-      </ProjectsList>
-    </ProjectsContainer>
-  );
-};
 
-const ProjectsContainer = styled.div`
-  padding: 25rem;
+const Div = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 30vh;
+  font-size: 4rem;
 
   ${media('<=tablet')} {
-    padding: 1rem;
-  }
-
-  ${media('<=phone')} {
-    padding: 0.5rem;
+    font-size: 3rem;
   }
 `;
 
-const FiltersContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-
-const ProjectsHeader = styled.h2`
-  font-size: 3.5rem;
-  padding-top: 20px;
-  margin-bottom: 2rem;
-  text-align: center;
-`;
-
-const ProjectsList = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 50px;
-  padding-bottom: 20px;
-`;
-
-export default ProjectsPage;
+export default ProjectPage;
