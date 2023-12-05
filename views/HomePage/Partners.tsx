@@ -13,7 +13,10 @@ const PARTNER_LOGOS = [
   { name: 'SC CSE.png', link: 'https://sccsebio.vercel.app/?utm_source=sc+cse' },
   { name: 'Samarth.png',link: 'https://www.samarthtmsl.live/' },
   { name: 'GDSC NIET.png', link: 'https://gdsc.community.dev/noida-institute-of-engineering-and-technology-greater-noida/' },
-];
+  { name: 'Techsurfers.png', link: 'https://www.linkedin.com/company/tech-surfers/' },
+  { name: 'GFG_NIET.png', link: 'https://linktr.ee/gfgniet' },
+  { name: 'GDSC_Asansol.png', link: 'https://www.linkedin.com/company/gdsc-aec' },
+
 
 export default function Partners() {
   SwiperCore.use([Autoplay])
