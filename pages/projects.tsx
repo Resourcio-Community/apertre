@@ -23,4 +23,4 @@ const Div = styled.div`
   }
 `;
 
-export default ProjectsPage;
+export default ProjectPage;
