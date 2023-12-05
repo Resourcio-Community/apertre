@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
@@ -5,7 +6,8 @@ interface FiltersProps {
   onFilterChange: (selectedFilters: string[], searchQuery: string) => void;
 }
 
-const techStacks = ['React', 'TypeScript', 'HTML', 'CSS', 'JavaScript','Rust'];
+const techStacks = ['HTML', 'CSS', 'JavaScript', 'TypeScript', 'React', 'Next', 'Python', 'Java', 'Rust'];
+
 
 const Filters: React.FC<FiltersProps> = ({ onFilterChange }) => {
   const [selectedFilters, setSelectedFilters] = useState<string[]>([]);
@@ -27,6 +29,7 @@ const Filters: React.FC<FiltersProps> = ({ onFilterChange }) => {
     <Wrapper>
       <TechStacksWrapper>
         {techStacks.map((techStack) => (
+          <TechStackButton key={techStack} onClick={() => handleFilterToggle(techStack)} active={selectedFilters.includes(techStack)}>
           <TechStackButton
             key={techStack}
             onClick={() => handleFilterToggle(techStack)}
@@ -43,13 +46,12 @@ const Filters: React.FC<FiltersProps> = ({ onFilterChange }) => {
 const Wrapper = styled.div`
   display: flex;
   justify-content: center;
-  padding: 2.5rem;
-`;
+  align-items: center;
 
 const TechStacksWrapper = styled.div`
   display: flex;
-  flex-wrap: wrap;
-`;
+  justify-content: center;
+  align-items: center;
 
 const TechStackButton = styled.button<{ active: boolean }>`
   margin: 0.5rem;
@@ -57,10 +59,8 @@ const TechStackButton = styled.button<{ active: boolean }>`
   font-size: 1.6rem;
   background-color: ${({ active }) => (active ? '#fbce1f' : 'transparent')};
   color: ${({ active }) => (active ? 'black' : '#fff')};
-  border: 2px solid #fbce1f; 
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s ease-in-out;
+  border: 2px solid #fbce1f;
+
 
   &:hover {
     background-color: ${({ active }) => (active ? '#fbce1f' : 'black')};
@@ -68,3 +68,4 @@ const TechStackButton = styled.button<{ active: boolean }>`
 `;
 
 export default Filters;
+
