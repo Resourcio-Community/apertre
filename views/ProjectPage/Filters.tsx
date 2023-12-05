@@ -5,7 +5,7 @@ interface FiltersProps {
   onFilterChange: (selectedFilters: string[], searchQuery: string) => void;
 }
 
-const techStacks = ['React', 'TypeScript', 'HTML', 'CSS', 'JavaScript', 'Rust'];
+const techStacks = ['HTML', 'CSS', 'JavaScript', 'TypeScript', 'React', 'Next', 'Python', 'Java', 'Rust'];
 
 const Filters: React.FC<FiltersProps> = ({ onFilterChange }) => {
   const [selectedFilters, setSelectedFilters] = useState<string[]>([]);
