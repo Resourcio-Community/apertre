@@ -10,20 +10,9 @@ import 'swiper/css/autoplay';
 import 'swiper/css/navigation';
 
 const PARTNER_LOGOS = [
-  'SC CSE.png',
-  'Samarth.png',
-  //'ThePhoenixGuild.png',
-  //'Nexabyte.png',
-  //'GDSC KGEC.png',
-  'GDSC NIET.png',
-  //'SC EEE.png',
-  //'GDSC Asansol.png',
-  //'Flutter_Kolkata.png',
-  //'Devorld.png',
-  //'DDC.png',
-  //'CNH.png',
-  //'IEEE SBAOT.png',
-  //'GDSC SNU.png',
+  { name: 'SC CSE.png', link: 'https://sccsebio.vercel.app/?utm_source=sc+cse' },
+  { name: 'Samarth.png',link: 'https://www.samarthtmsl.live/' },
+  { name: 'GDSC NIET.png', link: 'https://gdsc.community.dev/noida-institute-of-engineering-and-technology-greater-noida/' },
 ];
 
 export default function Partners() {
@@ -46,9 +35,15 @@ export default function Partners() {
         modules={[Autoplay]}
         className="swiper-wrapper"
       >
-        {PARTNER_LOGOS.map((logo) => (
-          <SwiperSlide key={logo}>
-            <NextImage src={`/partners/${logo}`} alt={normalizePartnerLogoName(logo)} width={60} height={60} />
+        {PARTNER_LOGOS.map((partner) => (
+          <SwiperSlide key={partner.name}>
+            {partner.link ? (
+              <PartnerLink href={partner.link} target="_blank" rel="noopener noreferrer">
+                <NextImage src={`/partners/${partner.name}`} alt={normalizePartnerLogoName(partner.name)} width={80} height={60} />
+              </PartnerLink>
+            ) : (
+              <NextImage src={`/partners/${partner.name}`} alt={normalizePartnerLogoName(partner.name)} width={80} height={60} />
+            )}
           </SwiperSlide>
         ))}
       </Swiper>
@@ -91,4 +86,10 @@ const PartnersWrapper = styled(Container)`
       opacity: 1;
     }
   }
+`;
+
+const PartnerLink = styled.a`
+  display: block;
+  text-decoration: none;
+  color: inherit;
 `;
