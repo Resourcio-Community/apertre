@@ -151,8 +151,6 @@ const ProjectsContainer = styled.div`
   ${media('<=phone')} {
     padding: 0.5rem;
   }
-  
-`;
 
 const ProjectsHeader = styled.h2`
   font-size: 3.5rem;
