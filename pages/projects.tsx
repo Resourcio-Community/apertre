@@ -144,6 +144,7 @@ const ProjectsPage: React.FC = () => {
 const ProjectsContainer = styled.div`
   padding: 25rem;
 
+
   ${media('<=tablet')} {
     padding: 1rem;
   }
@@ -151,6 +152,7 @@ const ProjectsContainer = styled.div`
   ${media('<=phone')} {
     padding: 0.5rem;
   }
+
 
 const ProjectsHeader = styled.h2`
   font-size: 3.5rem;
@@ -165,4 +167,5 @@ const ProjectsList = styled.div`
 `;
 
 export default ProjectsPage;
+
 

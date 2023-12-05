@@ -16,6 +16,7 @@ const PARTNER_LOGOS = [
   { name: 'Techsurfers.png', link: 'https://www.linkedin.com/company/tech-surfers/' },
   { name: 'GFG_NIET.png', link: 'https://linktr.ee/gfgniet' },
   { name: 'GDSC_Asansol.png', link: 'https://www.linkedin.com/company/gdsc-aec' },
+];
 
 
 export default function Partners() {

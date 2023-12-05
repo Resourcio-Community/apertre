@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
@@ -27,6 +28,7 @@ const Filters: React.FC<FiltersProps> = ({ onFilterChange }) => {
     <Wrapper>
       <TechStacksWrapper>
         {techStacks.map((techStack) => (
+          <TechStackButton key={techStack} onClick={() => handleFilterToggle(techStack)} active={selectedFilters.includes(techStack)}>
           <TechStackButton
             key={techStack}
             onClick={() => handleFilterToggle(techStack)}
@@ -45,6 +47,7 @@ const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
 `;
+
 
 const TechStacksWrapper = styled.div`
   display: flex;
@@ -66,3 +69,4 @@ const TechStackButton = styled.button<{ active: boolean }>`
 `;
 
 export default Filters;
+
