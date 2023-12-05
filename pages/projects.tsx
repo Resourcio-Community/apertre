@@ -4,6 +4,7 @@ import ProjectCard from 'views/ProjectPage/ProjectCard';
 import Filters from 'views/ProjectPage/Filters';
 import { media } from 'utils/media';
 
+// List
 const projectsData = [
   {
     id: 1,

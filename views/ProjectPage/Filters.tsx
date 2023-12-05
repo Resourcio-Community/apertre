@@ -5,6 +5,7 @@ interface FiltersProps {
   onFilterChange: (selectedFilters: string[], searchQuery: string) => void;
 }
 
+// List
 const techStacks = ['HTML', 'CSS', 'JavaScript', 'TypeScript', 'React', 'Next', 'Python', 'Java', 'Rust'];
 
 const Filters: React.FC<FiltersProps> = ({ onFilterChange }) => {
