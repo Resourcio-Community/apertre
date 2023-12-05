@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import ProjectCard from 'views/ProjectPage/ProjectCard';
+import Filters from 'views/ProjectPage/Filters'; 
 import { media } from 'utils/media';
 const projectsData = [
   {
@@ -124,7 +126,6 @@ const ProjectsPage: React.FC = () => {
     }
   };
 
-
 const Div = styled.div`
   display: flex;
   align-items: center;
@@ -134,8 +135,26 @@ const Div = styled.div`
   font-size: 4rem;
 
   ${media('<=tablet')} {
-    font-size: 3rem;
+    padding: 1rem;
   }
+
+  ${media('<=phone')} {
+    padding: 0.5rem;
+  }
+  
+`;
+
+const ProjectsHeader = styled.h2`
+  font-size: 3.5rem;
+  margin-bottom: 2rem;
+  text-align: center;
+`;
+
+const ProjectsList = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 50px; 
 `;
 
 export default ProjectPage;
+
