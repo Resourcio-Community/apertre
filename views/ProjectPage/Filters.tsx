@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
@@ -7,7 +6,6 @@ interface FiltersProps {
 }
 
 const techStacks = ['HTML', 'CSS', 'JavaScript', 'TypeScript', 'React', 'Next', 'Python', 'Java', 'Rust'];
-
 
 const Filters: React.FC<FiltersProps> = ({ onFilterChange }) => {
   const [selectedFilters, setSelectedFilters] = useState<string[]>([]);
@@ -29,7 +27,6 @@ const Filters: React.FC<FiltersProps> = ({ onFilterChange }) => {
     <Wrapper>
       <TechStacksWrapper>
         {techStacks.map((techStack) => (
-          <TechStackButton key={techStack} onClick={() => handleFilterToggle(techStack)} active={selectedFilters.includes(techStack)}>
           <TechStackButton
             key={techStack}
             onClick={() => handleFilterToggle(techStack)}
@@ -47,11 +44,13 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+`;
 
 const TechStacksWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+`;
 
 const TechStackButton = styled.button<{ active: boolean }>`
   margin: 0.5rem;
@@ -61,11 +60,9 @@ const TechStackButton = styled.button<{ active: boolean }>`
   color: ${({ active }) => (active ? 'black' : '#fff')};
   border: 2px solid #fbce1f;
 
-
   &:hover {
     background-color: ${({ active }) => (active ? '#fbce1f' : 'black')};
   }
 `;
 
 export default Filters;
-
