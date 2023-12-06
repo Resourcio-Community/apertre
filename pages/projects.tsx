@@ -130,13 +130,13 @@ const ProjectsPage: React.FC = () => {
 
   return (
     <ProjectsContainer>
-      <ProjectsHeader>Our Projects</ProjectsHeader>
-      <Filters onFilterChange={handleFilterChange} />
+      <ProjectsHeader>Coming Soon</ProjectsHeader>
+      {/* <Filters onFilterChange={handleFilterChange} />
       <ProjectsList>
         {filteredProjects.map((project) => (
           <ProjectCard key={project.id} project={project} />
         ))}
-      </ProjectsList>
+      </ProjectsList> */}
     </ProjectsContainer>
   );
 };
