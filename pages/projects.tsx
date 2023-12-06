@@ -144,7 +144,6 @@ const ProjectsPage: React.FC = () => {
 const ProjectsContainer = styled.div`
   padding: 25rem;
 
-
   ${media('<=tablet')} {
     padding: 1rem;
   }
@@ -152,7 +151,7 @@ const ProjectsContainer = styled.div`
   ${media('<=phone')} {
     padding: 0.5rem;
   }
-
+`;
 
 const ProjectsHeader = styled.h2`
   font-size: 3.5rem;
@@ -163,9 +162,7 @@ const ProjectsHeader = styled.h2`
 const ProjectsList = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 50px; 
+  gap: 50px;
 `;
 
 export default ProjectsPage;
-
-
