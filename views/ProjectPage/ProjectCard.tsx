@@ -50,7 +50,7 @@ const CardContainer = styled.div`
   border-radius: 12px;
   width: 100%;
   height: 300px;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.9);
   box-shadow: 0 0 20px rgba(251, 206, 31, 0.5);  
   border: 2px solid rgba(251, 206, 31, 1); 
   transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
@@ -105,28 +105,21 @@ const TechnologyTag = styled.span`
 `;
 
 const DetailsButton = styled.button`
-  background-color: rgba(251, 206, 31, 1); 
-  color: black;
+  background-color: rgba(var(--primary)); 
+  color: white;
   padding: 8px 20px;
   border: none;
   border-radius: 20px; 
   font-size: 1.6rem;
   cursor: pointer;
-  transition: background-color 0.3s ease-in-out;
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out, border-color 0.3s ease-in-out;
 
   &:hover {
-    background-color: rgba(251, 206, 31, 0.8);
+    background-color: transparent;
+    border: 2px solid rgba(var(--primary));
   }
 `;
 
-const ProjectDetails = styled.div`
-  background-color: rgba(251, 206, 31, 0.1); 
-  color: rgba(251, 206, 31, 1); 
-  padding: 8px;
-  border-radius: 0 0 12px 12px; 
-  margin-top: 8px;
-  font-size: 1.6rem;
-`;
 const ProjectMaintainer = styled.div`
   margin-top: 1px;
   color: rgba(var(--text));
