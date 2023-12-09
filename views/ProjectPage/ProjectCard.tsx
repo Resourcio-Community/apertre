@@ -101,7 +101,7 @@ const TechnologyTag = styled.span`
   background-color: rgba(251, 206, 31, 0.2); 
   color: rgba(251, 206, 31, 1); 
   padding: 4px 8px;
-  border-radius: 15px;
+  border-radius: 4px;
   font-size: 1.6rem;
 `;
 
