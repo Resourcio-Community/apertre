@@ -5,7 +5,7 @@ import SectionTitle from 'components/SectionTitle';
 export default function FaqSection() {
   return (
     <Wrapper id="faq">
-      <SectionTitle>Most frequently asked questions.</SectionTitle>
+      <SectionTitle>Most <span style={{ color: '#fbce1f' }}> Frequently</span> Asked Questions</SectionTitle>
       <Accordion title="What is Apertre, and who organizes it?">
         Apertre is a 15-day long open-source event organized by Resourcio Community and GDSC AOT. It provides a platform for participants to
         enhance their development skills through collaboration on real-world projects.
@@ -39,7 +39,7 @@ export default function FaqSection() {
 }
 
 const Wrapper = styled.div`
-  margin: 15rem;
+  margin: 10vw;
   & > *:not(:first-child) {
     margin-top: 3rem;
   }

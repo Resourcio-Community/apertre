@@ -59,6 +59,7 @@ const CardContainer = styled.div`
     box-shadow: 0px 0px 40px rgba(251, 206, 31, 0.8); 
     transform: scale(1.05);
   }
+  margin-bottom: 25px;
 
   ${media('<=tablet')} {
     height: 250px;

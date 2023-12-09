@@ -6,7 +6,8 @@ interface FiltersProps {
   onFilterChange: (selectedFilters: string[], searchQuery: string) => void;
 }
 
-const techStacks = ['HTML', 'CSS', 'JavaScript', 'TypeScript', 'React', 'Next', 'Python', 'Java', 'Rust'];
+const techStacks = ['HTML', 'CSS', 'JavaScript', 'TypeScript','Tailwind','SpringBoot','Kotlin','React', 'NextJS', 'python', 
+'Java', 'Rust','SaSS','NodeJS','Express','MongoDB','Bootstrap','ML','Flutter','Django','Material UI','MySQL'];
 
 const Filters: React.FC<FiltersProps> = ({ onFilterChange }) => {
   const [selectedFilters, setSelectedFilters] = useState<string[]>([]);
@@ -52,6 +53,12 @@ const TechStacksWrapper = styled.div`
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+  @media (min-width: 768px) {
+    max-width: 600px; 
+  }
+  
+  @media (min-width: 1024px) {
+    max-width: 800px;
 `;
 
 const TechStackButton = styled.button<{ active: boolean }>`
