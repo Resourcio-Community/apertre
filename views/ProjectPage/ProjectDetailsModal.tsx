@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import ReactModal from 'react-modal';
-import { FiX } from 'react-icons/fi';
+import { FiX, FiGithub } from 'react-icons/fi';
 
 interface ProjectDetailsModalProps {
   isOpen: boolean;
@@ -47,9 +47,11 @@ const ProjectDetailsModal: React.FC<ProjectDetailsModalProps> = ({
           <FiX />
         </CloseIcon>
         <h2>{project.title}</h2>
+        <h4>Description:</h4>
         <p>{project.description}</p>
         <GitHubLink href={project.repoUrl} target="_blank" rel="noopener noreferrer">
-          Repository Link
+          <FiGithub style={{ marginRight: '8px' }} />
+          GitHub
         </GitHubLink>
       </StyledProjectDetails>
     </ReactModal>
@@ -71,11 +73,13 @@ const CloseIcon = styled.button`
   cursor: pointer;
   color: #fff;
 `;
+
 const GitHubLink = styled.a`
   color: #fbce1f;
   text-decoration: none;
   font-size: 1.5rem;
-  display: block;
+  display: flex;
+  align-items: center;
   margin-top: 10px;
 
   &:hover {
