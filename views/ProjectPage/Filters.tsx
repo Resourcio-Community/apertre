@@ -7,7 +7,7 @@ interface FiltersProps {
 }
 
 const techStacks = ['HTML', 'CSS', 'JavaScript', 'TypeScript','Tailwind','SpringBoot','Kotlin','React', 'NextJS', 'python', 
-'Java', 'Rust','SaSS','NodeJS','Express','MongoDB','Bootstrap','ML','Flutter','Django','Material UI','MySQL'];
+'Java', 'React Native','SaSS','NodeJS','Express','MongoDB','Bootstrap','ML','Flutter','Django','Material UI','MySQL'];
 
 const Filters: React.FC<FiltersProps> = ({ onFilterChange }) => {
   const [selectedFilters, setSelectedFilters] = useState<string[]>([]);
