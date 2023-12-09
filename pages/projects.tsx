@@ -334,7 +334,6 @@ const ProjectsPage: React.FC = () => {
     </ProjectsWrapper>
   );
 };
-
 const ProjectsWrapper = styled.div``;
 
 const ProjectsHeader = styled.h2`
