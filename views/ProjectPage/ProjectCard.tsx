@@ -1,22 +1,14 @@
-import React, { useState } from 'react';
+import React, { PropsWithChildren, useState } from 'react';
 import styled from 'styled-components';
 import { media } from 'utils/media';
 import ProjectDetailsModal from './ProjectDetailsModal';
-
+import { ProjectsData } from 'models/project.model';
 
 interface ProjectCardProps {
-  project: {
-    id: number;
-    title: string;
-    description: string;
-    repoUrl: string;
-    stars: number;
-    tags: string[];
-    maintainer: string;
-  };
+  project: ProjectsData
 }
 
-const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
+export default function ProjectCard({ project }: PropsWithChildren<ProjectCardProps>) {
   const [isDetailsModalOpen, setIsDetailsModalOpen] = useState(false);
 
   const toggleDetailsModal = () => {
@@ -26,10 +18,10 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
   return (
     <CardContainer>
       <CardContent>
-        <CardTitle>{project.title}</CardTitle>
+        <CardTitle>{project.projectName}</CardTitle>
         <ProjectMaintainer>by {project.maintainer}</ProjectMaintainer>
         <CardTags>
-          {project.tags.map((tag, index) => (
+          {project.techStack.map((tag, index) => (
             <TechnologyTag key={index}>{tag}</TechnologyTag>
           ))}
         </CardTags>
@@ -126,5 +118,3 @@ const ProjectMaintainer = styled.div`
   color: rgba(var(--text));
   font-size: 1.4rem;
 `;
-
-export default ProjectCard;

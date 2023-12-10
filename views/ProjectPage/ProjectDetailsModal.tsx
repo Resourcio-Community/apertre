@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropsWithChildren } from 'react';
 import styled from 'styled-components';
 import ReactModal from 'react-modal';
 import { FiX, FiGithub } from 'react-icons/fi';
@@ -7,17 +7,13 @@ interface ProjectDetailsModalProps {
   isOpen: boolean;
   onRequestClose: () => void;
   project: {
-    title: string;
-    description: string;
-    repoUrl: string;
+    projectName: string;
+    projectDesc: string;
+    projectLink: string;
   };
 }
 
-const ProjectDetailsModal: React.FC<ProjectDetailsModalProps> = ({
-  isOpen,
-  onRequestClose,
-  project,
-}) => {
+export default function ProjectDetailsModal({ isOpen, onRequestClose, project }: PropsWithChildren<ProjectDetailsModalProps>) {
   return (
     <ReactModal
       isOpen={isOpen}
@@ -46,10 +42,10 @@ const ProjectDetailsModal: React.FC<ProjectDetailsModalProps> = ({
         <CloseIcon onClick={onRequestClose}>
           <FiX />
         </CloseIcon>
-        <h2>{project.title}</h2>
+        <h2>{project.projectName}</h2>
         <h4>Description:</h4>
-        <p>{project.description}</p>
-        <GitHubLink href={project.repoUrl} target="_blank" rel="noopener noreferrer">
+        <p>{project.projectDesc}</p>
+        <GitHubLink href={project.projectLink} target="_blank" rel="noopener noreferrer">
           <FiGithub style={{ marginRight: '8px' }} />
           GitHub
         </GitHubLink>
@@ -86,5 +82,3 @@ const GitHubLink = styled.a`
     color: rgba(var(--primary), 0.9);
   }
 `;
-
-export default ProjectDetailsModal;
