@@ -1,4 +1,4 @@
-import React, { PropsWithChildren } from 'react';
+import { PropsWithChildren } from 'react';
 import styled from 'styled-components';
 import ReactModal from 'react-modal';
 import { FiX, FiGithub } from 'react-icons/fi';
@@ -21,32 +21,31 @@ export default function ProjectDetailsModal({ isOpen, onRequestClose, project }:
       contentLabel="Project Details"
       style={{
         overlay: {
-          backgroundColor: 'rgba(0, 0, 0, 0.9)',
+          backgroundColor: 'rgba(0, 0, 0, 0.92)',
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
         },
         content: {
-          backgroundColor: 'rgba(0, 0, 0, 0.5)',
-          padding: '20px',
+          backgroundColor: 'rgba(223, 229, 226)',
+          color: 'black',
           borderRadius: '12px',
           width: '80%',
           maxWidth: '600px',
           margin: 'auto',
           maxHeight: '40vh',
-          border: '2px solid rgba(var(--primary))',
+          border: '3px solid rgb(var(--yellow))',
         },
       }}
     >
       <StyledProjectDetails>
         <CloseIcon onClick={onRequestClose}>
-          <FiX />
+          <FiX style={{ color: 'red', fontSize: '2rem'}} />
         </CloseIcon>
         <h2>{project.projectName}</h2>
-        <h4>Description:</h4>
         <p>{project.projectDesc}</p>
         <GitHubLink href={project.projectLink} target="_blank" rel="noopener noreferrer">
-          <FiGithub style={{ marginRight: '8px' }} />
+          <FiGithub style={{ marginRight: '8px', color: 'black' }} />
           GitHub
         </GitHubLink>
       </StyledProjectDetails>
@@ -55,8 +54,11 @@ export default function ProjectDetailsModal({ isOpen, onRequestClose, project }:
 };
 
 const StyledProjectDetails = styled.div`
-  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
   font-size: 1.6rem;
+  padding: 1rem;
 `;
 
 const CloseIcon = styled.button`
@@ -71,14 +73,13 @@ const CloseIcon = styled.button`
 `;
 
 const GitHubLink = styled.a`
-  color: #fbce1f;
+  color: rgba(var(--primary), 0.9);
   text-decoration: none;
   font-size: 1.5rem;
   display: flex;
   align-items: center;
-  margin-top: 10px;
-
+  
   &:hover {
-    color: rgba(var(--primary), 0.9);
+    color: black;
   }
 `;

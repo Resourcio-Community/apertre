@@ -1,7 +1,7 @@
+import { useEffect, useState } from 'react';
+import styled from 'styled-components';
 import axiosInstance from 'config/axiosInstance';
 import { ProjectsData } from 'models/project.model';
-import React, { useEffect, useState } from 'react';
-import styled from 'styled-components';
 import { media } from 'utils/media';
 import Filters from 'views/ProjectPage/Filters';
 import ProjectCard from 'views/ProjectPage/ProjectCard';
@@ -28,10 +28,12 @@ export default function ProjectsPage() {
   return (
     <ProjectsWrapper>
       <WhiteBackgroundContainer>
-        <ProjectsHeader><Heading>Our <span style={{ color: '#fbce1f' }}>Projects</span> </Heading>
-          <Heading3>APERTRE <span style={{ color: '#fbce1f' }}>&apos;24</span></Heading3></ProjectsHeader>
-        {/* <Filters onFilterChange={handleFilterChange} /> */}
+        <ProjectsHeader>
+          <Heading>Our <span style={{ color: 'rgb(var(--yellow))' }}>Projects</span></Heading>
+          <Event>APERTRE <span style={{ color: 'rgb(var(--yellow))' }}>&apos;24</span></Event>
+        </ProjectsHeader>
       </WhiteBackgroundContainer>
+
       <DarkerBackgroundContainer>
         <ProjectsList>
           {projects.map((project, idx) => (
@@ -48,8 +50,23 @@ export default function ProjectsPage() {
 const ProjectsWrapper = styled.div`
 `;
 
+const WhiteBackgroundContainer = styled.div`
+  padding: 5rem; 
+  background: #000;
+`;
+
+const DarkerBackgroundContainer = styled.div`
+  background: rgb(var(--background));
+  padding: 5rem 0;
+
+  ${media('<=tablet')} {
+    padding: 5rem 1.5rem;
+  }
+`;
+
 const ProjectsHeader = styled.h2`
-  font-size: 3.5rem;
+  display: flex;
+  flex-direction: column;
   margin-bottom: 2rem;
   text-align: center;
 `;
@@ -57,11 +74,12 @@ const ProjectsHeader = styled.h2`
 const ProjectsList = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 50px;
-  padding: 0 25rem; 
+  gap: 3.5rem;
+  padding: 0 10rem; 
 
   ${media('<=tablet')} {
     padding: 0 1rem; 
+    gap: 1.5rem;
   }
 
   ${media('<=phone')} {
@@ -69,37 +87,19 @@ const ProjectsList = styled.div`
   }
 `;
 
-const DarkerBackgroundContainer = styled.div`
-  background: rgb(var(--background));
+const Heading = styled.span`
+  font-size: 6.4rem;
 
-  & > *:not(:first-child) {
-    margin-top: 15rem;
+  ${media('<=tablet')} {
+    font-size: 4.3rem;
   }
 `;
-
-const WhiteBackgroundContainer = styled.div`
-  padding: 6rem; 
-  background: #000;
-  background-image: url('/static/assets/homeBG.svg');
-  background-repeat: "no-repeat",
-  background-size: "cover",
-  background-position: "center",
-  object-fit: "cover",
-
-  & > :last-child {
-    padding-bottom: 15rem;
-  }
-
-  & > *:not(:first-child) {
-    margin-top: 15rem;
-  }
-`;
-
-const Heading = styled.div`
-  font-size: 7rem;
-`;
-const Heading3 = styled.div`
+const Event = styled.span`
   font-size: 4rem;
+
+  ${media('<=tablet')} {
+    font-size: 3rem;
+  }
 `;
 
 

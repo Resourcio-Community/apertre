@@ -1,15 +1,14 @@
-import React, { useState } from 'react';
+import React, { PropsWithChildren, useState } from 'react';
 import styled from 'styled-components';
-import { media } from 'utils/media';
 
 interface FiltersProps {
   onFilterChange: (selectedFilters: string[], searchQuery: string) => void;
 }
 
-const techStacks = ['HTML', 'CSS', 'JavaScript', 'TypeScript','Tailwind','SpringBoot','Kotlin','React', 'NextJS', 'python', 
-'Java', 'Rust','SaSS','NodeJS','Express','MongoDB','Bootstrap','ML','Flutter','Django','Material UI','MySQL'];
+const techStacks = ['HTML', 'CSS', 'JavaScript', 'TypeScript', 'Tailwind', 'SpringBoot', 'Kotlin', 'React', 'NextJS', 'python',
+  'Java', 'Rust', 'SaSS', 'NodeJS', 'Express', 'MongoDB', 'Bootstrap', 'ML', 'Flutter', 'Django', 'Material UI', 'MySQL'];
 
-const Filters: React.FC<FiltersProps> = ({ onFilterChange }) => {
+export default function Filters({ onFilterChange }: PropsWithChildren<FiltersProps>) {
   const [selectedFilters, setSelectedFilters] = useState<string[]>([]);
 
   const handleFilterToggle = (techStack: string) => {
@@ -67,14 +66,12 @@ const TechStackButton = styled.button<{ active: boolean }>`
   font-size: 1.6rem;
   background-color: ${({ active }) => (active ? 'rgba(var(--primary))' : 'transparent')};
   color: white;
-  border: 2px solid ${({ active }) => (active ? 'rgba(var(--primary))' : ' #fbce1f')};
+  border: 2px solid ${({ active }) => (active ? 'rgba(var(--primary))' : ' rgb(var(--yellow))')};
 
   &:hover {
-    background-color: ${({ active }) => (active ? 'rgba(var(--primary))' : ' #fbce1f')};
+    background-color: ${({ active }) => (active ? 'rgba(var(--primary))' : ' rgb(var(--yellow))')};
     color: white
 
   }
 
 `;
-
-export default Filters;

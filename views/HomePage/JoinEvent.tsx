@@ -44,11 +44,11 @@ export default function JoinEvent() {
     <CtaWrapper id='event'>
       <Stack>
         <OverTitle>
-          <span style={{ color: '#fbce1f', fontSize: '2rem', marginRight: '1rem' }}>&#8605;</span>
+          <span style={{ color: 'rgb(var(--yellow))', fontSize: '2rem', marginRight: '1rem' }}>&#8605;</span>
           &ldquo;I often compare open source to science&rdquo; - Linus Torvalds
         </OverTitle>
 
-        <SectionTitle>Join <span style={{ color: '#fbce1f' }}>Apertre</span></SectionTitle>
+        <SectionTitle>Join <span style={{ color: 'rgb(var(--yellow))' }}>Apertre</span></SectionTitle>
 
         <CustomAutofitGrid>
           {FEATURES.map((singleFeature, idx) => (

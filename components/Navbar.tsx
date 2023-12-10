@@ -134,7 +134,7 @@ const NavItemWrapper = styled.li<Partial<SingleNavItem>>`
 
   a {
     display: flex;
-    color: #fbce1f;
+    color: rgb(var(--yellow));
     letter-spacing: 0.025em;
     text-decoration: none;
     padding: 0.75rem 1.5rem;

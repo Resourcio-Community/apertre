@@ -27,7 +27,7 @@ const Card = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
-  border: 1px solid #fbce1f;
+  border: 1px solid rgb(var(--yellow));
   border-radius: 50%;
   color: rgb(var(--text));
   font-size: 1.6rem;
@@ -45,7 +45,7 @@ const Card = styled.div`
 
 const Title = styled.div`
   font-size: 2rem;
-  color: #fbce1f;
+  color: rgb(var(--yellow));
 
   ${media('<=tablet')} {
     font-size: 1.6rem;
