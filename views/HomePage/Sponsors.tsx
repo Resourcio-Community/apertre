@@ -54,10 +54,10 @@ export default function Sponsors() {
   return (
     <Stack id='sponsors'>
       <OverTitle>
-        <span style={{ color: '#fbce1f', fontSize: '2rem', marginRight: '1rem' }}>&#8605;</span>
+        <span style={{ color: 'rgb(var(--yellow))', fontSize: '2rem', marginRight: '1rem' }}>&#8605;</span>
         &ldquo;Open source is about collaborating; not competing.&rdquo; - Kelsey Hightower
       </OverTitle>
-      <SectionTitle>Our <span style={{ color: '#fbce1f' }}>Sponsors</span></SectionTitle>
+      <SectionTitle>Our <span style={{ color: 'rgb(var(--yellow))' }}>Sponsors</span></SectionTitle>
       <CustomAutofitGrid>
         {/* {SPONSORS.map((sponsor, idx) => (
           <RoundCard key={sponsor.title} {...sponsor} />

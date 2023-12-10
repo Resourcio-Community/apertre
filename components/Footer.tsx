@@ -121,7 +121,7 @@ const FooterWrapper = styled.div`
   padding: 8rem 0 4rem 0;
   background: #040301;
   color: rgb(var(--textSecondary));
-  border-top: 2px solid #fbce1f;
+  border-top: 2px solid rgb(var(--yellow));
   z-index: 999;
 `;
 
@@ -220,7 +220,7 @@ const Socials = styled.div`
 
 const A = styled.a`
   text-decoration: none;
-  color: #fbce1f;
+  color: hex(var(--yellow));
 
   &:hover {
     color: rgb(var(--primary));

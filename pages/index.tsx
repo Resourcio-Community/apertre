@@ -2,13 +2,13 @@ import Head from 'next/head';
 import styled from 'styled-components';
 import { EnvVars } from 'env';
 import About from 'views/HomePage/About';
+import FaqSection from 'views/HomePage/FaqSection';
 import Hero from 'views/HomePage/Hero';
 import Event from 'views/HomePage/JoinEvent';
 import Partners from 'views/HomePage/Partners';
 import Prizes from 'views/HomePage/Prizes';
 import Sponsors from 'views/HomePage/Sponsors';
 import Timeline from 'views/HomePage/Timeline';
-import FaqSection from 'views/HomePage/FaqSection';
 
 export default function Homepage() {
   return (
@@ -32,7 +32,7 @@ export default function Homepage() {
           <Event />
           <Sponsors />
           <Prizes />
-          <FaqSection/>
+          <FaqSection />
         </DarkerBackgroundContainer>
       </HomepageWrapper>
       {/* <WaveCta /> */}
