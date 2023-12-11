@@ -9,12 +9,16 @@ import ProjectCard from 'views/ProjectPage/ProjectCard';
 
 export default function ProjectsPage() {
   const [projects, setProjects] = useState<ProjectsData[]>([]);
+  const [tags, setTags] = useState<Array<string>>([]);
 
-  const getRepos = async () => {
+  const getReposAndTags = async () => {
     try {
-      const { data } = await axiosInstance.get('/repo/getrepos')
+      const reposData = axiosInstance.get('/repo/getrepos')
+      const stacksData = axiosInstance.get('/repo/gettags')
+      const [{ data: repos }, { data: stacks }] = await Promise.all([reposData, stacksData])
 
-      setProjects(data.data)
+      setProjects(repos.data)
+      // setTags(stacks.data)
     }
     catch (err) {
       console.log(err)
@@ -22,7 +26,7 @@ export default function ProjectsPage() {
   }
 
   useEffect(() => {
-    getRepos()
+    getReposAndTags()
   }, [])
 
   return (
