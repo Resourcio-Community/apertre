@@ -31,10 +31,11 @@ export default function ProjectDetailsModal({ isOpen, onRequestClose, project }:
           color: 'black',
           borderRadius: '12px',
           width: '80%',
-          maxWidth: '600px',
+          maxWidth: '420px',
           margin: 'auto',
-          maxHeight: '40vh',
+          maxHeight: '30vh',
           border: '3px solid rgb(var(--yellow))',
+          overflowY: 'auto',
         },
       }}
     >
@@ -58,7 +59,7 @@ const StyledProjectDetails = styled.div`
   flex-direction: column;
   gap: 2.5rem;
   font-size: 1.6rem;
-  padding: 1rem;
+  padding: 2rem;
 `;
 
 const CloseIcon = styled.button`
