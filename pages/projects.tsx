@@ -8,16 +8,22 @@ import { media } from 'utils/media';
 import Filters from 'views/ProjectPage/Filters';
 import ProjectCard from 'views/ProjectPage/ProjectCard';
 
+
+
 export default function ProjectsPage() {
   const [projects, setProjects] = useState<ProjectsData[]>([]);
+  const [tags, setTags] = useState<Array<string>>([]);
   const [filteredProjects, setFilteredProjects] = useState<ProjectsData[]>([]);
   const [loading, setLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState('');
 
   const getRepos = async () => {
     try {
-      const { data } = await axiosInstance.get('/repo/getrepos');
-      setProjects(data.data);
+      const reposData = axiosInstance.get('/repo/getrepos');      const stacksData = axiosInstance.get('/repo/gettags')
+      const [{ data: repos }, { data: stacks }] = await Promise.all([reposData, stacksData])
+
+      setProjects(repos.data)
+      // setTags(stacks.data);
       setLoading(false);
     } catch (err) {
       console.log(err);
@@ -60,7 +66,7 @@ export default function ProjectsPage() {
                   Our <span style={{ color: 'rgb(var(--yellow))' }}>Projects</span>
                 </Heading>
                 <Event>
-                  APERTRE <span style={{ color: 'rgb(var(--yellow))' }}>&apos; 24</span>
+                  APERTRE <span style={{ color: 'rgb(var(--yellow))' }}>&apos;24</span>
                 </Event>
               </ProjectsHeader>
               <Filters onFilterChange={handleFilterChange} />
