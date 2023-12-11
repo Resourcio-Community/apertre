@@ -14,7 +14,7 @@ export default function Hero() {
         <ParticlesBackground/>
 
         <Content>
-          <Heading>An <span style={{ color: '#fbce1f' }}>Open Source</span> Event</Heading>
+          <Heading>An <span style={{ color: 'rgb(var(--yellow))' }}>Open Source</span> Event</Heading>
           <Heading3>Presented By</Heading3>
 
           <ImageContainer>
@@ -222,7 +222,7 @@ const Duration = styled.div`
 
 const Span = styled.span`
   width: 56%; 
-  border: 1px solid #fbce1f;
+  border: 1px solid rgb(var(--yellow));
 
   ${media('<=tablet')} {
     width: 110%;

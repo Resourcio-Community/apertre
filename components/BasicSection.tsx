@@ -21,12 +21,12 @@ export default function BasicSection({ imageUrl, title, overTitle, reversed, chi
       </ImageContainer>
       <ContentContainer>
         <CustomOverTitle>
-          <span style={{ color: '#fbce1f', fontSize: '2rem', marginRight: '1rem' }}>&#8605;</span>
+          <span style={{ color: 'rgb(var(--yellow))', fontSize: '2rem', marginRight: '1rem' }}>&#8605;</span>
           {overTitle}
         </CustomOverTitle>
         <Title>
           {title.split(' ')[0]} &nbsp;
-          <span style={{ color: '#fbce1f' }}>{title.split(' ')[1]}</span>
+          <span style={{ color: 'rgb(var(--yellow))' }}>{title.split(' ')[1]}</span>
         </Title>
         <RichText>{children}</RichText>
       </ContentContainer>

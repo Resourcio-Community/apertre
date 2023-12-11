@@ -70,7 +70,6 @@ const SPONSORS = [
 export default function Sponsors() {
   return (
     <Stack id='sponsors'>
-    
       { <OverTitle>
         <span style={{ color: '#fbce1f', fontSize: '2rem', marginRight: '1rem' }}>&#8605;</span>
         &ldquo;Open source is about collaborating; not competing.&rdquo; - Kelsey Hightower

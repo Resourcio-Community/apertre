@@ -35,6 +35,7 @@ export const GlobalStyle = createGlobalStyle`
   --primary: 22,115,255; 
   --secondary: 10,18,30;
   --tertiary: 231,241,251;
+  --yellow: 251,206,31;
   --cardBackground: 45,55,72;
   --inputBackground: 45,55,72;
   --navbarBackground: 4,3,1;

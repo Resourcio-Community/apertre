@@ -1,23 +1,19 @@
-import React from 'react';
+import { PropsWithChildren } from 'react';
 import styled from 'styled-components';
 import ReactModal from 'react-modal';
-import { FiX } from 'react-icons/fi';
+import { FiX, FiGithub } from 'react-icons/fi';
 
 interface ProjectDetailsModalProps {
   isOpen: boolean;
   onRequestClose: () => void;
   project: {
-    title: string;
-    description: string;
-    repoUrl: string;
+    projectName: string;
+    projectDesc: string;
+    projectLink: string;
   };
 }
 
-const ProjectDetailsModal: React.FC<ProjectDetailsModalProps> = ({
-  isOpen,
-  onRequestClose,
-  project,
-}) => {
+export default function ProjectDetailsModal({ isOpen, onRequestClose, project }: PropsWithChildren<ProjectDetailsModalProps>) {
   return (
     <ReactModal
       isOpen={isOpen}
@@ -25,31 +21,33 @@ const ProjectDetailsModal: React.FC<ProjectDetailsModalProps> = ({
       contentLabel="Project Details"
       style={{
         overlay: {
-          backgroundColor: 'rgba(0, 0, 0, 0.9)',
+          backgroundColor: 'rgba(0, 0, 0, 0.92)',
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
         },
         content: {
-          backgroundColor: 'rgba(0, 0, 0, 0.5)',
-          padding: '20px',
+          backgroundColor: 'rgba(223, 229, 226)',
+          color: 'black',
           borderRadius: '12px',
           width: '80%',
-          maxWidth: '600px',
+          maxWidth: '420px',
           margin: 'auto',
-          maxHeight: '40vh',
-          border: '2px solid rgba(var(--primary))',
+          maxHeight: '30vh',
+          border: '3px solid rgb(var(--yellow))',
+          overflowY: 'auto',
         },
       }}
     >
       <StyledProjectDetails>
         <CloseIcon onClick={onRequestClose}>
-          <FiX />
+          <FiX style={{ color: 'red', fontSize: '2rem'}} />
         </CloseIcon>
-        <h2>{project.title}</h2>
-        <p>{project.description}</p>
-        <GitHubLink href={project.repoUrl} target="_blank" rel="noopener noreferrer">
-          Repository Link
+        <h2>{project.projectName}</h2>
+        <p>{project.projectDesc}</p>
+        <GitHubLink href={project.projectLink} target="_blank" rel="noopener noreferrer">
+          <FiGithub style={{ marginRight: '8px', color: 'black' }} />
+          GitHub
         </GitHubLink>
       </StyledProjectDetails>
     </ReactModal>
@@ -57,8 +55,11 @@ const ProjectDetailsModal: React.FC<ProjectDetailsModalProps> = ({
 };
 
 const StyledProjectDetails = styled.div`
-  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
   font-size: 1.6rem;
+  padding: 2rem;
 `;
 
 const CloseIcon = styled.button`
@@ -71,16 +72,15 @@ const CloseIcon = styled.button`
   cursor: pointer;
   color: #fff;
 `;
+
 const GitHubLink = styled.a`
-  color: #fbce1f;
+  color: rgba(var(--primary), 0.9);
   text-decoration: none;
   font-size: 1.5rem;
-  display: block;
-  margin-top: 10px;
-
+  display: flex;
+  align-items: center;
+  
   &:hover {
-    color: rgba(var(--primary), 0.9);
+    color: black;
   }
 `;
-
-export default ProjectDetailsModal;

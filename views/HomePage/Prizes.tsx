@@ -37,10 +37,10 @@ export default function PricingTablesSection() {
   return (
     <Stack id="prizes">
       <OverTitle>
-        <span style={{ color: '#fbce1f', fontSize: '2rem', marginRight: '1rem' }}>&#8605;</span>
+        <span style={{ color: 'rgb(var(--yellow))', fontSize: '2rem', marginRight: '1rem' }}>&#8605;</span>
         &ldquo;Open source is about collaborating; not competing.&rdquo; - Kelsey Hightower
       </OverTitle>
-      <SectionTitle style={{ color: '#fbce1f' }}>Prizes</SectionTitle>
+      <SectionTitle style={{ color: 'rgb(var(--yellow))' }}>Prizes</SectionTitle>
       <CustomAutofitGrid>
         <PrizesCard title="2nd" benefits={mentorBenefits}>
           <img src="/prizes/second-icon.svg" />

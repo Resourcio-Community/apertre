@@ -78,7 +78,7 @@ const Title = styled.h3`
   margin-bottom: 2rem;
   text-align: center;
   opacity: 0.8;
-  color: #fbce1f;
+  color: rgb(var(--yellow));
 
   ${media('<=desktop')} {
     line-height: 1.5;
