@@ -31,7 +31,8 @@ const Card = styled.div`
   
   border: 1px solid #fbce1f;
   border-radius: 50%;
-  color: rgb(var(--text));
+  
+  
   font-size: 1.6rem;
 
   & > *:not(:first-child) {
