@@ -135,6 +135,5 @@ const PredictiveResultItem = styled.div`
   &:hover {
     background-color: rgba(var(--text), 0.5);
   }
-`;
 
-export default Filters;
+`;

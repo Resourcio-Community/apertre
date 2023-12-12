@@ -1,5 +1,5 @@
 import Fuse from 'fuse.js';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { BeatLoader } from 'react-spinners';
 import styled from 'styled-components';
 import axiosInstance from 'config/axiosInstance';
@@ -9,7 +9,6 @@ import Filters from 'views/ProjectPage/Filters';
 import ProjectCard from 'views/ProjectPage/ProjectCard';
 
 
-
 export default function ProjectsPage() {
   const [projects, setProjects] = useState<ProjectsData[]>([]);
   const [tags, setTags] = useState<Array<string>>([]);
@@ -17,22 +16,25 @@ export default function ProjectsPage() {
   const [loading, setLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState('');
 
-  const getRepos = async () => {
+  const getReposAndTags = async () => {
     try {
-      const reposData = axiosInstance.get('/repo/getrepos');      const stacksData = axiosInstance.get('/repo/gettags')
+      const reposData = axiosInstance.get('/repo/getrepos');     
+      const stacksData = axiosInstance.get('/repo/gettags')
       const [{ data: repos }, { data: stacks }] = await Promise.all([reposData, stacksData])
 
       setProjects(repos.data)
       // setTags(stacks.data);
-      setLoading(false);
     } catch (err) {
       console.log(err);
     }
-  };
+    finally {
+       setLoading(false);
+    }
+  }
 
   useEffect(() => {
-    getRepos();
-  }, []);
+    getReposAndTags()
+  }, [])
 
   useEffect(() => {
     setFilteredProjects(projects); 
@@ -85,6 +87,7 @@ export default function ProjectsPage() {
     </>
   );
 }
+
 
 const FullPage = styled.div`
   height: 100vh;
@@ -151,6 +154,13 @@ const Heading = styled.span`
     font-size: 4.3rem;
   }
 `;
+const Event = styled.span`
+  font-size: 4rem;
+
+  ${media('<=tablet')} {
+    font-size: 3rem;
+  }
+`;
 
 const Event = styled.span`
   font-size: 4rem;
@@ -159,3 +169,4 @@ const Event = styled.span`
     font-size: 3rem;
   }
 `;
+
