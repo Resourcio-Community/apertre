@@ -1,4 +1,4 @@
-import React, { useState, ReactNode, useRef, useEffect } from 'react';
+import { useState, ReactNode, useRef, useEffect, PropsWithChildren } from 'react';
 import styled from 'styled-components';
 import { FiSearch } from 'react-icons/fi';
 import Fuse from 'fuse.js';
@@ -8,7 +8,7 @@ interface FiltersProps {
   children?: ReactNode;
 }
 
-const Filters: React.FC<FiltersProps> = ({ onFilterChange, children }) => {
+export default function Filters ({ onFilterChange, children }: PropsWithChildren<FiltersProps>) {
   const [searchQuery, setSearchQuery] = useState('');
   const [predictiveResults, setPredictiveResults] = useState<string[]>([]);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
