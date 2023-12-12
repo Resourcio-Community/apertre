@@ -161,12 +161,3 @@ const Event = styled.span`
     font-size: 3rem;
   }
 `;
-
-const Event = styled.span`
-  font-size: 4rem;
-
-  ${media('<=tablet')} {
-    font-size: 3rem;
-  }
-`;
-
