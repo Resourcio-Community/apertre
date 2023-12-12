@@ -11,6 +11,7 @@ interface FiltersProps {
 
 export default function Filters({ onFilterChange, children, tags }: PropsWithChildren<FiltersProps>) {
   const [searchQuery, setSearchQuery] = useState('');
+  const [selectedTechStack, setSelectedTechStack] = useState<string | null>(null);
   const [predictiveResults, setPredictiveResults] = useState<string[]>([]);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -20,13 +21,25 @@ export default function Filters({ onFilterChange, children, tags }: PropsWithChi
     setSearchQuery(query);
     onFilterChange(query);
 
-    const options = {
-      keys: ['name'],
-    };
-    const fuse = new Fuse(tags, options);
-    const result = fuse.search(query);
+    if (!selectedTechStack && query.trim() === '') {
+      onFilterChange('');
+    } else if (!selectedTechStack) {
+      const options = {
+        keys: ['name'],
+        threshold: 0.2,
+      };
+      const fuse = new Fuse(tags, options);
+      const result = fuse.search(query);
 
-    setPredictiveResults(result.map((item) => item.item));
+      setPredictiveResults(result.map((item) => item.item));
+    }
+  };
+
+  const handlePredictiveItemClick = (item: string) => {
+    setSelectedTechStack(item);
+    onFilterChange(item);
+    setSearchQuery(item);
+    setIsDropdownOpen(false);
   };
 
   const handleClickOutside = (e: MouseEvent) => {
@@ -48,9 +61,13 @@ export default function Filters({ onFilterChange, children, tags }: PropsWithChi
       <SearchInput
         type="text"
         placeholder="Search"
-        value={searchQuery}
+        value={selectedTechStack ? selectedTechStack : searchQuery}
         onChange={handleSearchChange}
-        onFocus={() => setIsDropdownOpen(true)}
+        onFocus={() => {
+          setSelectedTechStack(null);
+          setSearchQuery('');
+          setIsDropdownOpen(true);
+        }}
       />
       <SearchIconContainer>
         <StyledSearchIcon />
@@ -60,10 +77,7 @@ export default function Filters({ onFilterChange, children, tags }: PropsWithChi
           {predictiveResults.map((result, index) => (
             <PredictiveResultItem
               key={index}
-              onClick={() => {
-                onFilterChange(result);
-                setIsDropdownOpen(false);
-              }}
+              onClick={() => handlePredictiveItemClick(result)}
             >
               {result}
             </PredictiveResultItem>
@@ -73,7 +87,7 @@ export default function Filters({ onFilterChange, children, tags }: PropsWithChi
       {children}
     </SearchContainer>
   );
-};
+}
 
 const SearchContainer = styled.div`
   position: relative;
@@ -95,8 +109,8 @@ const SearchInput = styled.input`
 `;
 
 const SearchIconContainer = styled.div`
-margin-left: 10px;
-color: rgba(var(--text));
+  margin-left: 10px;
+  color: rgba(var(--text));
 `;
 
 const StyledSearchIcon = styled(FiSearch)`
@@ -120,7 +134,7 @@ const PredictiveResults = styled.div`
   z-index: 1;
   text-align: center;
   font-size: 16px;
-  padding: 8px; 
+  padding: 8px;
 `;
 
 const PredictiveResultItem = styled.div`
@@ -130,5 +144,4 @@ const PredictiveResultItem = styled.div`
   &:hover {
     background-color: rgba(var(--text), 0.5);
   }
-
 `;

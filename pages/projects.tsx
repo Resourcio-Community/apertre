@@ -45,6 +45,7 @@ export default function ProjectsPage() {
     setSearchQuery(query);
     const options = {
       keys: ['techStack'],
+      threshold: 0.1,
     };
     const fuse = new Fuse(projects, options);
     const result = fuse.search(query);
