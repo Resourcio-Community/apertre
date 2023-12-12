@@ -23,8 +23,9 @@ export default function ProjectsPage() {
       const [{ data: repos }, { data: stacks }] = await Promise.all([reposData, stacksData])
 
       setProjects(repos.data)
-      // setTags(stacks.data);
-    } catch (err) {
+      setTags(stacks.data);
+    }
+    catch (err) {
       console.log(err);
     }
     finally {
@@ -71,7 +72,7 @@ export default function ProjectsPage() {
                   APERTRE <span style={{ color: 'rgb(var(--yellow))' }}>&apos;24</span>
                 </Event>
               </ProjectsHeader>
-              <Filters onFilterChange={handleFilterChange} />
+              <Filters onFilterChange={handleFilterChange} tags={tags} />
             </WhiteBackgroundContainer>
           </ProjectsWrapper>
 

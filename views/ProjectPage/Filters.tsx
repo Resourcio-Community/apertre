@@ -1,4 +1,4 @@
-import { useState, ReactNode, useRef, useEffect, PropsWithChildren } from 'react';
+import React, { useState, ReactNode, useRef, useEffect, PropsWithChildren } from 'react';
 import styled from 'styled-components';
 import { FiSearch } from 'react-icons/fi';
 import Fuse from 'fuse.js';
@@ -6,9 +6,10 @@ import Fuse from 'fuse.js';
 interface FiltersProps {
   onFilterChange: (query: string) => void;
   children?: ReactNode;
+  tags: Array<string>;
 }
 
-export default function Filters ({ onFilterChange, children }: PropsWithChildren<FiltersProps>) {
+export default function Filters({ onFilterChange, children, tags }: PropsWithChildren<FiltersProps>) {
   const [searchQuery, setSearchQuery] = useState('');
   const [predictiveResults, setPredictiveResults] = useState<string[]>([]);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -19,16 +20,10 @@ export default function Filters ({ onFilterChange, children }: PropsWithChildren
     setSearchQuery(query);
     onFilterChange(query);
 
-    const exampleData = [
-      'HTML', 'CSS', 'JavaScript', 'TypeScript', 'Tailwind', 'SpringBoot', 'Kotlin',
-      'React', 'NextJS', 'Python', 'Java', 'Rust', 'SaSS', 'NodeJS', 'Express',
-      'MongoDB', 'Bootstrap', 'ML', 'Flutter', 'Django', 'Material UI', 'MySQL'
-    ];
-
     const options = {
       keys: ['name'],
     };
-    const fuse = new Fuse(exampleData, options);
+    const fuse = new Fuse(tags, options);
     const result = fuse.search(query);
 
     setPredictiveResults(result.map((item) => item.item));

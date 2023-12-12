@@ -33,7 +33,7 @@ export default function ProjectDetailsModal({ isOpen, onRequestClose, project }:
           width: '80%',
           maxWidth: '420px',
           margin: 'auto',
-          maxHeight: '30vh',
+          maxHeight: '40vh',
           border: '3px solid rgb(var(--yellow))',
           overflowY: 'auto',
         },
