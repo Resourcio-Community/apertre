@@ -6,12 +6,13 @@ interface RoundCardProps {
   title: string;
   description: string;
   imageUrl: string;
+  image:object;
 }
 
-export default function RoundCard({ title, description, imageUrl }: RoundCardProps) {
+export default function RoundCard({ title, description, imageUrl,image }: RoundCardProps) {
   return (
     <Card>
-      <NextImage src={imageUrl} width={128} height={128} alt={title} />
+      <NextImage src={imageUrl} width={image.width} height={image.height} alt={title} />
       <Title>{title}</Title>
       <Description>{description || "\u00A0"}</Description>
     </Card>
@@ -20,16 +21,17 @@ export default function RoundCard({ title, description, imageUrl }: RoundCardPro
 
 const Card = styled.div`
   display: flex;
-  padding: 2.5rem;
+  padding: 2.9rem;
   background: rgb(var(--cardBackground));
   box-shadow: var(--shadow-md);
   flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 100%;
-  border: 1px solid rgb(var(--yellow));
+  border: 1px solid #fbce1f;
   border-radius: 50%;
-  color: rgb(var(--text));
+  
+  
   font-size: 1.6rem;
 
   & > *:not(:first-child) {
@@ -45,8 +47,8 @@ const Card = styled.div`
 
 const Title = styled.div`
   font-size: 2rem;
-  color: rgb(var(--yellow));
-
+  color: #fbce1f;
+  text-align:center;
   ${media('<=tablet')} {
     font-size: 1.6rem;
   }

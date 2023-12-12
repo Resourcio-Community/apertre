@@ -11,7 +11,7 @@ import { NavItems } from 'types';
 const navItems: NavItems = [
   { title: 'About', href: '/#about' },
   { title: 'Projects', href: '/projects' },
-  { title: 'Sponsors', href: '/#sponsors' },
+   { title: 'Sponsors', href: '/#sponsors' },
   // { title: 'Leaderboard', href: '/leaderboard' },
   { title: 'FAQ', href: '/#faq' },
   { title: 'Contact', href: '/contact' }
