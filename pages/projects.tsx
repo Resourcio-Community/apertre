@@ -1,12 +1,12 @@
 import Fuse from 'fuse.js';
 import { useEffect, useState } from 'react';
-import { BeatLoader } from 'react-spinners';
 import styled from 'styled-components';
 import axiosInstance from 'config/axiosInstance';
 import { ProjectsData } from 'models/project.model';
 import { media } from 'utils/media';
 import Filters from 'views/ProjectPage/Filters';
 import ProjectCard from 'views/ProjectPage/ProjectCard';
+import Loader from 'components/Loader';
 
 
 export default function ProjectsPage() {
@@ -18,7 +18,7 @@ export default function ProjectsPage() {
 
   const getReposAndTags = async () => {
     try {
-      const reposData = axiosInstance.get('/repo/getrepos');     
+      const reposData = axiosInstance.get('/repo/getrepos');
       const stacksData = axiosInstance.get('/repo/gettags')
       const [{ data: repos }, { data: stacks }] = await Promise.all([reposData, stacksData])
 
@@ -29,7 +29,7 @@ export default function ProjectsPage() {
       console.log(err);
     }
     finally {
-       setLoading(false);
+      setLoading(false);
     }
   }
 
@@ -38,7 +38,7 @@ export default function ProjectsPage() {
   }, [])
 
   useEffect(() => {
-    setFilteredProjects(projects); 
+    setFilteredProjects(projects);
   }, [projects]);
 
   const handleFilterChange = (query: string) => {
@@ -55,10 +55,7 @@ export default function ProjectsPage() {
     <>
       {loading ? (
         <FullPage>
-          <Loader>
-            <BeatLoader color="rgba(var(--primary))" size={15} margin={2} />
-            <LoadingText>Loading...</LoadingText>
-          </Loader>
+          <Loader />
         </FullPage>
       ) : (
         <>
@@ -95,16 +92,6 @@ const FullPage = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-`;
-
-const Loader = styled.div`
-  text-align: center;
-`;
-
-const LoadingText = styled.div`
-  margin-top: 10px;
-  font-size: 2rem;
-  color: rgba(var(--text));
 `;
 
 const ProjectsWrapper = styled.div`
