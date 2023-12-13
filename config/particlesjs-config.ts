@@ -1,7 +1,11 @@
 import type { ISourceOptions } from 'tsparticles-engine';
 
 // Config by Raja & Abhirup
-const particlesConfig: ISourceOptions = {
+export const ParticlesConfig: ISourceOptions = {
+  fpsLimit: 60,
+  pauseOnOutsideViewport: true,
+  smooth: true,
+  detectRetina: true,
   particles: {
     number: {
       value: 80,
@@ -11,40 +15,23 @@ const particlesConfig: ISourceOptions = {
       },
     },
     color: {
-      value: '#ffffff',
-    },
-    shape: {
-      type: 'circle',
-      stroke: {
-        width: 0,
-        color: '#000000',
-      },
-      polygon: {
-        nb_sides: 5,
-      },
-      image: {
-        src: 'img/github.svg',
-        width: 100,
-        height: 100,
-      },
+      value: '#dfabbf',
     },
     opacity: {
       value: 0.5,
       random: false,
-      anim: {
+      animation: {
         enable: false,
         speed: 1,
-        opacity_min: 0.1,
         sync: false,
       },
     },
     size: {
       value: 2,
       random: true,
-      anim: {
+      animation: {
         enable: false,
         speed: 40,
-        size_min: 0.1,
         sync: false,
       },
     },
@@ -65,19 +52,21 @@ const particlesConfig: ISourceOptions = {
       bounce: false,
       attract: {
         enable: false,
-        rotateX: 600,
-        rotateY: 1200,
+        rotate: {
+          x: 600,
+          y: 1200,
+        }
       },
     },
   },
   interactivity: {
     detect_on: 'canvas',
     events: {
-      onhover: {
+      onHover: {
         enable: true,
         mode: 'repulse',
       },
-      onclick: {
+      onClick: {
         enable: true,
         mode: 'push',
       },
@@ -109,7 +98,4 @@ const particlesConfig: ISourceOptions = {
       },
     },
   },
-  retina_detect: true,
 };
-
-export default particlesConfig;
