@@ -12,76 +12,76 @@ const SPONSORS = [
     imageUrl: '/static/sponsors/asset-1.svg',
     title: 'Cloud Native Computing Foundation',
     description: 'Diamond Sponsor',
-    image:{
-      
-      width:230,
-      height:120
+    image: {
+      width: 230,
+      height: 120
     }
   },
   {
     imageUrl: '/static/sponsors/asset-5.svg',
     title: 'Quine',
-    description: 'Diamond Sponser',
-    image:{
-      width:140,
-      height:140
+    description: 'Diamond Sponsor',
+    image: {
+      width: 140,
+      height: 140
     }
   },
   {
     imageUrl: '/static/sponsors/asset-6.svg',
     title: 'Project X',
-    description: 'Gold Sponser',
-    image:{
-      width:140,
-      height:140
+    description: 'Gold Sponsor',
+    image: {
+      width: 140,
+      height: 140
     }
   },
   {
     imageUrl: '/static/sponsors/asset-2.svg',
     title: 'Rise In',
     description: 'Silver Sponsor',
-    image:{
-      width:140,
-      height:112
+    image: {
+      width: 140,
+      height: 112
     }
   },
   {
     imageUrl: '/static/sponsors/asset-3.svg',
     title: 'Give My Certificate',
     description: 'Certificate Sponsor',
-    image:{
-      width:420,
-      height:80
+    image: {
+      width: 420,
+      height: 80
     }
   },
   {
     imageUrl: '/static/sponsors/asset-4.svg',
     title: 'Dimension Labs',
-    description: 'Gifts Sponser',
-    image:{
-      width:320,
-      height:60,
-      padding:0
+    description: 'Gift Sponsor',
+    image: {
+      width: 320,
+      height: 60,
+      padding: 0
     }
   },
-  
+
 
 ];
 
 export default function Sponsors() {
   return (
     <Stack id='sponsors'>
-    
-      { <OverTitle>
+      {
+        <OverTitle>
         <span style={{ color: '#fbce1f', fontSize: '2rem', marginRight: '1rem' }}>&#8605;</span>
         &ldquo;Open source is about collaborating; not competing.&rdquo; - Kelsey Hightower
-      </OverTitle> }
+        </OverTitle>
+      }
       <SectionTitle>Our <span style={{ color: '#fbce1f' }}>Sponsors</span></SectionTitle>
       <CustomAutofitGrid>
-        
-        
-        {SPONSORS.map((sponser,idx)=>(
-          <RoundCard key={idx} {...sponser}/>
+
+
+        {SPONSORS.map((sponser, idx) => (
+          <RoundCard key={idx} {...sponser} />
         ))}
 
       </CustomAutofitGrid>
