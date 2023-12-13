@@ -63,8 +63,6 @@ const SPONSORS = [
       padding: 0
     }
   },
-
-
 ];
 
 export default function Sponsors() {
