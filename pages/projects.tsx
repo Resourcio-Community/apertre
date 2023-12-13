@@ -1,12 +1,12 @@
 import Fuse from 'fuse.js';
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
+import Loader from 'components/Loader';
 import axiosInstance from 'config/axiosInstance';
 import { ProjectsData } from 'models/project.model';
 import { media } from 'utils/media';
-//import Filters from 'views/ProjectPage/Filters';
+import Filters from 'views/ProjectPage/Filters';
 import ProjectCard from 'views/ProjectPage/ProjectCard';
-import Loader from 'components/Loader';
 
 
 export default function ProjectsPage() {
