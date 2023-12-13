@@ -1,4 +1,4 @@
-import React, { PropsWithChildren, useState } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { media } from 'utils/media';
 import ProjectDetailsModal from './ProjectDetailsModal';
@@ -9,7 +9,7 @@ interface ProjectCardProps {
   project: ProjectsData
 }
 
-export default function ProjectCard({ project }: PropsWithChildren<ProjectCardProps>) {
+export default function ProjectCard({ project }: ProjectCardProps) {
   const [isDetailsModalOpen, setIsDetailsModalOpen] = useState(false);
 
   const toggleDetailsModal = () => {
