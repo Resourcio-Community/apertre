@@ -6,7 +6,7 @@ import { media } from 'utils/media';
 import OverTitle from 'components/OverTitle';
 import SectionTitle from 'components/SectionTitle';
 
-const FEATURES = [
+const EVENTS = [
   {
     imageUrl: '/static/event/mentee.webp',
     title: 'Start your Journey',
@@ -51,8 +51,8 @@ export default function JoinEvent() {
         <SectionTitle>Join <span style={{ color: 'rgb(var(--yellow))' }}>Apertre</span></SectionTitle>
 
         <CustomAutofitGrid>
-          {FEATURES.map((singleFeature, idx) => (
-            <BasicCard key={idx} {...singleFeature} />
+          {EVENTS.map((event, idx) => (
+            <BasicCard key={idx} {...event} />
           ))}
         </CustomAutofitGrid>
       </Stack>

@@ -13,7 +13,7 @@ interface ProjectDetailsModalProps {
   };
 }
 
-export default function ProjectDetailsModal({ isOpen, onRequestClose, project }: PropsWithChildren<ProjectDetailsModalProps>) {
+export default function ProjectDetailsModal({ isOpen, onRequestClose, project }: ProjectDetailsModalProps) {
   return (
     <ReactModal
       isOpen={isOpen}
