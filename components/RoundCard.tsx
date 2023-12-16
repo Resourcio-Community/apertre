@@ -1,64 +1,102 @@
 import NextImage from 'next/image';
 import styled from 'styled-components';
-import { media } from 'utils/media';
 
-interface RoundCardProps {
-  title: string;
-  description: string;
+interface Image {
   imageUrl: string;
-  image: {
-    width: number;
-    height: number;
-    
-  };
+  width: number;
+  height: number;
 }
 
-export default function RoundCard({ title, description, imageUrl,image }: RoundCardProps) {
+interface RoundCardProps {
+  title?: string;
+  description: string;
+  images: Image[];
+  priority: number;
+}
+
+export default function RoundCard({ title, description, images, priority }: RoundCardProps) {
   return (
-    <Card>
-      <NextImage src={imageUrl} width={image.width} height={image.height}  alt={title} />
+    <Card priority={priority}>
+      {images.map((image, index) => (
+        <NextImage key={index} src={image.imageUrl} width={image.width} height={image.height} alt={title || ''} />
+      ))}
       <Title>{title}</Title>
-      <Description>{description || "\u00A0"}</Description>
+      <Description style={{ color: 'black' }}>{description}</Description>
     </Card>
   );
 }
 
-const Card = styled.div`
+const getCardStyle = (priority: number) => {
+  switch (priority) {
+    case 1: // Diamond
+      return `
+        width: 100%;
+      `;
+    case 2: // Gold
+      return `
+        width: 80%;
+      `;
+    case 3: // Silver
+      return `
+        width: 100%;
+        height: 80%;
+      `;
+    case 4: // Certificate
+      return `
+        width: 100%;
+      `;
+    case 5: // Gift
+      return `
+        width: 80%;
+        height: 150%;
+      `;
+    default:
+      return '';
+  }
+};
+
+const Card = styled.div<{ priority: number }>`
   display: flex;
-  padding:6rem;
-  background: rgb(var(--cardBackground));
+  padding: 1rem;
+  background: white;
   box-shadow: var(--shadow-md);
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100%;
-  
   border: 1px solid #fbce1f;
-  border-radius: 50%;
-  
-  
+  border-radius: 15px;
   font-size: 1.6rem;
+  margin: 0 200px; 
 
   & > *:not(:first-child) {
     margin-top: 1rem;
   }
 
-  ${media('<=tablet')} {
-    border-radius: 48%;
-    font-size: 1.5rem;
-    padding: 4rem;
+  ${(props) => getCardStyle(props.priority)}
+
+  @media (max-width: 768px) {
+    margin: 0;
   }
+
+  ${({ priority }) =>
+    priority === 4 &&
+    `
+    margin-top: -80px; 
+  `}
+  ${({ priority }) =>
+    priority === 3 &&
+    `
+    margin-bottom: -20px; 
+  `}
 `;
 
 const Title = styled.div`
   font-size: 2rem;
   color: #fbce1f;
-  text-align:center;
-  ${media('<=tablet')} {
-    font-size: 1.6rem;
-  }
+  opacity: 0.9;
 `;
 
 const Description = styled.div`
-  opacity: 0.6;
+  opacity: 0.8;
+  font-size: 1.8rem;
 `;
