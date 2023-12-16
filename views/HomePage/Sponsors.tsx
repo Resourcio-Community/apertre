@@ -1,103 +1,131 @@
 import React from 'react';
 import styled from 'styled-components';
 import AutofitGrid from 'components/AutofitGrid';
-//import Container from 'components/Container';
 import RoundCard from 'components/RoundCard';
 import { media } from 'utils/media';
 import SectionTitle from 'components/SectionTitle';
-import OverTitle from 'components/OverTitle';
 
 const SPONSORS = [
   {
-    imageUrl: '/static/sponsors/asset-1.svg',
-    title: 'Cloud Native Computing Foundation',
-    description: 'Diamond Sponsor',
-    image: {
-      width: 230,
-      height: 120
-    }
-  },
-  {
-    imageUrl: '/static/sponsors/asset-5.svg',
-    title: 'Quine',
-    description: 'Diamond Sponsor',
-    image: {
-      width: 140,
-      height: 140
-    }
-  },
-  {
-    imageUrl: '/static/sponsors/asset-6.svg',
-    title: 'Project X',
-    description: 'Gold Sponsor',
-    image: {
-      width: 140,
-      height: 140
-    }
-  },
-  {
-    imageUrl: '/static/sponsors/asset-2.svg',
     title: 'Rise In',
     description: 'Silver Sponsor',
-    image: {
-      width: 140,
-      height: 112
-    }
+    images: [
+      {
+        imageUrl: '/static/sponsors/asset-2.svg',
+        width: 150,
+        height: 190,
+      },
+    ],
+    priority: 3,
   },
   {
-    imageUrl: '/static/sponsors/asset-3.svg',
+    title: 'Project X',
+    description: 'Gold Sponsor',
+    images: [
+      {
+        imageUrl: '/static/sponsors/asset-6.svg',
+        width: 150,
+        height: 200,
+      },
+    ],
+    priority: 2,
+  },
+  {
+    description: 'Diamond Sponsor',
+    images: [
+      {
+        imageUrl: '/static/sponsors/asset-1.svg',
+        width: 300,
+        height: 120,
+      },
+      {
+        imageUrl: '/static/sponsors/asset-5.svg',
+        width: 140,
+        height: 140,
+      },
+    ],
+    priority: 1,
+  },
+  {
+    description: 'Gift Sponsor',
+    images: [
+      {
+        imageUrl: '/static/sponsors/asset-4.svg',
+        width: 500,
+        height: 30,
+      },
+      {
+        imageUrl: '/static/sponsors/asset-7.svg',
+        width: 520,
+        height: 140,
+      },
+    ],
+    priority: 5,
+  },
+  {
     title: 'Give My Certificate',
     description: 'Certificate Sponsor',
-    image: {
-      width: 420,
-      height: 80
-    }
-  },
-  {
-    imageUrl: '/static/sponsors/asset-4.svg',
-    title: 'Dimension Labs',
-    description: 'Gift Sponsor',
-    image: {
-      width: 320,
-      height: 60,
-      padding: 0
-    }
+    images: [
+      {
+        imageUrl: '/static/sponsors/asset-3.svg',
+        width: 420,
+        height: 50,
+      },
+    ],
+    priority: 4,
   },
 ];
 
 export default function Sponsors() {
+  const diamondSponsors = SPONSORS.filter((sponsor) => sponsor.priority === 1);
+  const goldSponsor = SPONSORS.find((sponsor) => sponsor.priority === 2);
+  const silverSponsor = SPONSORS.find((sponsor) => sponsor.priority === 3);
+  const giftSponsor = SPONSORS.find((sponsor) => sponsor.priority === 5);
+  const certificateSponsor = SPONSORS.find((sponsor) => sponsor.priority === 4);
+
   return (
-    <Stack id='sponsors'>
-      {
-        <OverTitle>
-        <span style={{ color: '#fbce1f', fontSize: '2rem', marginRight: '1rem' }}>&#8605;</span>
-        &ldquo;Open source is about collaborating; not competing.&rdquo; - Kelsey Hightower
-        </OverTitle>
-      }
-      <SectionTitle>Our <span style={{ color: '#fbce1f' }}>Sponsors</span></SectionTitle>
+    <Stack id="sponsors">
+      <SectionTitle>
+        Our <span style={{ color: '#fbce1f' }}>Sponsors</span>
+      </SectionTitle>
       <CustomAutofitGrid>
-
-
-        {SPONSORS.map((sponser, idx) => (
-          <RoundCard key={idx} {...sponser} />
+        {diamondSponsors.map((sponsor, idx) => (
+          <RoundCard key={idx} {...sponsor} />
         ))}
-
+        {goldSponsor && <RoundCard key={goldSponsor.title} {...goldSponsor} />}
+      </CustomAutofitGrid>
+      <CustomAutofitGrid>
+        {silverSponsor && <RoundCard key={silverSponsor.title} {...silverSponsor} />}
+        {giftSponsor && <RoundCard key={giftSponsor.title} {...giftSponsor} />}
+      </CustomAutofitGrid>
+      <CustomAutofitGrid>
+        {certificateSponsor && <RoundCard key={certificateSponsor.title} {...certificateSponsor} />}
       </CustomAutofitGrid>
     </Stack>
   );
 }
 
 const CustomAutofitGrid = styled(AutofitGrid)`
-  --autofit-grid-item-size: 30rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
+  gap: 2rem;
   padding-top: 4rem;
-  
+  max-width: 1200px; 
+  margin: 0 auto; 
+  width: 100%; 
 
   ${media('<=tablet')} {
-    --autofit-grid-item-size: 20rem;
+    grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
   }
 
   ${media('<=phone')} {
-    --autofit-grid-item-size: 100%;
+    grid-template-columns: 1fr;
+  }
+
+  @media (min-width: 768px) {
+    grid-template-areas:
+      'diamond gold'
+      'silver gift'
   }
 `;
 
@@ -106,19 +134,5 @@ const Stack = styled.div`
   flex-direction: column;
   color: rgb(var(--textSecondary));
   align-items: center;
-  
-
-  & > *:not(:first-child) {
-    max-width: 80%;
-    margin-top: 4rem;
-  }
-
-  ${media('<=tablet')} {
-    text-align: center;
-
-    & > *:not(:first-child) {
-      max-width: 100%;
-      margin-top: 2rem;
-    }
-  }
+  justify-content: center; 
 `;
