@@ -45,13 +45,12 @@ const getCardStyle = (priority: number) => {
       return `
         width: 100%;
         height: auto;
-        }
       `;
     case 5: // Gift
       return `
         width: 80%;
         height: 150%;
-
+        
       `;
     default:
       return '';
