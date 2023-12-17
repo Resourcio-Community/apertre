@@ -12,8 +12,13 @@ interface AccordionProps {
 export default function Accordion({ title, isOpen, children }: PropsWithChildren<AccordionProps>) {
   const [hasCollapsed, setHasCollapsed] = useState(!isOpen);
   const isActive = !hasCollapsed;
+
+  const handleAccordionClick = () => {
+    setHasCollapsed((prev) => !prev);
+  };
+
   return (
-    <AccordionWrapper onClick={() => setHasCollapsed((prev) => !prev)}>
+    <AccordionWrapper onClick={handleAccordionClick} isActive={isActive}>
       <TitleWrapper>
         <Title>{title}</Title>
         <Icon isActive={isActive}>
@@ -65,17 +70,22 @@ const Description = styled.div`
   font-weight: normal;
 `;
 
-const AccordionWrapper = styled.div`
+const AccordionWrapper = styled.div<{ isActive: boolean }>`
   display: flex;
   flex-direction: column;
   padding: 2rem 1.5rem;
   background: rgb(var(--cardBackground));
   box-shadow: var(--shadow-md);
-  cursor: pointer;
   border-radius: 0.6rem;
   transition: opacity 0.2s;
+  cursor: pointer;
+  opacity: ${(p) => (p.isActive ? 1 : 0.8)};
 
   ${media('<=desktop')} {
     width: 100%;
+  }
+
+  &:hover {
+    opacity: 0.8;
   }
 `;

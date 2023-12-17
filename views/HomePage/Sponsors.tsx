@@ -122,7 +122,7 @@ const CustomAutofitGrid = styled(AutofitGrid)`
     grid-template-columns: 1fr;
   }
 
-  @media (min-width: 768px) {
+  @media (max-width: 480px) {
     grid-template-areas:
       'diamond gold'
       'silver gift'
