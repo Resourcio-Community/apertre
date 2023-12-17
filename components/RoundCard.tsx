@@ -44,11 +44,13 @@ const getCardStyle = (priority: number) => {
     case 4: // Certificate
       return `
         width: 100%;
+        height: auto;
       `;
     case 5: // Gift
       return `
         width: 80%;
         height: 150%;
+        
       `;
     default:
       return '';
@@ -75,7 +77,7 @@ const Card = styled.div<{ priority: number }>`
   ${(props) => getCardStyle(props.priority)}
 
   @media (max-width: 768px) {
-    margin: 0;
+    margin: 0 20px;
   }
 
   ${({ priority }) =>
