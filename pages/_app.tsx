@@ -2,6 +2,7 @@ import { AppProps } from 'next/dist/shared/lib/router/router';
 import Head from 'next/head';
 import React, { PropsWithChildren } from 'react';
 
+import BackToTopButton from 'components/backtotop';
 import Footer from 'components/Footer';
 import { GlobalStyle } from 'components/GlobalStyles';
 import Navbar from 'components/Navbar';
@@ -33,6 +34,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <Navbar items={navItems} />
         <Component {...pageProps} />
         <Footer />
+        <BackToTopButton />
       </Providers>
     </>
   );
