@@ -95,7 +95,7 @@ export default function Sponsors() {
         {goldSponsor && <RoundCard key={goldSponsor.title} {...goldSponsor} />}
       </CustomAutofitGrid>
       <CustomAutofitGrid>
-        {silverSponsor && <RoundCard key={silverSponsor.title} {...silverSponsor} />}
+        {silverSponsor && <RoundCard key={silverSponsor.title} {...silverSponsor}/>}
         {giftSponsor && <RoundCard key={giftSponsor.title} {...giftSponsor} />}
       </CustomAutofitGrid>
       <CustomAutofitGrid>
@@ -113,16 +113,19 @@ const CustomAutofitGrid = styled(AutofitGrid)`
   max-width: 1200px; 
   margin: 0 auto; 
   width: 100%; 
+  height: fit-content ;
 
   ${media('<=tablet')} {
     grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
+
   }
 
   ${media('<=phone')} {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(1, 1fr);
+
   }
 
-  @media (max-width: 480px) {
+  @media (min-width: 480px) {
     grid-template-areas:
       'diamond gold'
       'silver gift'
