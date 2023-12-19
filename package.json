@@ -11,8 +11,6 @@
   },
   "dependencies": {
     "@accessible/drawer": "^3.0.2",
-    "@fortawesome/free-solid-svg-icons": "^6.5.1",
-    "@fortawesome/react-fontawesome": "^0.2.0",
     "@n8tb1t/use-scroll-position": "^2.0.3",
     "@sendgrid/mail": "^7.7.0",
     "@svgr/webpack": "^8.0.0",
