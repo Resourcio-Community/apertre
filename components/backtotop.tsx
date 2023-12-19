@@ -1,28 +1,39 @@
-import { faArrowUp } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useEffect, useState } from 'react';
+import { PropsWithChildren } from 'react';
 import styled from 'styled-components';
 
 interface ButtonProps {
-    visible: boolean;
+  visible: boolean;
+}
+
+interface LoaderProps {
+  width?: number;
+  height?: number;
 }
 
 const Button = styled.button<ButtonProps>`
-    position: fixed;
-    bottom: 20px;
-    right: 10px;
-    display: ${(props) => (props.visible ? 'block' : 'none')};
-    background-color: black;
-    border: none;
-    border-radius: 100%;
-    height: 40px;
-    width: 40px;
-    padding: 9px;
-    cursor: pointer;
+  position: fixed;
+  bottom: 20px;
+  right: 10px;
+  display: ${(props) => (props.visible ? 'block' : 'none')};
+  background-color: black;
+  border: none;
+  height: 50px;
+  width: 50px;
+  border-radius: 100%;
+  cursor: pointer;
 `;
 
+const ImgContainer = styled.img<LoaderProps>`
+  width: ${(props) => props.width}px;
+  height: ${(props) => props.height}px;
+  position: fixed;
+  bottom: 20px;
+  right: 10px;
+  transform: rotate(-30deg);
+`;
 
-const BackToTopButton: React.FC = () => {
+const BackToTopButton: React.FC<PropsWithChildren<LoaderProps>> = ({ width, height }) => {
   const [isVisible, setIsVisible] = useState(false);
 
   const handleScroll = () => {
@@ -46,7 +57,7 @@ const BackToTopButton: React.FC = () => {
 
   return (
     <Button visible={isVisible} onClick={scrollToTop}>
-      <FontAwesomeIcon icon={faArrowUp} style={{ color: 'white' }}/>
+      <ImgContainer src='/static/assets/rocket.svg' alt="rocket" width={width || 50} height={height || 50} />
     </Button>
   );
 };
