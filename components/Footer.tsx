@@ -69,13 +69,13 @@ export default function Footer() {
           </Div>
         </ListContainer>
         <BottomBar>
-          <Copyright>
-            Copyright &copy; {new Date().getFullYear()} All Rights Reserved
-            <A href="https://www.linkedin.com/showcase/apertre" target="_blank">
-              &nbsp;Apertre
-            </A>
-          </Copyright>
-        </BottomBar>
+         <Copyright>
+           &copy; {new Date().getFullYear()} All Rights Reserved&nbsp;
+           <A href="https://www.linkedin.com/showcase/apertre" target="_blank">
+            Apertre
+           </A>
+        </Copyright>
+     </BottomBar>
       </Container>
     </FooterWrapper>
   );
@@ -118,12 +118,14 @@ const FooterWrapper = styled.div`
   position: relative;
   bottom: 0;
   width: 100%;
-  padding: 8rem 0 4rem 0;
+  /* padding: 8rem 0 4rem 0; */
+  padding: 6rem 0 3rem 0;
   background: #040301;
   color: rgb(var(--textSecondary));
   border-top: 2px solid rgb(var(--yellow));
   z-index: 999;
 `;
+
 
 const ListContainer = styled.div`
   display: flex;
