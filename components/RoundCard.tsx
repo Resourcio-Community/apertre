@@ -30,26 +30,35 @@ const getCardStyle = (priority: number) => {
   switch (priority) {
     case 1: // Diamond
       return `
-        width: 100%;
+        width: 90%;
+        height:38dvh;
+
       `;
     case 2: // Gold
       return `
-        width: 80%;
+        width: 90%;
+        height:38dvh;
+
       `;
     case 3: // Silver
       return `
-        width: 100%;
-        height: 80%;
+        width: 90%;
+        height: 38dvh;
+
       `;
     case 4: // Certificate
       return `
-        width: 100%;
-        height: auto;
+        position:relative;
+        top:1rem;
+        width: 90%;
+        height: 25dvh;
+
       `;
     case 5: // Gift
       return `
-        width: 80%;
-        height: 150%;
+        width: 90%;
+        height: 38dvh;
+
         
       `;
     default:
@@ -76,14 +85,18 @@ const Card = styled.div<{ priority: number }>`
 
   ${(props) => getCardStyle(props.priority)}
 
-  @media (max-width: 768px) {
+  @media (max-width: 768px) and (min-width:360px) {
     margin: 0 20px;
   }
+  @media (min-width: 768px) and (max-width:940px) {
+    margin: 0 20px;
+  }
+
 
   ${({ priority }) =>
     priority === 4 &&
     `
-    margin-top: -80px; 
+    margin-top: -2rem; 
   `}
   ${({ priority }) =>
     priority === 3 &&
