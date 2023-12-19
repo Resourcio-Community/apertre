@@ -47,6 +47,10 @@ const footerLeftItems: FooterLeftItems = [
   {
     title: 'Code Of Conduct',
     href: 'https://drive.google.com/file/d/135ngnvae6TRZKIO1brrDBVjVC8jzhp63/view?usp=drive_link',
+  },
+  {
+    title: 'Event Brochure',
+    href: 'https://drive.google.com/file/d/1wEhr_ax5G-BE19mBr1hvx4dwnwv8rduu/view?usp=sharing',
   }
 ];
 
@@ -70,9 +74,9 @@ export default function Footer() {
         </ListContainer>
         <BottomBar>
           <Copyright>
-            Copyright &copy; {new Date().getFullYear()} All Rights Reserved
+            &copy; {new Date().getFullYear()} All Rights Reserved
             <A href="https://www.linkedin.com/showcase/apertre" target="_blank">
-              &nbsp;Apertre
+              &nbsp;Apertre'24
             </A>
           </Copyright>
         </BottomBar>
@@ -122,7 +126,6 @@ const FooterWrapper = styled.div`
   background: #040301;
   color: rgb(var(--textSecondary));
   border-top: 2px solid rgb(var(--yellow));
-  z-index: 999;
 `;
 
 const ListContainer = styled.div`
