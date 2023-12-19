@@ -76,7 +76,7 @@ export default function Footer() {
           <Copyright>
             &copy; {new Date().getFullYear()} All Rights Reserved
             <A href="https://www.linkedin.com/showcase/apertre" target="_blank">
-              &nbsp;Apertre'24
+              &nbsp;Apertre-24
             </A>
           </Copyright>
         </BottomBar>
