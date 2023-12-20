@@ -72,6 +72,9 @@ const RegisterButton = styled(Button)`
     padding: 1.7rem 2.2rem;
     font-size: 1.4rem;
   }
+  &:hover{
+    border: 2px solid rgb(var(--purplePrimary));
+  }
 `;
 
 const A = styled.a`
