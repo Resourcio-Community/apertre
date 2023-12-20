@@ -14,7 +14,6 @@ export default function ProjectsPage() {
   const [tags, setTags] = useState<Array<string>>([]);
   const [filteredProjects, setFilteredProjects] = useState<ProjectsData[]>([]);
   const [loading, setLoading] = useState(true);
-  const [searchQuery, setSearchQuery] = useState('');
 
   const getReposAndTags = async () => {
     try {
@@ -37,6 +36,8 @@ export default function ProjectsPage() {
     getReposAndTags()
   }, [])
 
+  const [searchQuery, setSearchQuery] = useState<string>('');
+
   useEffect(() => {
     setFilteredProjects(projects);
   }, [projects]);
@@ -51,6 +52,7 @@ export default function ProjectsPage() {
     const result = fuse.search(query);
     setFilteredProjects(query ? result.map((item) => item.item) : projects);
   };
+
 
   return (
     <>
