@@ -48,6 +48,7 @@ export const GlobalStyle = createGlobalStyle`
   -webkit-appearance: none;
         -moz-appearance: none;
         appearance: none;
+  --purplePrimary:88,0,255;
 }
 
 :root {
