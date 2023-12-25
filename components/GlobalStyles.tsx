@@ -25,6 +25,9 @@ export const GlobalStyle = createGlobalStyle`
   --modalBackground: 251,251,253;
   --errorColor: 207,34,46;                     
   --logoColor: #243A5A;
+  -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
 } 
 
 .next-dark-theme {
@@ -42,6 +45,10 @@ export const GlobalStyle = createGlobalStyle`
   --modalBackground: 26,32,44;
   --errorColor: 207,34,46;
   --logoColor: #fff;
+  -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+  --purplePrimary:88,0,255;
 }
 
 :root {

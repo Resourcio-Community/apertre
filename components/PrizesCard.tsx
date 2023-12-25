@@ -44,7 +44,12 @@ const Wrapper = styled.div<{ isOutlined?: boolean }>`
   & > *:not(:first-child) {
     margin-top: 1rem;
   }
-
+  @media (max-width: 768px) and (min-width:375px) {
+    margin: 0 20px;
+  }
+  @media (min-width: 768px) and (max-width:992px) {
+    margin: 0 20px;
+  }
   ${media('<=desktop')} {
     box-shadow: var(--shadow-md);
     transform: none;

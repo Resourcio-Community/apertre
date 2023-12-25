@@ -82,9 +82,22 @@ const CustomAutofitGrid = styled(AutofitGrid)`
   grid-gap: 5rem;
   padding-top: 2rem;
   margin-bottom: 15rem;
-
+  @media (max-width: 768px) and (min-width:360px) {
+    margin: 0 20px;
+    grid-template-columns:1fr;
+  }
+  @media (min-width: 768px) and (max-width:992px) {
+    margin: 0 20px;
+    grid-template-columns:1fr 1fr;
+  }
+  @media (min-width:992px) {
+    margin: 0 20px;
+    grid-template-columns:1fr 1fr 1fr;
+  }
+  
   ${media('<=tablet')} {
     --autofit-grid-item-size: 20rem;
+
   }
 
   ${media('<=phone')} {
