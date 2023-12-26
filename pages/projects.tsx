@@ -36,14 +36,11 @@ export default function ProjectsPage() {
     getReposAndTags()
   }, [])
 
-  const [searchQuery, setSearchQuery] = useState<string>('');
-
   useEffect(() => {
     setFilteredProjects(projects);
   }, [projects]);
 
   const handleFilterChange = (query: string) => {
-    setSearchQuery(query);
     const options = {
       keys: ['techStack'],
       threshold: 0.1,

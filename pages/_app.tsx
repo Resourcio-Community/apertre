@@ -1,12 +1,12 @@
 import { AppProps } from 'next/dist/shared/lib/router/router';
 import Head from 'next/head';
 import React, { PropsWithChildren } from 'react';
+import BackToTopButton from 'components/BackToTop';
 import Footer from 'components/Footer';
 import { GlobalStyle } from 'components/GlobalStyles';
 import Navbar from 'components/Navbar';
 import NavigationDrawer from 'components/NavigationDrawer';
 import { NavItems } from 'types';
-import BackToTopButton from 'components/BackToTop';
 
 
 const navItems: NavItems = [
