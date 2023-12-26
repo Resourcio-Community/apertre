@@ -1,13 +1,13 @@
 import { AppProps } from 'next/dist/shared/lib/router/router';
 import Head from 'next/head';
 import React, { PropsWithChildren } from 'react';
-
-import BackToTopButton from 'components/backtotop';
+import BackToTopButton from 'components/BackToTop';
 import Footer from 'components/Footer';
 import { GlobalStyle } from 'components/GlobalStyles';
 import Navbar from 'components/Navbar';
 import NavigationDrawer from 'components/NavigationDrawer';
 import { NavItems } from 'types';
+
 
 const navItems: NavItems = [
   { title: 'About', href: '/#about' },
@@ -27,7 +27,6 @@ function MyApp({ Component, pageProps }: AppProps) {
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
         <link rel="icon" href="/favicon.png" type='image/png' />
       </Head>
-      {/* <ColorModeScript /> */}
       <GlobalStyle />
 
       <Providers>

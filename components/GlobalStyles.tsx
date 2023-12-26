@@ -36,6 +36,7 @@ export const GlobalStyle = createGlobalStyle`
   --text: 237,237,238;
   --textSecondary: 255,255,255;
   --primary: 22,115,255; 
+  --purplePrimary:88,0,255;
   --secondary: 10,18,30;
   --tertiary: 231,241,251;
   --yellow: 251,206,31;
@@ -48,7 +49,6 @@ export const GlobalStyle = createGlobalStyle`
   -webkit-appearance: none;
         -moz-appearance: none;
         appearance: none;
-  --purplePrimary:88,0,255;
 }
 
 :root {
