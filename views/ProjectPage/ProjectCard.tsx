@@ -100,7 +100,7 @@ const TechnologyTag = styled.span`
 `;
 
 const DetailsButton = styled.button`
-  background-color: rgba(var(--purplePrimary)); 
+  background-color: rgba(var(--primary)); 
   color: white;
   padding: 8px 20px;
   border: none;
@@ -111,7 +111,7 @@ const DetailsButton = styled.button`
 
   &:hover {
     background-color: transparent;
-    border: 2px solid rgba(var(--purplePrimary));
+    border: 2px solid rgba(var(--primary));
   }
 `;
 

@@ -1,4 +1,3 @@
-import { PropsWithChildren } from 'react';
 import styled from 'styled-components';
 import ReactModal from 'react-modal';
 import { FiX, FiGithub } from 'react-icons/fi';
@@ -33,7 +32,7 @@ export default function ProjectDetailsModal({ isOpen, onRequestClose, project }:
           width: '80%',
           maxWidth: '420px',
           margin: 'auto',
-          maxHeight: '40vh',
+          maxHeight: '45vh',
           border: '3px solid rgb(var(--yellow))',
           overflowY: 'auto',
         },

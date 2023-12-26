@@ -1,5 +1,6 @@
 import NextImage from 'next/image';
 import styled from 'styled-components';
+import { media } from 'utils/media';
 
 interface Image {
   imageUrl: string;
@@ -17,10 +18,10 @@ interface RoundCardProps {
 export default function RoundCard({ title, description, images, priority }: RoundCardProps) {
   return (
     <Card priority={priority}>
-      {images.map((image, index) => (
-        <NextImage key={index} src={image.imageUrl} width={image.width} height={image.height} alt={title || ''} />
+      {images.map((image, idx) => (
+        <NextImage key={idx} src={image.imageUrl} width={image.width} height={image.height} alt={title || ''} />
       ))}
-      <Title>{title}</Title>
+      {title && <Title>{title}</Title>}
       <Description style={{ color: 'black' }}>{description}</Description>
     </Card>
   );
@@ -29,38 +30,22 @@ export default function RoundCard({ title, description, images, priority }: Roun
 const getCardStyle = (priority: number) => {
   switch (priority) {
     case 1: // Diamond
-      return `
-        width: 90%;
-        height:38dvh;
-
-      `;
     case 2: // Gold
-      return `
-        width: 90%;
-        height:38dvh;
-
-      `;
     case 3: // Silver
-      return `
-        width: 90%;
-        height: 38dvh;
-
-      `;
-    case 4: // Certificate
-      return `
-        position:relative;
-        top:1rem;
-        width: 90%;
-        height: 25dvh;
-
-      `;
     case 5: // Gift
       return `
         width: 90%;
-        height: 38dvh;
-
-        
+        height:38dvh;
       `;
+
+    case 4: // Certificate
+      return `
+        position:relative;
+        margin-top:1rem;
+        width: 90%;
+        height: 25dvh;
+      `;
+
     default:
       return '';
   }
@@ -68,16 +53,16 @@ const getCardStyle = (priority: number) => {
 
 const Card = styled.div<{ priority: number }>`
   display: flex;
-  padding: 1rem;
+  padding: 2rem;
   background: white;
   box-shadow: var(--shadow-md);
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: 1px solid #fbce1f;
+  border: 3px double rgba(var(--yellow));
   border-radius: 15px;
   font-size: 1.6rem;
-  margin: 0 200px; 
+  margin: 0 200px;
 
   & > *:not(:first-child) {
     margin-top: 1rem;
@@ -85,10 +70,7 @@ const Card = styled.div<{ priority: number }>`
 
   ${(props) => getCardStyle(props.priority)}
 
-  @media (max-width: 768px) and (min-width:360px) {
-    margin: 0 20px;
-  }
-  @media (min-width: 768px) and (max-width:940px) {
+  ${media('<=tablet')} {
     margin: 0 20px;
   }
 
@@ -101,7 +83,7 @@ const Card = styled.div<{ priority: number }>`
   ${({ priority }) =>
     priority === 3 &&
     `
-    margin-bottom: -20px; 
+    margin-bottom: -1rem; 
   `}
 `;
 

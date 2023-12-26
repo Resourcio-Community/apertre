@@ -3,8 +3,7 @@ import styled from 'styled-components';
 const Button = styled.button`
   color: white;
   border: none;
-  /* background: rgb(var(--primary)); */
-  background: rgb(var(--purplePrimary));
+  background: rgb(var(--primary));
   display: inline-block;
   text-decoration: none;
   text-align: center;
@@ -12,8 +11,7 @@ const Button = styled.button`
   font-size: 1.5rem;
   font-family: var(--font);
   font-weight: bold;
-  border: 2px solid rgb(var(--purplePrimary));
-  /* border: 2px solid rgb(var(--primary)); */
+  border: 2px solid rgb(var(--primary));
   border-radius: 0.8rem;
   transition: background 250ms ease-in;
   backface-visibility: hidden;
@@ -26,9 +24,7 @@ const Button = styled.button`
 
   &:hover {
     background: transparent;
-
-    border: 2px solid rgb(var(--purplePrimary));
-    /* border: 2px solid rgb(var(--primary)); */
+    border: 2px solid rgb(var(--primary));
   }
 
   &:disabled {

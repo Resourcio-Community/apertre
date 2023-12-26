@@ -1,7 +1,6 @@
 import NextImage from 'next/image';
 import styled from 'styled-components';
-import SwiperCore from "swiper";
-import { Autoplay } from 'swiper';
+import SwiperCore, { Autoplay } from "swiper";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import Container from 'components/Container';
 import { media } from 'utils/media';
@@ -27,11 +26,11 @@ export default function Partners() {
       <Swiper
         slidesPerView={6}
         centeredSlides={true}
-        spaceBetween={20} 
+        spaceBetween={20}
         loop={true}
-        autoplay={{ delay: 0, disableOnInteraction: false, pauseOnMouseEnter:true}}
+        autoplay={{ delay: 0, disableOnInteraction: false, pauseOnMouseEnter: true }}
         speed={3000}
-        freeMode={true} 
+        freeMode={true}
         breakpoints={{
           320: { slidesPerView: 2 },
           768: { slidesPerView: 4 },
@@ -40,40 +39,17 @@ export default function Partners() {
         modules={[Autoplay]}
         className="swiper-wrapper"
       >
-        {PARTNER_LOGOS.map((partner, index) => (
-          <SwiperSlide key={index}>
+        {PARTNER_LOGOS.map((partner, idx) => (
+          <SwiperSlide key={idx + + PARTNER_LOGOS.length}>
             {partner.link ? (
               <PartnerLink href={partner.link} target="_blank" rel="noopener noreferrer">
-                <NextImage src={`/partners/${partner.name}`} alt={normalizePartnerLogoName(partner.name)} width={130} height={90} style={{borderRadius:20}}/>
+                <NextImage src={`/partners/${partner.name}`} alt={normalizePartnerLogoName(partner.name)} width={120} height={90} style={{ borderRadius: 20 }} />
               </PartnerLink>
             ) : (
-              <NextImage src={`/partners/${partner.name}`} alt={normalizePartnerLogoName(partner.name)} width={130} height={90} style={{borderRadius:20}} />
+              <NextImage src={`/partners/${partner.name}`} alt={normalizePartnerLogoName(partner.name)} width={120} height={90} style={{ borderRadius: 20 }} />
             )}
           </SwiperSlide>
         ))}
-        {/* Previous code */}
-        {/* {PARTNER_LOGOS.map((partner, index) => (
-          <SwiperSlide key={index}>
-            {partner.link ? (
-              <PartnerLink href={partner.link} target="_blank" rel="noopener noreferrer">
-                <NextImage src={`/partners/${partner.name}`} alt={normalizePartnerLogoName(partner.name)} width={130} height={90} style={{borderRadius:20}}/>
-              </PartnerLink>
-            ) : (
-              <NextImage src={`/partners/${partner.name}`} alt={normalizePartnerLogoName(partner.name)} width={130} height={90} style={{borderRadius:20}} />
-            )}
-          </SwiperSlide>
-        ))}
-        {PARTNER_LOGOS.map((partner, index) => (
-          <SwiperSlide key={index + PARTNER_LOGOS.length}>
-            {partner.link ? (
-              <PartnerLink href={partner.link} target="_blank" rel="noopener noreferrer">
-                <NextImage src={`/partners/${partner.name}`} alt={normalizePartnerLogoName(partner.name)} width={130} height={90} style={{borderRadius:20}}/>
-              </PartnerLink>
-            ) : (
-              <NextImage src={`/partners/${partner.name}`} alt={normalizePartnerLogoName(partner.name)} width={130} height={90} style={{borderRadius:20}}/>
-            )}
-          </SwiperSlide>
-        ))} */}
       </Swiper>
     </PartnersWrapper>
   );

@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { PropsWithChildren } from 'react';
 import styled from 'styled-components';
 
 interface ButtonProps {
@@ -11,34 +10,13 @@ interface LoaderProps {
   height?: number;
 }
 
-const Button = styled.button<ButtonProps>`
-  position: fixed;
-  bottom: 20px;
-  right: 10px;
-  display: ${(props) => (props.visible ? 'block' : 'none')};
-  background-color: black;
-  border: none;
-  height: 50px;
-  width: 50px;
-  border-radius: 100%;
-  cursor: pointer;
-`;
 
-const ImgContainer = styled.img<LoaderProps>`
-  width: ${(props) => props.width}px;
-  height: ${(props) => props.height}px;
-  position: fixed;
-  bottom: 20px;
-  right: 10px;
-  transform: rotate(-30deg);
-`;
-
-const BackToTopButton: React.FC<PropsWithChildren<LoaderProps>> = ({ width, height }) => {
+export default function BackToTopButton({ width, height }: LoaderProps) {
   const [isVisible, setIsVisible] = useState(false);
 
   const handleScroll = () => {
     const scrolled = document.documentElement.scrollTop;
-    setIsVisible(scrolled > 300);
+    setIsVisible(scrolled > 500);
   };
 
   const scrollToTop = () => {
@@ -62,4 +40,23 @@ const BackToTopButton: React.FC<PropsWithChildren<LoaderProps>> = ({ width, heig
   );
 };
 
-export default BackToTopButton;
+
+const Button = styled.button<ButtonProps>`
+  position: fixed;
+  bottom: 20px;
+  right: 10px;
+  display: ${(props) => (props.visible ? 'block' : 'none')};
+  background-color: black;
+  border: none;
+  border-radius: 100%;
+  cursor: pointer;
+`;
+
+const ImgContainer = styled.img<LoaderProps>`
+  width: ${(props) => props.width}px;
+  height: ${(props) => props.height}px;
+  position: fixed;
+  bottom: 20px;
+  right: 10px;
+  transform: rotate(-30deg);
+`;
