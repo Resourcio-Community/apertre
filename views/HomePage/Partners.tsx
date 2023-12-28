@@ -15,6 +15,7 @@ const PARTNER_LOGOS = [
   { name: 'Techsurfers.png', link: 'https://www.linkedin.com/company/tech-surfers/' },
   { name: 'GFG_NIET.png', link: 'https://linktr.ee/gfgniet' },
   { name: 'GDSC_Asansol.png', link: 'https://www.linkedin.com/company/gdsc-aec' },
+  { name: 'KGEC.png', link: 'https://twitter.com/DevKgec' },
 ];
 
 SwiperCore.use([Autoplay]);
@@ -40,7 +41,7 @@ export default function Partners() {
         className="swiper-wrapper"
       >
         {PARTNER_LOGOS.map((partner, idx) => (
-          <SwiperSlide key={idx + + PARTNER_LOGOS.length}>
+          <SwiperSlide key={idx + PARTNER_LOGOS.length}>
             {partner.link ? (
               <PartnerLink href={partner.link} target="_blank" rel="noopener noreferrer">
                 <NextImage src={`/partners/${partner.name}`} alt={normalizePartnerLogoName(partner.name)} width={120} height={90} style={{ borderRadius: 20 }} />
@@ -75,15 +76,16 @@ const Title = styled.h3`
 `;
 
 const PartnersWrapper = styled(Container)`
+  padding-bottom: 3rem;
   .swiper-wrapper {
     will-change: transform;
     transition-timing-function: linear;
     margin-top: 0.5rem;
     user-select: none;
   }
-  /* .swiper-slide .swiper-wrapper{
+  .swiper-slide .swiper-wrapper{
     transition-timing-function: linear;
-  } */
+  } 
   .swiper-slide {
     opacity: 0.8;
     transition: opacity 0.2s;
