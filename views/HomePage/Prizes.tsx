@@ -6,31 +6,34 @@ import SectionTitle from 'components/SectionTitle';
 import OverTitle from 'components/OverTitle';
 import { media } from 'utils/media';
 
+//second 
 const mentorBenefits = [
-  'To Be Announced',
-  'To Be Discussed',
-  'To Be Announced',
-  'To Be Discussed',
-  'To Be Announced',
-  'To Be Discussed',
+  'Prizes worth of Rs. 1.5k',
+  'Cool T-Shirt',
+  'Stickers and Swag Kits',
+  'Digital Certificate',
+  'Social shout out',
+  'Digital subscription',
 ];
 
+//first
 const menteeBenefits = [
-  'To Be Announced',
-  'To Be Discussed',
-  'To Be Announced',
-  'To Be Discussed',
-  'To Be Announced',
-  'To Be Discussed',
+  'Prizes worth of Rs. 2k',
+  'Cool T-Shirt',
+  'Stickers and Swag Kits',
+  'Digital Certificate',
+  'Social shout out',
+  'Digital subscription',
 ];
 
+//third
 const topBenefits = [
-  'To Be Announced',
-  'To Be Discussed',
-  'To Be Announced',
-  'To Be Discussed',
-  'To Be Announced',
-  'To Be Discussed',
+  'Prizes worth of Rs. 1k',
+  'Cool T-Shirt',
+  'Stickers and Swag Kits',
+  'Digital Certificate',
+  'Social shout out',
+  'Digital subscription',
 ];
 
 export default function PricingTablesSection() {
