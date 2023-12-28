@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from 'styled-components';
 import Button from 'components/Button';
 import { media } from 'utils/media';
@@ -17,11 +16,6 @@ export default function About() {
     </CtaWrapper>
   );
 }
-
-const Description = styled.div`
-  font-size: 1.8rem;
-  color: rgba(var(--textSecondary), 0.8);
-`;
 
 const Stack = styled.div`
   display: flex;
@@ -45,11 +39,6 @@ const Stack = styled.div`
       margin-top: 2rem;
     }
   }
-`;
-
-const OutlinedButton = styled(Button)`
-  border: 1px solid rgb(var(--textSecondary));
-  color: rgb(var(--textSecondary));
 `;
 
 const CtaWrapper = styled.div`
