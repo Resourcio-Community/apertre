@@ -48,7 +48,7 @@ const DarkerBackgroundContainer = styled.div`
   background: rgb(var(--background));
 
   & > *:not(:first-child) {
-    margin-top: 15rem;
+    margin-top: 12rem;
   }
 `;
 

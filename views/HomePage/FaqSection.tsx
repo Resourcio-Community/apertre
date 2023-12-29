@@ -1,11 +1,12 @@
 import styled from 'styled-components';
 import Accordion from 'components/Accordion';
 import SectionTitle from 'components/SectionTitle';
+import { media } from 'utils/media';
 
 export default function FaqSection() {
   return (
     <Wrapper id="faq">
-      <SectionTitle>Most <span style={{ color: 'rgb(var(--yellow))' }}> Frequently</span> Asked Questions</SectionTitle>
+      <CustomizedSectionTitle style={{ marginBottom: '5rem' }}>Most <span style={{ color: 'rgb(var(--yellow))' }}> Frequently</span> Asked Questions</CustomizedSectionTitle>
       <Accordion title="What is Apertre, and who organizes it?">
         Apertre is a 15-day long open-source event organized by Resourcio Community and GDSC AOT. It provides a platform for participants to
         enhance their development skills through collaboration on real-world projects.
@@ -42,5 +43,18 @@ const Wrapper = styled.div`
   margin: 10vw;
   & > *:not(:first-child) {
     margin-top: 3rem;
+
+    ${media('<=tablet')} {
+      margin-top: 1.5rem;
+    }
   }
 `;
+
+
+const CustomizedSectionTitle = styled(SectionTitle)`
+  font-size: 5rem;
+
+  ${media('<=tablet')} {
+    font-size: 3rem;
+  }
+`

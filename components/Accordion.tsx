@@ -42,38 +42,50 @@ export default function Accordion({ title, isOpen, children }: PropsWithChildren
   );
 }
 
-const Title = styled.h3`
-  font-size: 1.8rem;
-  width: 90%;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 1;
-`;
-
 const TitleWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
 `;
 
+const Title = styled.h2`
+  font-size: 1.8rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+
+  ${media('<=tablet')} {
+    font-size: 1.5rem;
+  }
+`;
+
+const Description = styled.div`
+  margin-top: 2.3rem;
+  font-size: 1.6rem;
+
+  ${media('<=tablet')} {
+    margin-top: 2rem;
+    font-size: 1.3rem;
+  }
+`;
+
 const Icon = styled.div<{ isActive: boolean }>`
   width: 2.4rem;
   transition: transform 0.3s;
   transform: rotateZ(${(p) => (p.isActive ? 180 : 0)}deg);
-`;
 
-const Description = styled.div`
-  margin-top: 2.5rem;
-  font-size: 1.6rem;
-  font-weight: normal;
+  & svg:hover {
+    transition: color .3s ease-in-out;
+    color: rgb(var(--yellow));;
+  }
 `;
 
 const AccordionWrapper = styled.div<{ isActive: boolean }>`
   display: flex;
   flex-direction: column;
-  padding: 2rem 1.5rem;
+  padding: 1.9rem 1.8rem;
   background: rgb(var(--cardBackground));
   box-shadow: var(--shadow-md);
   border-radius: 0.6rem;

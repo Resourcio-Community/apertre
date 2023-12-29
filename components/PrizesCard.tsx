@@ -20,7 +20,9 @@ export default function PrizesCard({ title, benefits, isOutlined, children }: Pr
           <CustomRichText>
             <ul>
               {benefits.map((singleBenefit, idx) => (
-                <li key={idx}>{singleBenefit}</li>
+                idx % 2 === 0
+                  ? <li key={idx}>{singleBenefit}</li>
+                  : <li key={idx} style={{ color: 'rgb(var(--yellow))' }}>{singleBenefit}</li>
               ))}
             </ul>
           </CustomRichText>
@@ -35,9 +37,9 @@ const Wrapper = styled.div<{ isOutlined?: boolean }>`
   flex-direction: column;
   padding: 3rem;
   border-radius: 1rem;
-  background: rgb(var(--cardBackground));
+  background: rgba(var(--cardBackground), 0.8);
   box-shadow: ${(p) => (p.isOutlined ? 'var(--shadow-lg)' : 'var(--shadow-md)')};
-  transform: ${(p) => (p.isOutlined ? 'scale(1.1)' : 'scale(1.0)')};
+  transform: ${(p) => (p.isOutlined ? 'scale(1.15)' : 'scale(1.0)')};
   text-align: center;
 
   & > *:not(:first-child) {
@@ -60,6 +62,9 @@ const Wrapper = styled.div<{ isOutlined?: boolean }>`
 `;
 
 const PrizeContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   padding: 0 4rem;
 
   & > *:not(:first-child) {
