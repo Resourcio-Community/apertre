@@ -6,31 +6,34 @@ import SectionTitle from 'components/SectionTitle';
 import OverTitle from 'components/OverTitle';
 import { media } from 'utils/media';
 
-const mentorBenefits = [
-  'To Be Announced',
-  'To Be Discussed',
-  'To Be Announced',
-  'To Be Discussed',
-  'To Be Announced',
-  'To Be Discussed',
+//second 
+const secondBenefits = [
+  'Prizes worth of Rs. 1.5k',
+  'Cool T-Shirt',
+  'Stickers and Swag Kits',
+  'Digital Certificate',
+  'Social shout out',
+  'Digital subscription',
 ];
 
-const menteeBenefits = [
-  'To Be Announced',
-  'To Be Discussed',
-  'To Be Announced',
-  'To Be Discussed',
-  'To Be Announced',
-  'To Be Discussed',
+//first
+const firstBenefits = [
+  'Prizes worth of Rs. 2k',
+  'Cool T-Shirt',
+  'Stickers and Swag Kits',
+  'Digital Certificate',
+  'Social shout out',
+  'Digital subscription',
 ];
 
-const topBenefits = [
-  'To Be Announced',
-  'To Be Discussed',
-  'To Be Announced',
-  'To Be Discussed',
-  'To Be Announced',
-  'To Be Discussed',
+//third
+const thirdBenefits = [
+  'Prizes worth of Rs. 1k',
+  'Cool T-Shirt',
+  'Stickers and Swag Kits',
+  'Digital Certificate',
+  'Social shout out',
+  'Digital subscription',
 ];
 
 export default function PricingTablesSection() {
@@ -42,14 +45,14 @@ export default function PricingTablesSection() {
       </OverTitle>
       <SectionTitle style={{ color: 'rgb(var(--yellow))' }}>Prizes</SectionTitle>
       <CustomAutofitGrid>
-        <PrizesCard title="2nd" benefits={mentorBenefits}>
+        <PrizesCard title="2nd" benefits={secondBenefits}>
           <img src="/prizes/second-icon.svg" />
         </PrizesCard>
-        <PrizesCard title="1st" benefits={menteeBenefits} isOutlined>
-        <img src="/prizes/first-icon.svg" />
+        <PrizesCard title="1st" benefits={firstBenefits} isOutlined>
+          <img src="/prizes/first-icon.svg" />
         </PrizesCard>
-        <PrizesCard title="3rd" benefits={topBenefits}>
-        <img src="/prizes/third-icon.svg" />
+        <PrizesCard title="3rd" benefits={thirdBenefits}>
+          <img src="/prizes/third-icon.svg" />
         </PrizesCard>
       </CustomAutofitGrid>
     </Stack>
@@ -79,28 +82,24 @@ const Stack = styled.div`
 
 const CustomAutofitGrid = styled(AutofitGrid)`
   --autofit-grid-item-size: 25rem;
-  grid-gap: 5rem;
+  grid-gap: 7rem;
   padding-top: 2rem;
   margin-bottom: 15rem;
-  @media (max-width: 768px) and (min-width:360px) {
-    margin: 0 20px;
-    grid-template-columns:1fr;
-  }
-  @media (min-width: 768px) and (max-width:992px) {
-    margin: 0 20px;
-    grid-template-columns:1fr 1fr;
-  }
-  @media (min-width:992px) {
+  
+  ${media('>desktop')} {
     margin: 0 20px;
     grid-template-columns:1fr 1fr 1fr;
   }
   
   ${media('<=tablet')} {
     --autofit-grid-item-size: 20rem;
-
+    grid-gap: 3.5rem;
+    margin: 0 20px;
+    grid-template-columns:1fr;
   }
 
   ${media('<=phone')} {
     --autofit-grid-item-size: 100%;
+    grid-template-columns:1fr;
   }
 `;

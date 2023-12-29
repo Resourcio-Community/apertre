@@ -27,15 +27,23 @@ export default function Partners() {
       <Swiper
         slidesPerView={6}
         centeredSlides={true}
-        spaceBetween={20}
+        spaceBetween={10}
         loop={true}
         autoplay={{ delay: 0, disableOnInteraction: false, pauseOnMouseEnter: true }}
         speed={3000}
         freeMode={true}
         breakpoints={{
-          320: { slidesPerView: 2 },
-          768: { slidesPerView: 4 },
-          1025: { slidesPerView: 6 },
+          320: {
+            slidesPerView: 2,
+            spaceBetween: 5
+          },
+          768: {
+            slidesPerView: 4,
+          },
+          1025: {
+            slidesPerView: 6,
+            spaceBetween: 20
+          },
         }}
         modules={[Autoplay]}
         className="swiper-wrapper"
@@ -44,10 +52,10 @@ export default function Partners() {
           <SwiperSlide key={idx + PARTNER_LOGOS.length}>
             {partner.link ? (
               <PartnerLink href={partner.link} target="_blank" rel="noopener noreferrer">
-                <NextImage src={`/partners/${partner.name}`} alt={normalizePartnerLogoName(partner.name)} width={120} height={90} style={{ borderRadius: 20 }} />
+                <StyledImage src={`/partners/${partner.name}`} alt={normalizePartnerLogoName(partner.name)} width={120} height={90} style={{ borderRadius: 20 }} />
               </PartnerLink>
             ) : (
-              <NextImage src={`/partners/${partner.name}`} alt={normalizePartnerLogoName(partner.name)} width={120} height={90} style={{ borderRadius: 20 }} />
+              <StyledImage src={`/partners/${partner.name}`} alt={normalizePartnerLogoName(partner.name)} width={120} height={90} style={{ borderRadius: 20 }} />
             )}
           </SwiperSlide>
         ))}
@@ -101,3 +109,10 @@ const PartnerLink = styled.a`
   text-decoration: none;
   color: inherit;
 `;
+
+const StyledImage = styled(NextImage)`
+  ${media('<=tablet')} {
+    width: 90px;
+    height: 70px;
+  }
+`
