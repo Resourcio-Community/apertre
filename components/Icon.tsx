@@ -1,4 +1,4 @@
-import React, { HTMLProps, Ref } from 'react';
+import { HTMLProps, Ref } from 'react';
 import styled from 'styled-components';
 
 export type IconProps = HTMLProps<HTMLButtonElement> & { _ref?: Ref<HTMLButtonElement> };

@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from 'styled-components';
 import AutofitGrid from 'components/AutofitGrid';
 import PrizesCard from 'components/PrizesCard';
