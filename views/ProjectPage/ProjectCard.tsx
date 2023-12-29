@@ -22,7 +22,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
         <CardTitle>{project.projectName}</CardTitle>
         <ProjectMaintainer>
           <By>by</By> &nbsp;
-          <A href={project.linkedIn} target='_blank'>{project.maintainer}<PiLinkedinLogo /></A>
+          <A href={project.linkedIn} target='_blank'>{project.maintainer}<PiLinkedinLogo style={{ fontSize: '2rem' }} /></A>
         </ProjectMaintainer>
         <CardTags>
           {project.techStack.map((tag, index) => (
