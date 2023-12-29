@@ -5,6 +5,7 @@ import PrizesCard from 'components/PrizesCard';
 import SectionTitle from 'components/SectionTitle';
 import OverTitle from 'components/OverTitle';
 import { media } from 'utils/media';
+import NextImage from 'next/image'
 
 //second 
 const secondBenefits = [
@@ -46,13 +47,13 @@ export default function PricingTablesSection() {
       <SectionTitle style={{ color: 'rgb(var(--yellow))' }}>Prizes</SectionTitle>
       <CustomAutofitGrid>
         <PrizesCard title="2nd" benefits={secondBenefits}>
-          <img src="/prizes/second-icon.svg" />
+          <NextImage src="/prizes/second-icon.svg" width={120} height={150} alt='2nd prize' />
         </PrizesCard>
         <PrizesCard title="1st" benefits={firstBenefits} isOutlined>
-          <img src="/prizes/first-icon.svg" />
+          <NextImage src="/prizes/first-icon.svg" width={150} height={200} alt='1st prize' />
         </PrizesCard>
         <PrizesCard title="3rd" benefits={thirdBenefits}>
-          <img src="/prizes/third-icon.svg" />
+          <NextImage src="/prizes/third-icon.svg" width={120} height={150} alt='3rd prize' />
         </PrizesCard>
       </CustomAutofitGrid>
     </Stack>
@@ -62,8 +63,10 @@ export default function PricingTablesSection() {
 const Stack = styled.div`
   display: flex;
   flex-direction: column;
+  background: rgb(var(--secondary));
   color: rgb(var(--textSecondary));
   align-items: center;
+  padding: 8rem 0 12rem 0;
 
   & > *:not(:first-child) {
     max-width: 80%;
@@ -72,6 +75,7 @@ const Stack = styled.div`
 
   ${media('<=tablet')} {
     text-align: center;
+    margin-bottom: -3rem;
 
     & > *:not(:first-child) {
       max-width: 100%;

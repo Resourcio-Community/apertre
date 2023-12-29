@@ -4,15 +4,13 @@ import { media } from 'utils/media';
 const OverTitle = styled.span`
   display: block;
   &::before {
-    font-size: 2rem;
+    font-size: 1rem;
     position: relative;
     bottom: -0.1em;
     content: '';
-    display: inline-block;
     width: 0.9em;
     height: 0.9em;
     line-height: 0;
-    margin-right: 1em;
   }
 
   font-size: 1.3rem;
@@ -23,6 +21,11 @@ const OverTitle = styled.span`
 
   ${media('<=desktop')} {
     line-height: 1.5;
+  }
+
+  ${media('<=tablet')} {
+    font-size: 1.1rem;
+    letter-spacing: 0.001em;
   }
 `;
 

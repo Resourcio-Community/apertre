@@ -137,6 +137,13 @@ const Stack = styled.div`
   
   & > *:not(:first-child) {
     width: 90%;
+  }
 
+  ${media('<=tablet')} {
+    padding: -8rem 0;
+  }
+
+  ${media('<=phone')} {
+    padding: -8rem 0;
   }
 `;

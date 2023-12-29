@@ -19,7 +19,7 @@ export default function RoundCard({ title, description, images, priority }: Roun
   return (
     <Card priority={priority}>
       {images.map((image, idx) => (
-        <NextImage key={idx} src={image.imageUrl} width={image.width} height={image.height} alt={title || ''} />
+        <CustomImage key={idx} src={image.imageUrl} width={image.width} height={image.height} alt={title || ''} />
       ))}
       {title && <Title>{title}</Title>}
       <Description style={{ color: 'black' }}>{description}</Description>
@@ -97,3 +97,9 @@ const Description = styled.div`
   opacity: 0.8;
   font-size: 1.8rem;
 `;
+
+
+const CustomImage = styled(NextImage)`
+  // width: auto;
+  // height: auto;
+`
