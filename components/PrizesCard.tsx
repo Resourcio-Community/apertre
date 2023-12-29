@@ -4,7 +4,7 @@ import { media } from 'utils/media';
 import RichText from './RichText';
 
 interface PrizesCardProps {
-  title: string;
+  title?: string;
   benefits: string[];
   isOutlined?: boolean;
 }
@@ -14,8 +14,7 @@ export default function PrizesCard({ title, benefits, isOutlined, children }: Pr
 
   return (
     <Wrapper isOutlined={isOutlined}>
-      {/* <Title>{title}</Title> */}
-      <PriceContainer>
+      <PrizeContainer>
         {children}
         {isAnyBenefitPresent && (
           <CustomRichText>
@@ -26,7 +25,7 @@ export default function PrizesCard({ title, benefits, isOutlined, children }: Pr
             </ul>
           </CustomRichText>
         )}
-      </PriceContainer>
+      </PrizeContainer>
     </Wrapper>
   );
 }
@@ -44,54 +43,44 @@ const Wrapper = styled.div<{ isOutlined?: boolean }>`
   & > *:not(:first-child) {
     margin-top: 1rem;
   }
-  @media (max-width: 768px) and (min-width:375px) {
-    margin: 0 20px;
-  }
-  @media (min-width: 768px) and (max-width:992px) {
-    margin: 0 20px;
-  }
+  
   ${media('<=desktop')} {
     box-shadow: var(--shadow-md);
     transform: none;
     order: ${(p) => (p.isOutlined ? -1 : 0)};
   }
+
+  ${media('<=tablet')} {
+    margin: 0 20px;
+  }
+
+  ${media('<=phone')} {
+    margin: 0 20px;
+  }
 `;
 
-// const Title = styled.h3`
-//   font-size: 4rem;
-//   text-transform: capitalize;
-// `;
-
-// const Description = styled.p`
-//   font-size: 2.5rem;
-// `;
-
-const PriceContainer = styled.div`
-  margin: auto;
-  padding: 0rem 5rem;
+const PrizeContainer = styled.div`
+  padding: 0 4rem;
 
   & > *:not(:first-child) {
     margin-top: 2rem;
   }
+
+  ${media('<=tablet')} {
+    padding: 0 3rem;
+  }
 `;
 
-// const Price = styled.div`
-//   display: flex;
-//   justify-content: center;
-//   align-items: flex-end;
-//   font-size: 4rem;
-//   line-height: 1;
-//   font-weight: bold;
-
-//   span {
-//     font-size: 2rem;
-//     font-weight: normal;
-//   }
-// `;
 
 const CustomRichText = styled(RichText)`
   li {
+    font-size: 1.6rem;
     margin: auto;
     width: fit-content;
+
+    ${media('<=tablet')} {
+      font-size: 1.3rem;
+      padding: 0 1rem;
+    }
   }
 `;
