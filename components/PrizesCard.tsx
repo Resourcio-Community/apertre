@@ -35,7 +35,7 @@ const Wrapper = styled.div<{ isOutlined?: boolean }>`
   flex-direction: column;
   padding: 3rem;
   border-radius: 1rem;
-  background: rgb(var(--cardBackground));
+  background: rgba(var(--cardBackground), 0.5);
   box-shadow: ${(p) => (p.isOutlined ? 'var(--shadow-lg)' : 'var(--shadow-md)')};
   transform: ${(p) => (p.isOutlined ? 'scale(1.1)' : 'scale(1.0)')};
   text-align: center;
