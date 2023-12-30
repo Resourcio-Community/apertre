@@ -10,6 +10,6 @@ export default function PRMOdal() {
     const contributorData: Contributor = useRecoilValue(selectedContributorState)
 
     return (
-        <div></div>
+        <div>asd</div>
     )
 }

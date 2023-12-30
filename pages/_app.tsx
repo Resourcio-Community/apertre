@@ -7,7 +7,7 @@ import { GlobalStyle } from 'components/GlobalStyles';
 import Navbar from 'components/Navbar';
 import NavigationDrawer from 'components/NavigationDrawer';
 import { NavItems } from 'types';
-
+import { RecoilRoot } from 'recoil';
 
 const navItems: NavItems = [
   { title: 'About', href: '/#about' },
@@ -30,10 +30,12 @@ function MyApp({ Component, pageProps }: AppProps) {
       <GlobalStyle />
 
       <Providers>
+        <RecoilRoot>
         <Navbar items={navItems} />
         <Component {...pageProps} />
         <Footer />
         <BackToTopButton />
+        </RecoilRoot>
       </Providers>
     </>
   );
