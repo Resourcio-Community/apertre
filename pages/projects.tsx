@@ -60,7 +60,7 @@ export default function ProjectsPage() {
       ) : (
         <>
           <ProjectsWrapper>
-            <WhiteBackgroundContainer>
+            <DarkerBackgroundContainer>
               <ProjectsHeader>
                 <Heading>
                   Our <span style={{ color: 'rgb(var(--yellow))' }}>Projects</span>
@@ -70,16 +70,16 @@ export default function ProjectsPage() {
                 </Event>
               </ProjectsHeader>
               <Filters onFilterChange={handleFilterChange} tags={tags} />
-            </WhiteBackgroundContainer>
+            </DarkerBackgroundContainer>
           </ProjectsWrapper>
 
-          <DarkerBackgroundContainer>
+          <WhiteBackgroundContainer>
             <ProjectsList>
               {filteredProjects.map((project, idx) => (
                 <ProjectCard key={idx} project={project} />
               ))}
             </ProjectsList>
-          </DarkerBackgroundContainer>
+          </WhiteBackgroundContainer>
         </>
       )}
     </>
@@ -98,12 +98,12 @@ const ProjectsWrapper = styled.div`
   width: 100%;
 `;
 
-const WhiteBackgroundContainer = styled.div`
+const DarkerBackgroundContainer = styled.div`
   padding: 5rem;
   background: #000;
 `;
 
-const DarkerBackgroundContainer = styled.div`
+const WhiteBackgroundContainer = styled.div`
   background: rgb(var(--background));
   padding: 5rem 0;
 

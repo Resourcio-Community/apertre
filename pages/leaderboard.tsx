@@ -1,7 +1,5 @@
-const leaderboard = () => {
+export default function LeaderboardPage() {
   return (
-    <div>Leaderboard Coming soon!</div>
+    <></>
   )
 }
-
-export default leaderboard
