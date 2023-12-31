@@ -1,5 +1,6 @@
 import { Box } from '@mui/material';
 import Fuse from 'fuse.js';
+import { RiUserSearchLine } from "react-icons/ri";
 import { ChangeEvent, useState } from 'react';
 import { useRecoilValue } from 'recoil';
 import styled from 'styled-components';
@@ -32,31 +33,32 @@ export default function LeaderboardPage() {
 
   return (
     <Stack>
-      {/*<div>
-            <h2>
-              Apertre'24 Leaderboard
-            </h2>
-            <p>
-              Last updated on:
-              <span>
-                {new Date(data.lastUpdated).toLocaleString('en-IN', {
-                  dateStyle: 'full',
-                  timeStyle: 'full',
-                })}
-              </span>
-            </p>
-            
-            <SearchInput
-            type="search"
-            placeholder="Check your rank"
-            value={searchText}
-            onChange={handleSearch}
-            />
-          </div> */}
+      <h2>
+        Apertre'24 Leaderboard
+      </h2>
+      <p>
+        Last updated on:
+        <span>
+          {new Date(data.lastUpdated).toLocaleString('en-US', {
+            dateStyle: 'full',
+            timeStyle: 'full',
+          })}
+        </span>
+      </p>
+
 
       <TopThree data={data.leaderboardData.slice(0, 3)} />
 
       <StyledBox>
+        <Box sx={{ padding: '0 0.5rem', fontSize: '1.5rem', display: 'flex', alignItems: 'center' }}>
+          <RiUserSearchLine size={15} style={{marginRight: '0.8rem'}} />
+          <SearchInput
+            type="search"
+            placeholder='Check your rank'
+            value={searchText}
+            onChange={handleSearch}
+          />
+        </Box>
         <LeaderboardTable data={searchText ? (searchedData as Contributor[]) : tableData} />
       </StyledBox>
 
@@ -76,6 +78,9 @@ const Stack = styled.div`
 `;
 
 const StyledBox = styled(Box)`
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
   margin: 5rem 10rem 10rem 10rem;
 
   ${media('<=tablet')} {
@@ -85,7 +90,6 @@ const StyledBox = styled(Box)`
 
 const SearchInput = styled.input`
   padding: 0.8rem;
-  margin-top: 2rem;
   border: none;
   border-bottom: 1px solid rgba(var(--text));
   outline: none;

@@ -11,19 +11,21 @@ import ProjectCard from 'views/ProjectPage/ProjectCard';
 
 
 export default function ProjectsPage() {
-  const [page, setPage] = useState<number>(1)
+  const [limit, setLimit] = useState<number>(12);
+  const [page, setPage] = useState<number>(1);
   const [projects, setProjects] = useState<ProjectsData[]>([]);
   const [tags, setTags] = useState<Array<string>>([]);
   const [filteredProjects, setFilteredProjects] = useState<ProjectsData[]>([]);
-  const [loading, setLoading] = useState<boolean>(true);
+  const [loading, setLoading] = useState<boolean>(false);
 
-  const getReposAndTags = async () => {
+  const getReposAndTags = async (limit: number, page: number) => {
+    setLoading(true);
     try {
-      const reposData = axiosInstance.get('/repo/getrepos');
+      const reposData = axiosInstance.get(`/repo/getrepos?limit=${limit}&page=${page - 1}`);
       const stacksData = axiosInstance.get('/repo/gettags')
-      const [{ data: repos }, { data: stacks }] = await Promise.all([reposData, stacksData])
+      const [{ data: repos }, { data: stacks }] = await Promise.all([reposData, stacksData]);
 
-      setProjects(repos.data)
+      setProjects(repos.data);
       setTags(stacks.data);
     }
     catch (err) {
@@ -39,8 +41,8 @@ export default function ProjectsPage() {
   }
 
   useEffect(() => {
-    getReposAndTags()
-  }, [])
+    getReposAndTags(limit, page)
+  }, [limit, page])
 
   useEffect(() => {
     setFilteredProjects(projects);
@@ -84,7 +86,8 @@ export default function ProjectsPage() {
                 <ProjectCard key={idx} project={project} />
               ))}
             </ProjectsList>
-            <Pagination count={4} page={page} onChange={handlePageChange} />
+            {/* Total project 34 */}
+            <CustomPagination count={Math.ceil(34 / limit)} page={page} onChange={handlePageChange} />
           </WhiteBackgroundContainer>
         </>
       )}
@@ -110,6 +113,8 @@ const DarkerBackgroundContainer = styled.div`
 `;
 
 const WhiteBackgroundContainer = styled.div`
+  display: flex;
+  flex-direction: column;
   background: rgb(var(--background));
   padding: 5rem 0;
 
@@ -133,7 +138,7 @@ const ProjectsList = styled.div`
 
   ${media('<=tablet')} {
     padding: 0 1rem;
-    gap: 1.5rem;
+    gap: 2.6rem;
   }
 
   ${media('<=phone')} {
@@ -155,3 +160,18 @@ const Event = styled.span`
     font-size: 3rem;
   }
 `;
+
+const CustomPagination = styled(Pagination)`
+  margin: 6rem 5rem 0 5rem;
+  width: 20%;
+  position: sticky;
+  right: 0;
+
+  & li {
+    & button {
+      font-size: 1.7rem;
+      margin-left: 2rem;
+      color: white;
+    }
+  }
+`

@@ -43,25 +43,17 @@ export default function ProjectCard({ project }: ProjectCardProps) {
 const CardContainer = styled.div`
   position: relative;
   overflow: hidden;
-  border-radius: 12px;
+  border-radius: 1.4rem;
   width: 100%;
-  height: 300px;
+  height: 100%;
   background-color: rgba(0, 0, 0, 0.9);
   opacity: 0.88;
   transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
+  margin-bottom: 1.5rem;
 
   &:hover {
     box-shadow: 0px 0px 10px rgba(251, 206, 31, 0.8); 
     transform: scale(1.05);
-  }
-  margin-bottom: 25px;
-
-  ${media('<=tablet')} {
-    height: 250px;
-  }
-
-  ${media('<=phone')} {
-    height: 200px;
   }
 `;
 
@@ -86,7 +78,7 @@ const CardTitle = styled.h3`
 const CardTags = styled.div`
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 0.6rem;
   margin-bottom: 1rem;
   padding: 1rem 0;
 `;
@@ -94,17 +86,17 @@ const CardTags = styled.div`
 const TechnologyTag = styled.span`
   background: rgba(var(--yellow), 0.9);
   color: black; 
-  padding: 4px 8px;
-  border-radius: 4px;
+  padding: 0.3rem 0.8rem;
+  border-radius: 0.6rem;
   font-size: 1.3rem;
 `;
 
 const DetailsButton = styled.button`
   background-color: rgba(var(--primary)); 
   color: white;
-  padding: 8px 20px;
+  padding: 0.8rem 1rem;
   border: none;
-  border-radius: 20px; 
+  border-radius: 1.4rem; 
   font-size: 1.6rem;
   cursor: pointer;
   transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out, border-color 0.3s ease-in-out;
