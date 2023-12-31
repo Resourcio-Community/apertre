@@ -1,16 +1,16 @@
 import { Box } from '@mui/material';
 import Fuse from 'fuse.js';
-import { RiUserSearchLine } from "react-icons/ri";
 import { ChangeEvent, useState } from 'react';
+import { RiUserSearchLine } from "react-icons/ri";
 import { useRecoilValue } from 'recoil';
 import styled from 'styled-components';
 import { media } from 'utils/media';
 import LeaderboardTable from 'views/LeaderboardPage/LeaderboardTable';
+import TopThree from 'views/LeaderboardPage/TopThee';
 import { modalState } from '../atoms/modalAtom';
 import data from '../leaderBoard.json';
 import { Contributor } from '../models/leaderboard.model';
 import PRModal from '../views/LeaderboardPage/PRModal';
-import TopThree from 'views/LeaderboardPage/TopThee';
 
 
 export default function LeaderboardPage() {
@@ -34,7 +34,7 @@ export default function LeaderboardPage() {
   return (
     <Stack>
       <h2>
-        Apertre'24 Leaderboard
+        Apertre&apos;24 Leaderboard
       </h2>
       <p>
         Last updated on:

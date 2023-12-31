@@ -11,16 +11,17 @@ import ProjectCard from 'views/ProjectPage/ProjectCard';
 
 
 export default function ProjectsPage() {
-  const [limit, setLimit] = useState<number>(12);
+  // const [limit, setLimit] = useState<number>(12);
   const [page, setPage] = useState<number>(1);
   const [projects, setProjects] = useState<ProjectsData[]>([]);
   const [tags, setTags] = useState<Array<string>>([]);
   const [filteredProjects, setFilteredProjects] = useState<ProjectsData[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
 
-  const getReposAndTags = async (limit: number, page: number) => {
+  const getReposAndTags = async (page: number) => {
     setLoading(true);
     try {
+      const limit = 12
       const reposData = axiosInstance.get(`/repo/getrepos?limit=${limit}&page=${page - 1}`);
       const stacksData = axiosInstance.get('/repo/gettags')
       const [{ data: repos }, { data: stacks }] = await Promise.all([reposData, stacksData]);
@@ -41,8 +42,8 @@ export default function ProjectsPage() {
   }
 
   useEffect(() => {
-    getReposAndTags(limit, page)
-  }, [limit, page])
+    getReposAndTags(page)
+  }, [page])
 
   useEffect(() => {
     setFilteredProjects(projects);
@@ -86,8 +87,8 @@ export default function ProjectsPage() {
                 <ProjectCard key={idx} project={project} />
               ))}
             </ProjectsList>
-            {/* Total project 34 */}
-            <CustomPagination count={Math.ceil(34 / limit)} page={page} onChange={handlePageChange} />
+            {/* Total project 34, project per page 12 */}
+            <CustomPagination count={Math.ceil(34 / 12)} page={page} onChange={handlePageChange} />
           </WhiteBackgroundContainer>
         </>
       )}
