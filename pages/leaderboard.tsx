@@ -9,7 +9,7 @@ import { modalState } from '../atoms/modalAtom';
 import data from '../leaderBoard.json';
 import { Contributor } from '../models/leaderboard.model';
 import PRModal from '../views/LeaderboardPage/PRModal';
-import TopThree from '../views/LeaderboardPage/TopThee';
+import TopThree from 'views/LeaderboardPage/TopThee';
 
 
 export default function LeaderboardPage() {
@@ -33,7 +33,6 @@ export default function LeaderboardPage() {
   return (
     <Stack>
       {/*<div>
-          <div>
             <h2>
               Apertre'24 Leaderboard
             </h2>
@@ -46,19 +45,16 @@ export default function LeaderboardPage() {
                 })}
               </span>
             </p>
-          </div>
-
-         <Top Three Contributors will be here>
-
-          <div>
+            
             <SearchInput
-              type="search"
-              placeholder="Check your rank"
-              value={searchText}
-              onChange={handleSearch}
+            type="search"
+            placeholder="Check your rank"
+            value={searchText}
+            onChange={handleSearch}
             />
-          </div>
-      </div> */}
+          </div> */}
+
+      <TopThree data={data.leaderboardData.slice(0, 3)} />
 
       <StyledBox>
         <LeaderboardTable data={searchText ? (searchedData as Contributor[]) : tableData} />
@@ -80,7 +76,7 @@ const Stack = styled.div`
 `;
 
 const StyledBox = styled(Box)`
-  margin: 10rem;
+  margin: 5rem 10rem 10rem 10rem;
 
   ${media('<=tablet')} {
     margin: 8rem 4rem;

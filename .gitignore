@@ -36,6 +36,3 @@ yarn-error.log*
 
 # yarn
 yarn.lock
-
-#  secret data - keu dhorbi na
-leaderBoard.json

@@ -1,0 +1,111 @@
+{
+    "lastUpdated": "2023-12-30T12:16:48.896Z",
+    "leaderboardData": [
+        {
+            "user_name": "Abhirup-02",
+            "avatar_url": "https://avatars.githubusercontent.com/u/92736753?v=4",
+            "user_url": "https://github.com/Abhirup-02",
+            "total_points": 20,
+            "pr_urls": [
+                {
+                    "url": "https://github.com/Anushka-Bhowmick/DSA_Cpp/pull/106",
+                    "difficulty": "Hard"
+                },
+                {
+                    "url": "https://github.com/NabajitBhadury/my_programming_files/pull/5",
+                    "difficulty": "Easy"
+                }
+            ],
+            "full_name": "Abhirup Saha",
+            "linkedIn": "https://www.linkedin.com/in/abhirup-saha-9605b0228/",
+            "rank": 1
+        },
+        {
+            "user_name": "Anushka-Bhowmick",
+            "avatar_url": "https://avatars.githubusercontent.com/u/76967222?v=4",
+            "user_url": "https://github.com/Anushka-Bhowmick",
+            "total_points": 15,
+            "pr_urls": [
+                {
+                    "url": "https://github.com/NabajitBhadury/my_programming_files/pull/4",
+                    "difficulty": "Hard"
+                }
+            ],
+            "full_name": "Anushka Bhowmick",
+            "linkedIn": "https://www.linkedin.com/in/anushkabhowmick/",
+            "rank": 2
+        },
+        {
+            "user_name": "Koustavjr",
+            "avatar_url": "https://avatars.githubusercontent.com/u/93964076?v=4",
+            "user_url": "https://github.com/Koustavjr",
+            "total_points": 15,
+            "pr_urls": [
+                {
+                    "url": "https://github.com/Anushka-Bhowmick/DSA_Cpp/pull/105",
+                    "difficulty": "Easy"
+                },
+                {
+                    "url": "https://github.com/NabajitBhadury/my_programming_files/pull/3",
+                    "difficulty": "Medium"
+                }
+            ],
+            "full_name": "Koustav Chatterjee",
+            "linkedIn": "https://www.linkedin.com/in/koustav-chatterjee-9b060b226/",
+            "rank": 2
+        },
+        {
+            "user_name": "NabajitBhadury",
+            "avatar_url": "https://avatars.githubusercontent.com/u/117065551?v=4",
+            "user_url": "https://github.com/NabajitBhadury",
+            "total_points": 10,
+            "pr_urls": [
+                {
+                    "url": "https://github.com/Anushka-Bhowmick/DSA_Cpp/pull/107",
+                    "difficulty": "Medium"
+                }
+            ],
+            "full_name": "Nabajit Bhadury",
+            "linkedIn": "https://www.linkedin.com/in/nabajit-bhadury-5a123b24a/",
+            "rank": 3
+        },
+        {
+            "user_name": "Abhirup-02",
+            "avatar_url": "https://avatars.githubusercontent.com/u/92736753?v=4",
+            "user_url": "https://github.com/Abhirup-02",
+            "total_points": 5,
+            "pr_urls": [
+                {
+                    "url": "https://github.com/Anushka-Bhowmick/DSA_Cpp/pull/106",
+                    "difficulty": "Hard"
+                },
+                {
+                    "url": "https://github.com/NabajitBhadury/my_programming_files/pull/5",
+                    "difficulty": "Easy"
+                }
+            ],
+            "full_name": "Abhirup Saha",
+            "linkedIn": "https://www.linkedin.com/in/abhirup-saha-9605b0228/",
+            "rank": 4
+        },
+        {
+            "user_name": "Koustavjr",
+            "avatar_url": "https://avatars.githubusercontent.com/u/93964076?v=4",
+            "user_url": "https://github.com/Koustavjr",
+            "total_points": 3,
+            "pr_urls": [
+                {
+                    "url": "https://github.com/Anushka-Bhowmick/DSA_Cpp/pull/105",
+                    "difficulty": "Easy"
+                },
+                {
+                    "url": "https://github.com/NabajitBhadury/my_programming_files/pull/3",
+                    "difficulty": "Medium"
+                }
+            ],
+            "full_name": "Koustav Chatterjee",
+            "linkedIn": "https://www.linkedin.com/in/koustav-chatterjee-9b060b226/",
+            "rank": 5
+        }
+    ]
+}

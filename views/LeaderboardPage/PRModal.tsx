@@ -80,14 +80,14 @@ function getColor(difficulty: string) {
     let result = { bgColor: "", textColor: "" };
 
     const bgValues = {
-        easy: "rgba(14, 138, 22, 0.5)",
-        medium: "rgba(162, 238, 239, 0.5)",
-        hard: "rgba(217, 63, 11, 0.6)",
+        easy: "rgba(14, 138, 22, 0.7)",
+        medium: "rgba(162, 238, 239, 1)",
+        hard: "rgba(217, 63, 11, 0.7)",
     };
     const textColor = {
-        easy: "rgba(14, 138, 22, 1)",
-        medium: "rgba(162, 238, 239, 1)",
-        hard: "rgba(217, 63, 11, 1)",
+        easy: "rgba(20,20,20,0.8)",
+        medium: "rgba(20,20,20,0.8)",
+        hard: "rgba(20,20,20,0.8)",
     };
 
     if (difficulty === "Easy") {
@@ -129,8 +129,8 @@ const PRContainer = styled(Box)`
 `
 
 const Difficulty = styled(Typography)`
-    padding: 0.4rem 0.8rem;
+    padding: 0.5rem 1rem;
     border-radius: 0.6rem;
     font-size: 1.2rem;
-    border: 1px solid #565656;
+    font-weight: bold;
 `
