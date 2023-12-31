@@ -1,5 +1,6 @@
+import { Pagination } from '@mui/material';
 import Fuse from 'fuse.js';
-import { useEffect, useState } from 'react';
+import { ChangeEvent, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import Loader from 'components/Loader';
 import axiosInstance from 'config/axiosInstance';
@@ -10,10 +11,11 @@ import ProjectCard from 'views/ProjectPage/ProjectCard';
 
 
 export default function ProjectsPage() {
+  const [page, setPage] = useState<number>(1)
   const [projects, setProjects] = useState<ProjectsData[]>([]);
   const [tags, setTags] = useState<Array<string>>([]);
   const [filteredProjects, setFilteredProjects] = useState<ProjectsData[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState<boolean>(true);
 
   const getReposAndTags = async () => {
     try {
@@ -32,6 +34,10 @@ export default function ProjectsPage() {
     }
   }
 
+  const handlePageChange = (event: ChangeEvent<unknown>, value: number) => {
+    setPage(value)
+  }
+
   useEffect(() => {
     getReposAndTags()
   }, [])
@@ -41,11 +47,10 @@ export default function ProjectsPage() {
   }, [projects]);
 
   const handleFilterChange = (query: string) => {
-    const options = {
+    const fuse = new Fuse(projects as ProjectsData[], {
       keys: ['techStack'],
       threshold: 0.1,
-    };
-    const fuse = new Fuse(projects, options);
+    });
     const result = fuse.search(query);
     setFilteredProjects(query ? result.map((item) => item.item) : projects);
   };
@@ -79,6 +84,7 @@ export default function ProjectsPage() {
                 <ProjectCard key={idx} project={project} />
               ))}
             </ProjectsList>
+            <Pagination count={4} page={page} onChange={handlePageChange} />
           </WhiteBackgroundContainer>
         </>
       )}

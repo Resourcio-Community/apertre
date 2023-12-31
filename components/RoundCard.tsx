@@ -54,12 +54,13 @@ const getCardStyle = (priority: number) => {
 const Card = styled.div<{ priority: number }>`
   display: flex;
   padding: 2rem;
-  background: white;
-  box-shadow: var(--shadow-md);
+  background: rgba(255,255,255,0.75);
+  backdrop-filter: blur(2px);
+  box-shadow: 0 5px 10px 14px rgba(0, 0, 0, 0.25);
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: 3px double rgba(var(--yellow));
+  border: 1px solid rgba(209, 213, 219, 0.3);
   border-radius: 15px;
   font-size: 1.6rem;
   margin: 0 200px;
@@ -89,7 +90,8 @@ const Card = styled.div<{ priority: number }>`
 
 const Title = styled.div`
   font-size: 2rem;
-  color: #fbce1f;
+  color: #746f6f;
+  filter: brightness(0.1);
   opacity: 0.9;
 `;
 

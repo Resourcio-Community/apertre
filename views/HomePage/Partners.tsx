@@ -1,12 +1,12 @@
 import NextImage from 'next/image';
 import styled from 'styled-components';
-import SwiperCore, { Autoplay } from "swiper";
+import { Autoplay } from "swiper/modules";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import Container from 'components/Container';
 import { media } from 'utils/media';
 import 'swiper/css';
 import 'swiper/css/autoplay';
-import 'swiper/css/navigation';
+
 
 const PARTNER_LOGOS = [
   { name: 'SC CSE.png', link: 'https://sccsebio.vercel.app/?utm_source=sc+cse' },
@@ -18,20 +18,18 @@ const PARTNER_LOGOS = [
   { name: 'KGEC.png', link: 'https://twitter.com/DevKgec' },
 ];
 
-SwiperCore.use([Autoplay]);
 
 export default function Partners() {
   return (
     <PartnersWrapper>
       <Title>Community partners</Title>
       <Swiper
-        slidesPerView={6}
+        slidesPerView={5}
         centeredSlides={true}
-        spaceBetween={10}
+        spaceBetween={40}
         loop={true}
-        autoplay={{ delay: 0, disableOnInteraction: false, pauseOnMouseEnter: true }}
-        speed={3000}
-        freeMode={true}
+        autoplay={{ delay: 0, disableOnInteraction: true, pauseOnMouseEnter: true, waitForTransition: true }}
+        speed={3500}
         breakpoints={{
           320: {
             slidesPerView: 2,
@@ -46,16 +44,16 @@ export default function Partners() {
           },
         }}
         modules={[Autoplay]}
-        className="swiper-wrapper"
+        className='swiper-wrapper'
       >
         {PARTNER_LOGOS.map((partner, idx) => (
           <SwiperSlide key={idx + PARTNER_LOGOS.length}>
             {partner.link ? (
               <PartnerLink href={partner.link} target="_blank" rel="noopener noreferrer">
-                <StyledImage src={`/partners/${partner.name}`} alt={normalizePartnerLogoName(partner.name)} width={120} height={90} style={{ borderRadius: 20 }} />
+                <StyledImage src={`/partners/${partner.name}`} alt={normalizePartnerLogoName(partner.name)} width={120} height={90} />
               </PartnerLink>
             ) : (
-              <StyledImage src={`/partners/${partner.name}`} alt={normalizePartnerLogoName(partner.name)} width={120} height={90} style={{ borderRadius: 20 }} />
+              <StyledImage src={`/partners/${partner.name}`} alt={normalizePartnerLogoName(partner.name)} width={120} height={90} />
             )}
           </SwiperSlide>
         ))}
@@ -84,23 +82,17 @@ const Title = styled.h3`
 `;
 
 const PartnersWrapper = styled(Container)`
-  padding-bottom: 3rem;
+  padding-bottom: 4rem;
+
   .swiper-wrapper {
     will-change: transform;
     transition-timing-function: linear;
     margin-top: 0.5rem;
     user-select: none;
   }
-  .swiper-slide .swiper-wrapper{
-    transition-timing-function: linear;
-  } 
+  
   .swiper-slide {
-    opacity: 0.8;
-    transition: opacity 0.2s;
-
-    &:hover {
-      opacity: 1;
-    }
+    z-index: 99;
   }
 `;
 
@@ -111,6 +103,14 @@ const PartnerLink = styled.a`
 `;
 
 const StyledImage = styled(NextImage)`
+  border-radius: 1.5rem;
+  opacity: 0.65;
+  transition: opacity 0.2s ease-in-out;
+
+  &:hover {
+    opacity: 1;
+  }
+
   ${media('<=tablet')} {
     width: 90px;
     height: 70px;

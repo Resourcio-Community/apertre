@@ -1,13 +1,13 @@
 import { AppProps } from 'next/dist/shared/lib/router/router';
 import Head from 'next/head';
 import { PropsWithChildren } from 'react';
+import { RecoilRoot } from 'recoil';
 import BackToTopButton from 'components/BackToTop';
 import Footer from 'components/Footer';
 import { GlobalStyle } from 'components/GlobalStyles';
 import Navbar from 'components/Navbar';
 import NavigationDrawer from 'components/NavigationDrawer';
 import { NavItems } from 'types';
-import { RecoilRoot } from 'recoil';
 
 const navItems: NavItems = [
   { title: 'About', href: '/#about' },
