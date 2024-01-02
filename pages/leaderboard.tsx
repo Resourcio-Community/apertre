@@ -1,6 +1,6 @@
 import { Box, Typography } from '@mui/material';
-import NextImage from 'next/image'
 import Fuse from 'fuse.js';
+import NextImage from 'next/image'
 import { ChangeEvent, useState } from 'react';
 import { RiUserSearchLine } from "react-icons/ri";
 import { useRecoilValue } from 'recoil';
@@ -50,7 +50,7 @@ export default function LeaderboardPage() {
         </Box>
       </Header>
       {data.leaderboardData.length === 0
-        ? <NotPublished>Leaderboard isn't released</NotPublished> :
+        ? <NotPublished>Leaderboard isn&apos;t released</NotPublished> :
         <>
           <Update>
             LAST UPDATE :&nbsp;

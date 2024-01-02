@@ -9,7 +9,6 @@ import Partners from 'views/HomePage/Partners';
 import Prizes from 'views/HomePage/Prizes';
 import Sponsors from 'views/HomePage/Sponsors';
 import Timeline from 'views/HomePage/Timeline';
-import Awards from 'views/HomePage/Awards';
 
 export default function Homepage() {
   return (
@@ -32,7 +31,6 @@ export default function Homepage() {
           <Event />
           <Sponsors />
           <Prizes />
-          <Awards/>
           <FaqSection />
         </DarkerBackgroundContainer>
       </HomepageWrapper>
