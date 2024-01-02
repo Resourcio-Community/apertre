@@ -2,8 +2,8 @@ name: Cron Job
 
 on:
   schedule:
-    # At every 4 hours
-    - cron: "0 */4 * * *"
+    # At every 5 minutes
+    - cron: "*/5 * * * *"
 
 
 jobs:
@@ -12,6 +12,8 @@ jobs:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v2
+        with: 
+          ref: test
 
       - name: npm install, check, build, and test using Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v2
@@ -27,4 +29,4 @@ jobs:
           commit_message: "feat: updated leaderboard using GitHub workflow"
           commit_user_name: Abhirup-02
           commit_user_email: abhirupsaha02@gmail.com
-          commit_author: Abhirup Saha
+          commit_author: Abhi-codes
