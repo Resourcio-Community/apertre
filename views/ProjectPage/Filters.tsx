@@ -2,6 +2,7 @@ import { ChangeEvent, useState, ReactNode, useRef, useEffect, PropsWithChildren 
 import styled from 'styled-components';
 import { FiSearch } from 'react-icons/fi';
 import Fuse from 'fuse.js';
+import { media } from 'utils/media';
 
 interface FiltersProps {
   onFilterChange: (query: string) => void;
@@ -107,6 +108,10 @@ const SearchInput = styled.input`
   background: none;
   color: rgba(var(--text));
   font-size: 1.4rem;
+
+  ${media('<=tablet')} {
+    width: 70%;
+  }
 `;
 
 const SearchIconContainer = styled.div`

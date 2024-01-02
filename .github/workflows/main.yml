@@ -2,24 +2,23 @@ name: Cron Job
 
 on:
   schedule:
-    # At every 5 minutes
-    - cron: "*/5 * * * *"
+    # At every 10 minutes
+    - cron: "*/10 * * * *"
 
 
 jobs:
   fetch:
     name: FetchLeaderBoard
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
         with: 
           ref: test
 
-      - name: npm install, check, build, and test using Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v2
+      - name: npm install, check, build, and test using Node.js
+        uses: actions/setup-node@v4
         with:
-          node-version: ${{ matrix.node-version }}
-      - run: npm install
+          node-version: 18
       - run: npm run leaderboard
         env:
           LEADERBOARD_URL: ${{ secrets.LEADERBOARD_URL }}
