@@ -11,7 +11,6 @@ import ProjectCard from 'views/ProjectPage/ProjectCard';
 
 
 export default function ProjectsPage() {
-  // const [limit, setLimit] = useState<number>(12);
   const [page, setPage] = useState<number>(1);
   const [projects, setProjects] = useState<ProjectsData[]>([]);
   const [tags, setTags] = useState<Array<string>>([]);
@@ -88,7 +87,7 @@ export default function ProjectsPage() {
               ))}
             </ProjectsList>
             {/* Total project 34, project per page 12 */}
-            <CustomPagination count={Math.ceil(34 / 12)} page={page} onChange={handlePageChange} />
+            <CustomPagination variant='outlined' count={Math.ceil(34 / 12)} page={page} onChange={handlePageChange} />
           </WhiteBackgroundContainer>
         </>
       )}
@@ -114,13 +113,14 @@ const DarkerBackgroundContainer = styled.div`
 `;
 
 const WhiteBackgroundContainer = styled.div`
+  position: relative;
   display: flex;
   flex-direction: column;
   background: rgb(var(--background));
-  padding: 5rem 0;
+  padding: 5rem 0 14rem 0;
 
   ${media('<=tablet')} {
-    padding: 5rem 1.5rem;
+    padding: 5rem 0 10rem 0;
   }
 `;
 
@@ -163,16 +163,35 @@ const Event = styled.span`
 `;
 
 const CustomPagination = styled(Pagination)`
-  margin: 6rem 5rem 0 5rem;
+  position: absolute;
   width: 20%;
-  position: sticky;
-  right: 0;
+  bottom: 4rem;
+  right: 5rem;
+
+  ${media('<=tablet')} {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
 
   & li {
     & button {
       font-size: 1.7rem;
-      margin-left: 2rem;
       color: white;
+      margin: 0 1rem;
+
+      & svg {
+        font-size: 2rem;
+      }
+
+      ${media('<=tablet')} {
+        margin: 0 0.5rem;
+      }
     }
+  }
+
+  & .Mui-selected {
+    background-color: rgba(var(--yellow),0.85);
+    filter: drop-shadow(2px 3px 3px #2cb9a8);
   }
 `
