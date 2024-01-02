@@ -2,11 +2,8 @@ name: Cron Job
 
 on:
   schedule:
-    # At every 1 hours
-    - cron: "0 */1 * * *"
-
-    branches:
-      - test
+    # At every 5 minutes
+    - cron: "*/5 * * * *"
 
 
 jobs:
@@ -15,6 +12,8 @@ jobs:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v2
+        with: 
+          ref: test
 
       - name: npm install, check, build, and test using Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v2
