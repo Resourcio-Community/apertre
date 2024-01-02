@@ -17,7 +17,8 @@ import PRModal from '../views/LeaderboardPage/PRModal';
 export default function LeaderboardPage() {
   const isModalOpen = useRecoilValue(modalState);
 
-  const [tableData, setTableData] = useState(data.leaderboardData.slice(3, data.leaderboardData.length));
+  const tableData: Contributor[] = data.leaderboardData.slice(3, data.leaderboardData.length);
+
   const [searchText, setSearchText] = useState('');
   const [searchedData, setSearchedData] = useState<Contributor[]>();
 
@@ -100,7 +101,7 @@ const Header = styled(Box)`
   justify-content: center; 
   margin-top: 3rem;
 `
-const NotPublished = styled(Typography)`
+const NotPublished = styled.span`
   text-align: center;
   font-size: 2.5rem;
   padding: 15rem 0;
