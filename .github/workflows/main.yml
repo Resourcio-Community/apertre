@@ -1,0 +1,30 @@
+name: Cron Job
+
+on:
+  schedule:
+    # At every 4 hours
+    - cron: "0 */4 * * *"
+
+
+jobs:
+  fetch:
+    name: FetchLeaderBoard
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: npm install, check, build, and test using Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: npm install
+      - run: npm run leaderboard
+        env:
+          LEADERBOARD_URL: ${{ secrets.LEADERBOARD_URL }}
+
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "feat: updated leaderboard using GitHub workflow"
+          commit_user_name: Abhirup-02
+          commit_user_email: abhirupsaha02@gmail.com
+          commit_author: Abhirup Saha
