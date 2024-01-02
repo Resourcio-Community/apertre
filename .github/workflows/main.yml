@@ -2,8 +2,8 @@ name: Cron Job
 
 on:
   schedule:
-    # At every 4 hours
-    - cron: "0 */4 * * *"
+    # At every 1 hours
+    - cron: "0 */1 * * *"
 
 
 jobs:
