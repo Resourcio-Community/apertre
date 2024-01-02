@@ -1,4 +1,5 @@
-import { Box } from '@mui/material';
+import { Box, Typography } from '@mui/material';
+import NextImage from 'next/image'
 import Fuse from 'fuse.js';
 import { ChangeEvent, useState } from 'react';
 import { RiUserSearchLine } from "react-icons/ri";
@@ -33,34 +34,50 @@ export default function LeaderboardPage() {
 
   return (
     <Stack>
-      <h2>
-        Apertre&apos;24 Leaderboard
-      </h2>
-      <p>
-        Last updated on:
-        <span>
-          {new Date(data.lastUpdated).toLocaleString('en-US', {
-            dateStyle: 'full',
-            timeStyle: 'full',
-          })}
-        </span>
-      </p>
-
-
-      <TopThree data={data.leaderboardData.slice(0, 3)} />
-
-      <StyledBox>
-        <Box sx={{ padding: '0 0.5rem', fontSize: '1.5rem', display: 'flex', alignItems: 'center' }}>
-          <RiUserSearchLine size={15} style={{marginRight: '0.8rem'}} />
-          <SearchInput
-            type="search"
-            placeholder='Check your rank'
-            value={searchText}
-            onChange={handleSearch}
-          />
+      <Header>
+        <Box sx={{
+          display: 'flex',
+          alignItems: 'center',
+          padding: '0 2rem',
+          background: 'rgba(0,0,0,0.4)',
+          borderRadius: '4rem',
+          gap: '0.5rem',
+          backdropFilter: 'blur(15px)',
+          boxShadow: '0 0 200px 15px #48abe0'
+        }}>
+          <CustomImage src='/static/assets/logo.svg' alt='apertre' width={130} height={90} />
+          <Title> &apos;24 LEADERBOARD</Title>
         </Box>
-        <LeaderboardTable data={searchText ? (searchedData as Contributor[]) : tableData} />
-      </StyledBox>
+      </Header>
+      {data.leaderboardData.length === 0
+        ? <NotPublished>Leaderboard isn't released</NotPublished> :
+        <>
+          <Update>
+            LAST UPDATE :&nbsp;
+            <UpdateDate>
+              {new Date(data.lastUpdated).toLocaleString('en-US', {
+                dateStyle: 'full',
+                timeStyle: 'full',
+              })}
+            </UpdateDate>
+          </Update>
+
+          <TopThree data={data.leaderboardData.slice(0, 3)} />
+
+          <StyledBox>
+            <Box sx={{ padding: '0 0.5rem', fontSize: '1.5rem', display: 'flex', alignItems: 'center' }}>
+              <RiUserSearchLine size={15} style={{ marginRight: '0.8rem' }} />
+              <SearchInput
+                type="search"
+                placeholder='Check your rank'
+                value={searchText}
+                onChange={handleSearch}
+              />
+            </Box>
+            <LeaderboardTable data={searchText ? (searchedData as Contributor[]) : tableData} />
+          </StyledBox>
+        </>
+      }
 
       {isModalOpen && <PRModal />}
     </Stack>
@@ -71,11 +88,64 @@ export default function LeaderboardPage() {
 const Stack = styled.div`
   display: flex;
   flex-direction: column;
-  
+  gap: 2rem;
+
   ${media('<=tablet')} {
-    
+
   }
 `;
+
+const Header = styled(Box)`
+  display: flex; 
+  justify-content: center; 
+  margin-top: 3rem;
+`
+const NotPublished = styled(Typography)`
+  text-align: center;
+  font-size: 2.5rem;
+  padding: 15rem 0;
+
+  ${media('<=tablet')} {
+    font-size: 1.8rem;
+  }
+`
+
+const CustomImage = styled(NextImage)`
+  ${media('<=tablet')} {
+    width: 80px;
+    height: 50px;
+  }
+`
+
+const Title = styled.div`
+  font-size: 3rem;
+  font-weight: bold;
+
+  ${media('<=tablet')} {
+    font-size: 1.8rem;
+  }
+`;
+
+const Update = styled(Box)`
+  color: red;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+
+  ${media('<=tablet')} {
+    font-size: 1.1rem;
+  }
+`
+
+const UpdateDate = styled(Typography)`
+  color: white;
+  font-size: 1.5rem;
+
+  ${media('<=tablet')} {
+    font-size: 1.1rem;
+  }
+`
 
 const StyledBox = styled(Box)`
   display: flex;

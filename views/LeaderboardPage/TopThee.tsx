@@ -42,11 +42,13 @@ function TopCard({ data, isFirst }: { data: Contributor, isFirst?: boolean }) {
 const CustomBox = styled(Box)`
     display: flex;
     justify-content: center;
+    width: 100%;
     padding: 6rem;
     gap: 14rem;
 
     ${media('<=tablet')} {
-        gap: 4rem;
+        gap: 3.2rem;
+        padding: 4rem;
     }
 `
 
@@ -57,16 +59,22 @@ const Wrapper = styled.div<{ isFirst?: boolean }>`
   box-shadow: ${(p) => (p.isFirst ? 'var(--shadow-lg)' : 'var(--shadow-md)')};
   transform: ${(p) => (p.isFirst ? 'scale(1.25)' : 'scale(1.0)')};
   text-align: center;
+
+  ${media('<=tablet')} {
+    gap: 0.8rem;
+    transform: ${(p) => (p.isFirst ? 'scale(1.2)' : 'scale(1.0)')};
+  }
 `;
 
 const CustomAvatar = styled(Avatar)`
-  border: 2px solid rgb(var(--yellow));
+  border: 3px solid rgb(var(--yellow));
   width: 18rem;
   height: 18rem;
 
   ${media('<=tablet')} {
-    width: 12rem;
-    height: 12rem;
+    border: 2px solid rgb(var(--yellow));
+    width: 10rem;
+    height: 10rem;
   }
 `
 
@@ -74,7 +82,7 @@ const ContributorName = styled(Typography)`
   font-size: 2rem;
 
   ${media('<=tablet')} {
-    font-size: 1rem;
+    font-size: 1.2rem;
   }
 `
 

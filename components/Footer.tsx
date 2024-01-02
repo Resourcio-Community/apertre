@@ -234,6 +234,7 @@ const Info = styled.div`
   font-size: 1.6rem;
 
   ${media('<=tablet')} {
+    font-size: 1.4rem;
     display: flex;
     flex-direction: column;
   }
