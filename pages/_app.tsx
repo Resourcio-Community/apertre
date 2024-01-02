@@ -1,6 +1,7 @@
 import { AppProps } from 'next/dist/shared/lib/router/router';
 import Head from 'next/head';
-import React, { PropsWithChildren } from 'react';
+import { PropsWithChildren } from 'react';
+import { RecoilRoot } from 'recoil';
 import BackToTopButton from 'components/BackToTop';
 import Footer from 'components/Footer';
 import { GlobalStyle } from 'components/GlobalStyles';
@@ -8,12 +9,11 @@ import Navbar from 'components/Navbar';
 import NavigationDrawer from 'components/NavigationDrawer';
 import { NavItems } from 'types';
 
-
 const navItems: NavItems = [
   { title: 'About', href: '/#about' },
   { title: 'Projects', href: '/projects' },
   { title: 'Sponsors', href: '/#sponsors' },
-  // { title: 'Leaderboard', href: '/leaderboard' },
+  { title: 'Leaderboard', href: '/leaderboard' },
   { title: 'FAQ', href: '/#faq' },
   { title: 'Contact', href: '/contact' }
 ];
@@ -30,10 +30,12 @@ function MyApp({ Component, pageProps }: AppProps) {
       <GlobalStyle />
 
       <Providers>
+        <RecoilRoot>
         <Navbar items={navItems} />
         <Component {...pageProps} />
         <Footer />
         <BackToTopButton />
+        </RecoilRoot>
       </Providers>
     </>
   );

@@ -40,10 +40,6 @@ const footerItems: FooterItems = [
 ];
 
 const footerLeftItems: FooterLeftItems = [
-  // {
-  //   title: 'Privacy',
-  //   href: '',
-  // },
   {
     title: 'Code Of Conduct',
     href: 'https://drive.google.com/file/d/135ngnvae6TRZKIO1brrDBVjVC8jzhp63/view?usp=drive_link',
@@ -76,7 +72,7 @@ export default function Footer() {
           <Copyright>
             &copy; {new Date().getFullYear()} All Rights Reserved
             <A href="https://www.linkedin.com/showcase/apertre" target="_blank">
-              &nbsp;Apertre-24
+              &nbsp;Apertre
             </A>
           </Copyright>
         </BottomBar>
@@ -238,6 +234,7 @@ const Info = styled.div`
   font-size: 1.6rem;
 
   ${media('<=tablet')} {
+    font-size: 1.4rem;
     display: flex;
     flex-direction: column;
   }

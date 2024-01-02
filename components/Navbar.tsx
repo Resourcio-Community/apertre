@@ -1,7 +1,7 @@
 import NextImage from 'next/image';
 import NextLink from 'next/link';
 import { useRouter } from 'next/router';
-import React, { useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import styled from 'styled-components';
 import { ScrollPositionEffectProps, useScrollPosition } from 'hooks/useScrollPosition';
 import { NavItems, SingleNavItem } from 'types';

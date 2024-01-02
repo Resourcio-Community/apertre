@@ -1,4 +1,4 @@
-import React, { useState, ReactNode, useRef, useEffect, PropsWithChildren } from 'react';
+import { ChangeEvent, useState, ReactNode, useRef, useEffect, PropsWithChildren } from 'react';
 import styled from 'styled-components';
 import { FiSearch } from 'react-icons/fi';
 import Fuse from 'fuse.js';
@@ -16,7 +16,7 @@ export default function Filters({ onFilterChange, children, tags }: PropsWithChi
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
-  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleSearchChange = (e: ChangeEvent<HTMLInputElement>) => {
     const query = e.target.value;
     setSearchQuery(query);
     onFilterChange(query);
@@ -60,13 +60,13 @@ export default function Filters({ onFilterChange, children, tags }: PropsWithChi
     <SearchContainer>
       <SearchInput
         type="text"
-        placeholder="Search"
+        placeholder="Search by Tech Stack"
         value={selectedTechStack ? selectedTechStack : searchQuery}
         onChange={handleSearchChange}
         onFocus={() => {
-          setSelectedTechStack(null);
-          setSearchQuery('');
-          setIsDropdownOpen(true);
+          setSelectedTechStack(null)
+          setSearchQuery('')
+          setIsDropdownOpen(true)
         }}
       />
       <SearchIconContainer>
@@ -98,14 +98,15 @@ const SearchContainer = styled.div`
 `;
 
 const SearchInput = styled.input`
-  padding: 8px;
+  padding: 0.8rem;
+  margin-top: 2rem;
   border: none;
   border-bottom: 1px solid rgba(var(--text));
   outline: none;
-  width: 30%;
+  width: 22%;
   background: none;
   color: rgba(var(--text));
-  font-size: 14px;
+  font-size: 1.4rem;
 `;
 
 const SearchIconContainer = styled.div`

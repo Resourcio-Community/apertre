@@ -1,5 +1,5 @@
 import NextImage from 'next/image';
-import React, { PropsWithChildren } from 'react';
+import { PropsWithChildren } from 'react';
 import styled from 'styled-components';
 import { media } from 'utils/media';
 import Container from './Container';
@@ -17,7 +17,7 @@ export default function BasicSection({ imageUrl, title, overTitle, reversed, chi
   return (
     <BasicSectionWrapper reversed={reversed}>
       <ImageContainer>
-        <NextImage src={imageUrl} alt={title} layout='fill' style={{ borderRadius: '10px', objectFit: 'cover' }} />
+        <NextImage src={imageUrl} alt={title} fill style={{ borderRadius: '10px', objectFit: 'cover'}} />
       </ImageContainer>
       <ContentContainer>
         <CustomOverTitle>

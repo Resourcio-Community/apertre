@@ -1,5 +1,6 @@
+import { Pagination } from '@mui/material';
 import Fuse from 'fuse.js';
-import { useEffect, useState } from 'react';
+import { ChangeEvent, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import Loader from 'components/Loader';
 import axiosInstance from 'config/axiosInstance';
@@ -10,18 +11,21 @@ import ProjectCard from 'views/ProjectPage/ProjectCard';
 
 
 export default function ProjectsPage() {
+  const [page, setPage] = useState<number>(1);
   const [projects, setProjects] = useState<ProjectsData[]>([]);
   const [tags, setTags] = useState<Array<string>>([]);
   const [filteredProjects, setFilteredProjects] = useState<ProjectsData[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState<boolean>(false);
 
-  const getReposAndTags = async () => {
+  const getReposAndTags = async (page: number) => {
+    setLoading(true);
     try {
-      const reposData = axiosInstance.get('/repo/getrepos');
+      const limit = 12
+      const reposData = axiosInstance.get(`/repo/getrepos?limit=${limit}&page=${page - 1}`);
       const stacksData = axiosInstance.get('/repo/gettags')
-      const [{ data: repos }, { data: stacks }] = await Promise.all([reposData, stacksData])
+      const [{ data: repos }, { data: stacks }] = await Promise.all([reposData, stacksData]);
 
-      setProjects(repos.data)
+      setProjects(repos.data);
       setTags(stacks.data);
     }
     catch (err) {
@@ -32,20 +36,23 @@ export default function ProjectsPage() {
     }
   }
 
+  const handlePageChange = (event: ChangeEvent<unknown>, value: number) => {
+    setPage(value)
+  }
+
   useEffect(() => {
-    getReposAndTags()
-  }, [])
+    getReposAndTags(page)
+  }, [page])
 
   useEffect(() => {
     setFilteredProjects(projects);
   }, [projects]);
 
   const handleFilterChange = (query: string) => {
-    const options = {
+    const fuse = new Fuse(projects as ProjectsData[], {
       keys: ['techStack'],
       threshold: 0.1,
-    };
-    const fuse = new Fuse(projects, options);
+    });
     const result = fuse.search(query);
     setFilteredProjects(query ? result.map((item) => item.item) : projects);
   };
@@ -60,7 +67,7 @@ export default function ProjectsPage() {
       ) : (
         <>
           <ProjectsWrapper>
-            <WhiteBackgroundContainer>
+            <DarkerBackgroundContainer>
               <ProjectsHeader>
                 <Heading>
                   Our <span style={{ color: 'rgb(var(--yellow))' }}>Projects</span>
@@ -70,16 +77,18 @@ export default function ProjectsPage() {
                 </Event>
               </ProjectsHeader>
               <Filters onFilterChange={handleFilterChange} tags={tags} />
-            </WhiteBackgroundContainer>
+            </DarkerBackgroundContainer>
           </ProjectsWrapper>
 
-          <DarkerBackgroundContainer>
+          <WhiteBackgroundContainer>
             <ProjectsList>
               {filteredProjects.map((project, idx) => (
                 <ProjectCard key={idx} project={project} />
               ))}
             </ProjectsList>
-          </DarkerBackgroundContainer>
+            {/* Total project 34, project per page 12 */}
+            <CustomPagination variant='outlined' count={Math.ceil(34 / 12)} page={page} onChange={handlePageChange} />
+          </WhiteBackgroundContainer>
         </>
       )}
     </>
@@ -98,17 +107,20 @@ const ProjectsWrapper = styled.div`
   width: 100%;
 `;
 
-const WhiteBackgroundContainer = styled.div`
+const DarkerBackgroundContainer = styled.div`
   padding: 5rem;
   background: #000;
 `;
 
-const DarkerBackgroundContainer = styled.div`
+const WhiteBackgroundContainer = styled.div`
+  position: relative;
+  display: flex;
+  flex-direction: column;
   background: rgb(var(--background));
-  padding: 5rem 0;
+  padding: 5rem 0 14rem 0;
 
   ${media('<=tablet')} {
-    padding: 5rem 1.5rem;
+    padding: 5rem 0 10rem 0;
   }
 `;
 
@@ -127,7 +139,7 @@ const ProjectsList = styled.div`
 
   ${media('<=tablet')} {
     padding: 0 1rem;
-    gap: 1.5rem;
+    gap: 2.6rem;
   }
 
   ${media('<=phone')} {
@@ -149,3 +161,37 @@ const Event = styled.span`
     font-size: 3rem;
   }
 `;
+
+const CustomPagination = styled(Pagination)`
+  position: absolute;
+  width: 20%;
+  bottom: 4rem;
+  right: 5rem;
+
+  ${media('<=tablet')} {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  & li {
+    & button {
+      font-size: 1.7rem;
+      color: white;
+      margin: 0 1rem;
+
+      & svg {
+        font-size: 2rem;
+      }
+
+      ${media('<=tablet')} {
+        margin: 0 0.5rem;
+      }
+    }
+  }
+
+  & .Mui-selected {
+    background-color: rgba(var(--yellow),0.85);
+    filter: drop-shadow(2px 3px 3px #2cb9a8);
+  }
+`

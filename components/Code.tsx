@@ -1,5 +1,4 @@
 import Highlight, { defaultProps, Language } from 'prism-react-renderer';
-import React from 'react';
 import styled from 'styled-components';
 import ClientOnly from 'components/ClientOnly';
 import { useClipboard } from 'hooks/useClipboard';
