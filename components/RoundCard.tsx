@@ -71,7 +71,7 @@ const Card = styled.div<{ priority: number }>`
 
   ${(props) => getCardStyle(props.priority)}
 
-  ${media('<=tablet')} {
+  ${media('<=desktop')} {
     margin: 0 20px;
   }
 
