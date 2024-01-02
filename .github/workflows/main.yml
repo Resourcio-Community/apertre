@@ -15,11 +15,11 @@ jobs:
         with: 
           ref: test
 
-      - name: Globally install axios using yarn
+      - name: yarn install using Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 18
-      - run: yarn global add axios
+      - run: yarn install
       - run: yarn leaderboard
         env:
           LEADERBOARD_URL: ${{ secrets.LEADERBOARD_URL }}
