@@ -104,7 +104,7 @@ const SearchInput = styled.input`
   border: none;
   border-bottom: 1px solid rgba(var(--text));
   outline: none;
-  width: 22%;
+  width: 30%;
   background: none;
   color: rgba(var(--text));
   font-size: 1.4rem;
@@ -129,6 +129,7 @@ const StyledSearchIcon = styled(FiSearch)`
 `;
 
 const PredictiveResults = styled.div`
+  z-index: 2;
   position: absolute;
   top: 120%;
   left: 50%;
@@ -137,10 +138,13 @@ const PredictiveResults = styled.div`
   background-color: black;
   color: white;
   border-radius: 4px;
-  z-index: 1;
   text-align: center;
   font-size: 16px;
   padding: 8px;
+  border-radius: 1rem;
+  @media screen and (max-width:430px) {
+    width: fit-content;
+  }
 `;
 
 const PredictiveResultItem = styled.div`
@@ -149,5 +153,6 @@ const PredictiveResultItem = styled.div`
 
   &:hover {
     background-color: rgba(var(--text), 0.5);
+    border-radius: 1rem;
   }
 `;

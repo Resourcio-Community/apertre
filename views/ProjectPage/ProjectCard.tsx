@@ -96,7 +96,7 @@ const DetailsButton = styled.button`
   color: white;
   padding: 0.8rem 1rem;
   border: none;
-  border-radius: 1.4rem; 
+  border-radius: 1.5rem; 
   font-size: 1.6rem;
   cursor: pointer;
   transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out, border-color 0.3s ease-in-out;
