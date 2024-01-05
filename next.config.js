@@ -13,6 +13,7 @@ module.exports = withBundleAnalyzer({
   },
   swcMinify: true,
   compiler: {
+    emotion: true,
     styledComponents: true,
   },
   webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
