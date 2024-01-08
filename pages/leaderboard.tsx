@@ -135,7 +135,7 @@ const Update = styled(Box)`
   font-size: 1.5rem;
 
   ${media('<=tablet')} {
-    font-size: 1.1rem;
+    font-size: 1rem;
     letter-spacing: -0.01em;
   }
 `
@@ -145,7 +145,7 @@ const UpdateDate = styled.span`
   font-size: 1.5rem;
 
   ${media('<=tablet')} {
-    font-size: 1.1rem;
+    font-size: 1rem;
   }
 `
 
