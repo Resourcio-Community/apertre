@@ -1,4 +1,4 @@
-import { Box, Typography } from '@mui/material';
+import { Box } from '@mui/material';
 import Fuse from 'fuse.js';
 import NextImage from 'next/image'
 import { ChangeEvent, useState } from 'react';
@@ -19,14 +19,14 @@ export default function LeaderboardPage() {
 
   const tableData: Contributor[] = data.leaderboardData.slice(3, data.leaderboardData.length);
 
-  const [searchText, setSearchText] = useState('');
+  const [searchText, setSearchText] = useState<string>('');
   const [searchedData, setSearchedData] = useState<Contributor[]>();
 
   const handleSearch = (e: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {
     setSearchText(e.target.value);
     const fuse = new Fuse(tableData as Contributor[], {
       keys: ['full_name'],
-      threshold: 0.2,
+      threshold: 0.1,
     });
     const result = fuse.search(e.target.value).map((item) => item.item);
     setSearchedData(result);
@@ -66,7 +66,7 @@ export default function LeaderboardPage() {
           <TopThree data={data.leaderboardData.slice(0, 3)} />
 
           <StyledBox>
-            <Box sx={{ padding: '0 0.5rem', fontSize: '1.5rem', display: 'flex', alignItems: 'center' }}>
+            <Box sx={boxStyle}>
               <RiUserSearchLine size={15} style={{ marginRight: '0.8rem' }} />
               <SearchInput
                 type="search"
@@ -75,7 +75,7 @@ export default function LeaderboardPage() {
                 onChange={handleSearch}
               />
             </Box>
-            <LeaderboardTable data={searchText ? (searchedData as Contributor[]) : tableData} />
+            <LeaderboardTable data={searchText ? (searchedData as Contributor[]) : tableData} searchText={searchText} />
           </StyledBox>
         </>
       }
@@ -136,10 +136,11 @@ const Update = styled(Box)`
 
   ${media('<=tablet')} {
     font-size: 1.1rem;
+    letter-spacing: -0.01em;
   }
 `
 
-const UpdateDate = styled(Typography)`
+const UpdateDate = styled.span`
   color: white;
   font-size: 1.5rem;
 
@@ -155,17 +156,29 @@ const StyledBox = styled(Box)`
   margin: 5rem 10rem 10rem 10rem;
 
   ${media('<=tablet')} {
-    margin: 8rem 4rem;
+    margin: 0 2rem 8rem 2rem;
   }
 `
 
 const SearchInput = styled.input`
   padding: 0.8rem;
   border: none;
-  border-bottom: 1px solid rgba(var(--text));
+  border-bottom: 1px solid rgba(var(--yellow));
   outline: none;
   width: 22%;
   background: none;
   color: rgba(var(--text));
-  font-size: 1.4rem;
+  font-size: 1.6rem;
+
+  ${media('<=tablet')} {
+    width: 50%;
+    font-size: 1.4rem;
+  }
 `;
+
+const boxStyle = {
+  padding: '0 0.5rem',
+  fontSize: '1.5rem',
+  display: 'flex',
+  alignItems: 'center'
+}

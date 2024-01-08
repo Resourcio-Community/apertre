@@ -10,91 +10,6 @@ import Filters from 'views/ProjectPage/Filters';
 import ProjectCard from 'views/ProjectPage/ProjectCard';
 
 
-export default function ProjectsPage() {
-  const [page, setPage] = useState<number>(1);
-  const [projects, setProjects] = useState<ProjectsData[]>([]);
-  const [tags, setTags] = useState<Array<string>>([]);
-  const [filteredProjects, setFilteredProjects] = useState<ProjectsData[]>([]);
-  const [loading, setLoading] = useState<boolean>(false);
-
-  const getReposAndTags = async (page: number) => {
-    setLoading(true);
-    try {
-      const limit = 12
-      const reposData = axiosInstance.get(`/repo/getrepos?limit=${limit}&page=${page - 1}`);
-      const stacksData = axiosInstance.get('/repo/gettags')
-      const [{ data: repos }, { data: stacks }] = await Promise.all([reposData, stacksData]);
-
-      setProjects(repos.data);
-      setTags(stacks.data);
-    }
-    catch (err) {
-      console.log(err);
-    }
-    finally {
-      setLoading(false);
-    }
-  }
-
-  const handlePageChange = (event: ChangeEvent<unknown>, value: number) => {
-    setPage(value)
-  }
-
-  useEffect(() => {
-    getReposAndTags(page)
-  }, [page])
-
-  useEffect(() => {
-    setFilteredProjects(projects);
-  }, [projects]);
-
-  const handleFilterChange = (query: string) => {
-    const fuse = new Fuse(projects as ProjectsData[], {
-      keys: ['techStack'],
-      threshold: 0.1,
-    });
-    const result = fuse.search(query);
-    setFilteredProjects(query ? result.map((item) => item.item) : projects);
-  };
-
-
-  return (
-    <>
-      {loading ? (
-        <FullPage>
-          <Loader />
-        </FullPage>
-      ) : (
-        <>
-          <ProjectsWrapper>
-            <DarkerBackgroundContainer>
-              <ProjectsHeader>
-                <Heading>
-                  Our <span style={{ color: 'rgb(var(--yellow))' }}>Projects</span>
-                </Heading>
-                <Event>
-                  APERTRE <span style={{ color: 'rgb(var(--yellow))' }}>&apos;24</span>
-                </Event>
-              </ProjectsHeader>
-              <Filters onFilterChange={handleFilterChange} tags={tags} />
-            </DarkerBackgroundContainer>
-          </ProjectsWrapper>
-
-          <WhiteBackgroundContainer>
-            <ProjectsList>
-              {filteredProjects.map((project, idx) => (
-                <ProjectCard key={idx} project={project} />
-              ))}
-            </ProjectsList>
-            {/* Total project 34, project per page 12 */}
-            <CustomPagination variant='outlined' count={Math.ceil(34 / 12)} page={page} onChange={handlePageChange} />
-          </WhiteBackgroundContainer>
-        </>
-      )}
-    </>
-  );
-}
-
 
 const FullPage = styled.div`
   height: 100vh;
@@ -191,7 +106,92 @@ const CustomPagination = styled(Pagination)`
   }
 
   & .Mui-selected {
-    background-color: rgba(var(--yellow),0.85);
     filter: drop-shadow(2px 3px 3px #2cb9a8);
   }
 `
+
+
+export default function ProjectsPage() {
+  const [page, setPage] = useState<number>(1);
+  const [projects, setProjects] = useState<ProjectsData[]>([]);
+  const [tags, setTags] = useState<Array<string>>([]);
+  const [filteredProjects, setFilteredProjects] = useState<ProjectsData[]>([]);
+  const [loading, setLoading] = useState<boolean>(false);
+
+  const getReposAndTags = async (page: number) => {
+    setLoading(true);
+    try {
+      const limit = 12
+      const reposData = axiosInstance.get(`/repo/getrepos?limit=${limit}&page=${page - 1}`);
+      const stacksData = axiosInstance.get('/repo/gettags')
+      const [{ data: repos }, { data: stacks }] = await Promise.all([reposData, stacksData]);
+
+      setProjects(repos.data);
+      setTags(stacks.data);
+    }
+    catch (err) {
+      console.log(err);
+    }
+    finally {
+      setLoading(false);
+    }
+  }
+
+  const handlePageChange = (event: ChangeEvent<unknown>, value: number) => {
+    setPage(value)
+  }
+
+  useEffect(() => {
+    getReposAndTags(page)
+  }, [page])
+
+  useEffect(() => {
+    setFilteredProjects(projects);
+  }, [projects]);
+
+  const handleFilterChange = (query: string) => {
+    const fuse = new Fuse(projects as ProjectsData[], {
+      keys: ['techStack'],
+      threshold: 0.1,
+    });
+    const result = fuse.search(query);
+    setFilteredProjects(query ? result.map((item) => item.item) : projects);
+  };
+
+
+  return (
+    <>
+      {loading ? (
+        <FullPage>
+          <Loader />
+        </FullPage>
+      ) : (
+        <>
+          <ProjectsWrapper>
+            <DarkerBackgroundContainer>
+              <ProjectsHeader>
+                <Heading>
+                  Our <span style={{ color: 'rgb(var(--yellow))' }}>Projects</span>
+                </Heading>
+                <Event>
+                  APERTRE <span style={{ color: 'rgb(var(--yellow))' }}>&apos;24</span>
+                </Event>
+              </ProjectsHeader>
+              <Filters onFilterChange={handleFilterChange} tags={tags} />
+            </DarkerBackgroundContainer>
+          </ProjectsWrapper>
+
+          <WhiteBackgroundContainer>
+            <ProjectsList>
+              {filteredProjects.map((project, idx) => (
+                <ProjectCard key={idx} project={project} />
+              ))}
+            </ProjectsList>
+            {/* Total project 34, project per page 12 */}
+            <CustomPagination variant='outlined' color='primary' count={Math.ceil(34 / 12)} page={page} onChange={handlePageChange} />
+          </WhiteBackgroundContainer>
+        </>
+      )}
+    </>
+  );
+}
