@@ -26,6 +26,3 @@ jobs:
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: "feat: updated leaderboard using GitHub workflow"
-          commit_user_name: Abhirup-02
-          commit_user_email: abhirupsaha02@gmail.com
-          commit_author: Abhi-codes

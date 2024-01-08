@@ -68,6 +68,28 @@ const LinkBox = styled(Box)`
     font-size: 2rem;
   }
 `
+const NumberBox = styled(Box)`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-left: 0.5rem;
+
+  ${media('<=tablet')} {
+    flex-direction: column;
+    gap: 0.4rem;
+    margin-left: 0;
+  }
+`
+
+const NumberData = styled.span`
+  font-size: 1.6rem;
+
+  ${media('<=tablet')} {
+    font-size: 1rem;
+  }
+`
+
 
 export default function TopThree({ data }: { data: Contributor[] }) {
   return (
@@ -86,7 +108,10 @@ function TopCard({ data, isFirst }: { data: Contributor, isFirst?: boolean }) {
   return (
     <Wrapper isFirst={isFirst}>
       <CustomAvatar src={data.avatar_url} alt='top-three' width={120} height={120} />
-      <ContributorName>{data.full_name}</ContributorName>
+      <NumberBox>
+        <ContributorName>{data.full_name}</ContributorName>
+        <NumberData style={{color: 'yellow'}}>{data.total_points}</NumberData>
+      </NumberBox>
       <LinkBox>
         <Link href={data.user_url} target='_blank' rel='norefferer'><PiGithubLogoLight /></Link>
         <Link href={data.linkedIn} target='_blank' rel='norefferer'><PiLinkedinLogo style={{ color: '#0a66c2' }} /></Link>
