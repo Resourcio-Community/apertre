@@ -3,25 +3,14 @@ import { useRecoilState, useRecoilValue } from 'recoil'
 import { modalState } from 'atoms/modalAtom'
 import { selectedContributorState } from 'atoms/selectedContributorAtom'
 import { Contributor } from 'models/leaderboard.model'
-import { Avatar, Backdrop, Box, Fade, List, ListItem, Modal, Typography } from '@mui/material'
+import { Avatar, Backdrop, Box, Fade, List, ListItem, Modal } from '@mui/material'
 import { FiGithub } from 'react-icons/fi';
 import styled from 'styled-components'
+import { media } from 'utils/media'
 
 interface PrProps {
     link: string;
     difficulty: string;
-}
-
-const style = {
-    position: 'absolute' as 'absolute',
-    top: '50%',
-    border: 'none',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    width: '70vw',
-    bgcolor: 'rgba(223, 229, 226)',
-    boxShadow: 24,
-    p: 5,
 }
 
 
@@ -48,12 +37,13 @@ export default function PRMOdal() {
                             <Avatar src={contributorData.avatar_url} />
                             <ContributorName>{contributorData.full_name}</ContributorName>
                         </HeaderConatiner>
-                        <List>
-
-                            {contributorData.pr_urls.map((pr, idx) => (
-                                <EachPR key={idx} link={pr.url} difficulty={pr.difficulty} />
-                            ))}
-                        </List>
+                        <PRBox>
+                            <List>
+                                {contributorData.pr_urls.map((pr, idx) => (
+                                    <EachPR key={idx} link={pr.url} difficulty={pr.difficulty} />
+                                ))}
+                            </List>
+                        </PRBox>
                     </Box>
                 </Fade>
             </Modal>
@@ -69,7 +59,7 @@ function EachPR({ link, difficulty }: PrProps) {
         <ListItem>
             <PRContainer>
                 <FiGithub style={{ color: 'black', fontSize: '1.4rem' }} />
-                <Link href={link} target='_blank' rel='norefferer'>{link}</Link>
+                <CustomLink href={link} target='_blank' rel='norefferer'>{link}</CustomLink>
                 <Difficulty style={{ color: textColor, background: bgColor }}>{difficulty}</Difficulty>
             </PRContainer>
         </ListItem>
@@ -105,32 +95,85 @@ function getColor(difficulty: string) {
 }
 
 
+const style = {
+    position: 'absolute' as 'absolute',
+    top: '50%',
+    border: '2px solid rgba(var(--yellow))',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: '70vw',
+    bgcolor: 'rgba(223, 229, 226, 0.98)',
+    boxShadow: 30,
+    p: 5,
+
+    "@media (max-width: 780px)": {
+        width: '80vw',
+        p: 3,
+    }
+}
+
 
 const HeaderConatiner = styled(Box)`
     display: flex;
     align-items: center;
     gap: 1.5rem;
     margin-bottom: 1rem;
+
+    ${media('<=tablet')} {
+        gap: 1rem;
+    }
 `
 
-const ContributorName = styled(Typography)`
+const PRBox = styled(Box)`
+    margin-top: 3.5rem;
+    max-height: 43vh;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+    width: 100%;
+
+    ${media('<=tablet')} {
+        margin-top: 2rem;
+        max-height: 40vh;
+    }
+`
+
+const ContributorName = styled.span`
     color: black;
     font-size: 1.8rem;
+
+    ${media('<=tablet')} {
+        font-size: 1.4rem;
+    }
 `
 
 const PRContainer = styled(Box)`
     display: flex;
     align-items: center;
     gap: 1.5rem;
-
-    & a {
-        font-size: 1.5rem;
+    
+    ${media('<=tablet')} {
+        gap: 1rem;
+        min-width: 150%;
     }
 `
 
-const Difficulty = styled(Typography)`
+const CustomLink = styled(Link)`
+    font-size: 1.5rem;  
+
+    ${media('<=tablet')} {
+        font-size: 0.8rem;
+    }
+`
+
+const Difficulty = styled.span`
     padding: 0.5rem 1rem;
     border-radius: 0.6rem;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-weight: bold;
+
+    ${media('<=tablet')} {
+        font-size: 0.8rem;
+        padding: 0.25rem 0.6rem;
+        border-radius: 0.4rem;
+    }
 `
