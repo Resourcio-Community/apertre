@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { useRecoilState } from 'recoil';
 import { modalState } from 'atoms/modalAtom';
 import { selectedContributorState } from 'atoms/selectedContributorAtom';
-import { FirstPage, KeyboardArrowLeft, KeyboardArrowRight, LastPage } from '@mui/icons-material'
+import { MdKeyboardArrowLeft, MdKeyboardArrowRight, MdFirstPage, MdLastPage } from "react-icons/md";
 import { useState } from 'react';
 
 
@@ -88,28 +88,28 @@ function TablePaginationActions({ count, page, rowsPerPage, onPageChange }: Tabl
         disabled={page === 0}
         aria-label="first page"
       >
-        {theme.direction === 'rtl' ? <LastPage /> : <FirstPage />}
+        {theme.direction === 'rtl' ? <MdLastPage /> : <MdFirstPage />}
       </IconButton>
       <IconButton
         onClick={handleBackButtonClick}
         disabled={page === 0}
         aria-label="previous page"
       >
-        {theme.direction === 'rtl' ? <KeyboardArrowRight /> : <KeyboardArrowLeft />}
+        {theme.direction === 'rtl' ? <MdKeyboardArrowRight /> : <MdKeyboardArrowLeft />}
       </IconButton>
       <IconButton
         onClick={handleNextButtonClick}
         disabled={page >= Math.ceil(count / rowsPerPage) - 1}
         aria-label="next page"
       >
-        {theme.direction === 'rtl' ? <KeyboardArrowLeft /> : <KeyboardArrowRight />}
+        {theme.direction === 'rtl' ? <MdKeyboardArrowLeft /> : <MdKeyboardArrowRight />}
       </IconButton>
       <IconButton
         onClick={handleLastPageButtonClick}
         disabled={page >= Math.ceil(count / rowsPerPage) - 1}
         aria-label="last page"
       >
-        {theme.direction === 'rtl' ? <FirstPage /> : <LastPage />}
+        {theme.direction === 'rtl' ? <MdFirstPage /> : <MdLastPage />}
       </IconButton>
     </Box>
   );
@@ -238,7 +238,7 @@ const paginationStyle = {
 
   '& .MuiBox-root button svg': {
     fontSize: 18,
-    
+
     '&:hover': {
       background: 'rgba(var(--primary))',
       borderRadius: '50%',
