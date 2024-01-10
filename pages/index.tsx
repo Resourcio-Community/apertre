@@ -55,10 +55,10 @@ const DarkerBackgroundContainer = styled.div`
 const WhiteBackgroundContainer = styled.div`
   background: #000;
   background-image: url('/static/assets/homeBG.svg');
-  background-repeat: "no-repeat",
-  background-size: "cover",
-  background-position: "center",
-  object-fit: "cover",
+  background-repeat: "no-repeat";
+  background-size: "cover";
+  background-position: "center";
+  object-fit: "cover";
 
   & > :last-child {
     padding-bottom: 15rem;
