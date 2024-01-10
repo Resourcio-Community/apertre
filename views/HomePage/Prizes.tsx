@@ -6,6 +6,16 @@ import OverTitle from 'components/OverTitle';
 import { media } from 'utils/media';
 import NextImage from 'next/image'
 import Awards from './Awards';
+import PrizesCarousal from 'components/PrizesCarousal';
+//first
+const firstBenefits = [
+  'Prizes worth of Rs. 2k',
+  'Cool T-Shirt',
+  'Stickers and Swag Kits',
+  'Digital Certificate',
+  'Social shout out',
+  'Digital subscription',
+];
 
 //second 
 const secondBenefits = [
@@ -17,15 +27,6 @@ const secondBenefits = [
   'Digital subscription',
 ];
 
-//first
-const firstBenefits = [
-  'Prizes worth of Rs. 2k',
-  'Cool T-Shirt',
-  'Stickers and Swag Kits',
-  'Digital Certificate',
-  'Social shout out',
-  'Digital subscription',
-];
 
 //third
 const thirdBenefits = [
@@ -37,27 +38,34 @@ const thirdBenefits = [
   'Digital subscription',
 ];
 
+
 export default function PricingTablesSection() {
   return (
-    <Stack id="prizes">
-      <OverTitle>
-        <span style={{ color: 'rgb(var(--yellow))', fontSize: '2rem', marginRight: '1rem' }}>&#8605;</span>
-        &ldquo;Open source is about collaborating; not competing.&rdquo; - Kelsey Hightower
-      </OverTitle>
-      <SectionTitle style={{ color: 'rgb(var(--yellow))' }}>Prizes</SectionTitle>
-      <CustomAutofitGrid>
-        <PrizesCard title="2nd" benefits={secondBenefits}>
-          <NextImage src="/prizes/second-icon.svg" width={120} height={150} alt='2nd prize' />
-        </PrizesCard>
-        <PrizesCard title="1st" benefits={firstBenefits} isOutlined>
-          <NextImage src="/prizes/first-icon.svg" width={150} height={200} alt='1st prize' />
-        </PrizesCard>
-        <PrizesCard title="3rd" benefits={thirdBenefits}>
-          <NextImage src="/prizes/third-icon.svg" width={120} height={150} alt='3rd prize' />
-        </PrizesCard>
-      </CustomAutofitGrid>
-      {/* <Awards /> */}
-    </Stack>
+    <>
+      <Stack id="prizes">
+        <OverTitle>
+          <span style={{ color: 'rgb(var(--yellow))', fontSize: '2rem', marginRight: '1rem' }}>&#8605;</span>
+          &ldquo;Open source is about collaborating; not competing.&rdquo; - Kelsey Hightower
+        </OverTitle>
+        <SectionTitle style={{ color: 'rgb(var(--yellow))' }}>Prizes</SectionTitle>
+        <CustomAutofitGrid>
+          <PrizesCard title="2nd" benefits={secondBenefits}>
+            <NextImage src="/prizes/second-icon.svg" width={120} height={150} alt='2nd prize' />
+          </PrizesCard>
+          <PrizesCard title="1st" benefits={firstBenefits} isOutlined>
+            <NextImage src="/prizes/first-icon.svg" width={150} height={200} alt='1st prize' />
+          </PrizesCard>
+          <PrizesCard title="3rd" benefits={thirdBenefits}>
+            <NextImage src="/prizes/third-icon.svg" width={120} height={150} alt='3rd prize' />
+          </PrizesCard>
+        </CustomAutofitGrid>
+        {/* <Awards /> */}
+        <CarousalDiv>
+          <PrizesCarousal/>
+        </CarousalDiv>
+      </Stack>
+    </>
+
   );
 }
 
@@ -68,6 +76,7 @@ const Stack = styled.div`
   color: rgb(var(--textSecondary));
   align-items: center;
   padding: 8rem 0 12rem 0;
+  height: fit-content;
 
   & > *:not(:first-child) {
     max-width: 80%;
@@ -107,4 +116,10 @@ const CustomAutofitGrid = styled(AutofitGrid)`
     --autofit-grid-item-size: 100%;
     grid-template-columns:1fr;
   }
+`;
+const CarousalDiv = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10rem 10rem;
 `;
