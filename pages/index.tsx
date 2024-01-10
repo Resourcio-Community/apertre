@@ -9,7 +9,6 @@ import Partners from 'views/HomePage/Partners';
 import Prizes from 'views/HomePage/Prizes';
 import Sponsors from 'views/HomePage/Sponsors';
 import Timeline from 'views/HomePage/Timeline';
-import PrizesCarousal from 'components/PrizesCarousal';
 
 export default function Homepage() {
   return (
@@ -32,7 +31,6 @@ export default function Homepage() {
           <Event />
           <Sponsors />
           <Prizes />
-          {/* <PrizesCarousal/> */}
           <FaqSection />
         </DarkerBackgroundContainer>
       </HomepageWrapper>

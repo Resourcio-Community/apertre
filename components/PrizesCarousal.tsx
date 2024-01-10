@@ -1,12 +1,10 @@
 import styled from 'styled-components';
-import { PropsWithChildren, useEffect } from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/autoplay';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
-// import required modules
-import { Autoplay, Pagination, Navigation } from 'swiper/modules';
+import { Autoplay, Navigation, Pagination } from 'swiper/modules';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import Container from './Container';
 import PrizesCarousalCard from './PrizesCarousalCard';
 
@@ -29,7 +27,7 @@ const otherPrizes = [
     //         'Digital Certificate',
     //         'Social shout out',
     //         'Digital subscription'
-        // ],
+    // ],
     // },
     {
         title: 'For All Participants(merged at least 1 successful PR)',
@@ -53,8 +51,6 @@ const otherPrizes = [
 
 
 export default function PrizesCarousal() {
-
-
     return (
         <Carousal>
             <Swiper
@@ -67,12 +63,12 @@ export default function PrizesCarousal() {
                 }}
                 navigation={true}
                 pagination={true}
-                modules={[Autoplay, Navigation,Pagination]}
+                modules={[Autoplay, Navigation, Pagination]}
                 loop={true}
             >
                 {otherPrizes.map((item) => {
                     return (
-                        <SwiperSlide>
+                        <SwiperSlide key={item.title}>
                             <PrizesCarousalCard data={item} />
                         </SwiperSlide>
                     )

@@ -1,25 +1,25 @@
-import React from 'react'
 import styled from 'styled-components'
-import { media } from 'utils/media'
-interface SliderProps {
-    data:{title:string,benefits:string[]};
-  }
 
-function PrizesCarousalCard({data}:SliderProps) {
-    return(
-        <CarousalCard>
-            <p style={{color: 'rgb(var(--yellow))',fontSize:'2.6rem'}}>{data.title}</p>
-            {data.benefits.map((item)=>{
-                return(
-                    <p style={{fontSize:'1.8rem'}}><span></span>{item}</p>
-                )
-            })}
-        </CarousalCard>
-    )
-  
+interface SliderProps {
+  data: {
+    title: string,
+    benefits: string[]
+  };
 }
 
-export default PrizesCarousalCard
+export default function PrizesCarousalCard({ data }: SliderProps) {
+  return (
+    <CarousalCard>
+      <p style={{ color: 'rgb(var(--yellow))', fontSize: '2.6rem' }}>{data.title}</p>
+      {data.benefits.map((item, idx) => {
+        return (
+          <p key={idx} style={{ fontSize: '1.8rem' }}><span></span>{item}</p>
+        )
+      })}
+    </CarousalCard>
+  )
+
+}
 
 const CarousalCard = styled.div`
     display: flex;
@@ -34,13 +34,7 @@ const CarousalCard = styled.div`
     background: rgba(var(--cardBackground), 0.8);
     color: rgb(var(--textSecondary));
     height: 65dvh;
-/*     
-    h4{
-        font-weight: 100;
-        font-size: 5rem;
-        display: flex;
-        flex-direction: column;
-    } */
+
     @media screen and (max-width:810px)and (min-width:428px){
     margin-top: 1rem;
     width: 80vw;

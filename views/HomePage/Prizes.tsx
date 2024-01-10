@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 import AutofitGrid from 'components/AutofitGrid';
 import PrizesCard from 'components/PrizesCard';
+import PrizesCarousal from 'components/PrizesCarousal';
 import SectionTitle from 'components/SectionTitle';
 import OverTitle from 'components/OverTitle';
 import { media } from 'utils/media';
 import NextImage from 'next/image'
-import Awards from './Awards';
-import PrizesCarousal from 'components/PrizesCarousal';
+
 //first
 const firstBenefits = [
   'Prizes worth of Rs. 2k',
@@ -59,7 +59,6 @@ export default function PricingTablesSection() {
             <NextImage src="/prizes/third-icon.svg" width={120} height={150} alt='3rd prize' />
           </PrizesCard>
         </CustomAutofitGrid>
-        {/* <Awards /> */}
         <CarousalDiv>
           <PrizesCarousal/>
         </CarousalDiv>
