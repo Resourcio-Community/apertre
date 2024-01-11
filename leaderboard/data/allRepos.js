@@ -1,6 +1,5 @@
 const repos =
     [
-        "debarshee2004/apertre_opensource",
         "trishit78/Pomodoro-Extension",
         "anshu-choubey/Tools-for-WhatsApp",
         "Soumyajit2825/MESSI_MANIA",

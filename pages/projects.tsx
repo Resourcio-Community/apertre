@@ -187,8 +187,8 @@ export default function ProjectsPage() {
                 <ProjectCard key={idx} project={project} />
               ))}
             </ProjectsList>
-            {/* Total project 34, project per page 12 */}
-            <CustomPagination variant='outlined' color='primary' count={Math.ceil(34 / 12)} page={page} onChange={handlePageChange} />
+            {/* Projects per page 12 */}
+            <CustomPagination variant='outlined' color='primary' count={Math.ceil(projects.length / 12)} page={page} onChange={handlePageChange} />
           </WhiteBackgroundContainer>
         </>
       )}
