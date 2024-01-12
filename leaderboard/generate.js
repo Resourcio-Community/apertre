@@ -1,7 +1,6 @@
 const axios = require('axios')
 const { MongoClient } = require('mongodb')
-const { writeFile } = require('./utils/writeFile')
-const { repos } = require('./data/allRepos')
+const { writeFile } = require('./writeFile')
 require('dotenv').config()
 
 const client = new MongoClient(process.env.MONGODB_URL)
@@ -15,8 +14,22 @@ const levelsData = {
 
 let counter, finalData
 
-const fetchAllData = async (req, res) => {
+const fetchAllData = async () => {
+    const repos = []
     counter = 0, finalData = []
+
+    try {
+        const { data: allRepos } = await axios.get(`${process.env.SERVER_URL}/api/v1/repo/getrepos`)
+
+        allRepos.data.map((repo) => {
+            repos.push(repo.projectLink.substring(19))
+        })
+    }
+    catch (err) {
+        console.log(err)
+        process.exit(1)
+    }
+
     for (let i = 0; i < repos.length; i++) {
         const repoName = repos[i]
         const data = await fetchRepoData(repoName)
