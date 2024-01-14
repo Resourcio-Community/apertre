@@ -153,7 +153,7 @@ const PRContainer = styled(Box)`
     
     ${media('<=tablet')} {
         gap: 1rem;
-        min-width: 150%;
+        min-width: 180%;
     }
 `
 
