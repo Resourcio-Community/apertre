@@ -154,7 +154,7 @@ export default function ProjectsPage() {
       keys: ['techStack'],
       threshold: 0.1,
     });
-    const result = fuse.search(query);
+    const result = fuse.search(query.trim());
     setFilteredProjects(query ? result.map((item) => item.item) : projects);
   };
 
