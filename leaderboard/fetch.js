@@ -14,8 +14,10 @@ const queue = new Queue('apertre', {
 async function fetchLeaderboard() {
     const job = await queue.getJob('leaderboard')
     if (!job) process.exit(1)
-    writeFile(job.data)
-    process.exit()
+    else {
+        writeFile(job.data)
+        await queue.close()
+    }
 }
 
 fetchLeaderboard()
