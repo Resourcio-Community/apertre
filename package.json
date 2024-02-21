@@ -8,7 +8,7 @@
     "start": "next start",
     "export": "next export",
     "lint": "next lint",
-    "leaderboard": "node leaderboard/fetch.js"
+    "fetch:leaderboard": "node leaderboard/fetch.js"
   },
   "dependencies": {
     "@accessible/drawer": "^3.0.2",

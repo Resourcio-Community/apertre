@@ -18,7 +18,7 @@ jobs:
         with:
           node-version: 18
       - run: yarn install
-      - run: yarn leaderboard
+      - run: yarn fetch:leaderboard
         env:
           REDIS_HOST: ${{ secrets.REDIS_HOST }}
           REDIS_PORT: ${{ secrets.REDIS_PORT }}
