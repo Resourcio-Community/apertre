@@ -13,16 +13,16 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: yarn install using Node.js
+      - name: Setup Node.js 18.x
         uses: actions/setup-node@v4
         with:
           node-version: 18
       - run: yarn install
-      - run: yarn leaderboard
+      - run: yarn fetch:leaderboard
         env:
-          SERVER_URL: ${{ secrets.SERVER_URL }}
-          GH_ACCESS_TOKEN: ${{ secrets.GH_ACCESS_TOKEN }}
-          MONGODB_URL: ${{ secrets.MONGODB_URL }}
+          REDIS_HOST: ${{ secrets.REDIS_HOST }}
+          REDIS_PORT: ${{ secrets.REDIS_PORT }}
+          REDIS_PASSWORD: ${{ secrets.REDIS_PASSWORD }}
 
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
