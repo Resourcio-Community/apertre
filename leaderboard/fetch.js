@@ -12,10 +12,18 @@ const queue = new Queue('apertre', {
 })
 
 async function fetchLeaderboard() {
-    const job = await queue.getJob('leaderboard')
-    if (!job) process.exit(1)
-    else {
-        writeFile(job.data)
+    try {
+        const job = await queue.getJob('leaderboard')
+        if (!job) console.log('Leaderboard not found.')
+        else {
+            writeFile(job.data)
+            console.log('Leaderboard updated.')
+        }
+    }
+    catch (err) {
+        console.error(err)
+    }
+    finally {
         await queue.close()
     }
 }
