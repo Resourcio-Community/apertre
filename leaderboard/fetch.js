@@ -11,6 +11,7 @@ const queue = new Queue('apertre', {
     }
 })
 
+
 async function fetchLeaderboard() {
     try {
         const job = await queue.getJob('leaderboard')
