@@ -135,6 +135,10 @@ svg {
   color: rgb(var(--text));
 }
 
+a {
+  text-decoration: none;
+}
+
 /* A elements that don't have a class get default styles */
 a:not([class]) {
   text-decoration-skip-ink: auto;

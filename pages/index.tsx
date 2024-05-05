@@ -9,7 +9,7 @@ import Partners from 'views/HomePage/Partners';
 import Prizes from 'views/HomePage/Prizes';
 import Sponsors from 'views/HomePage/Sponsors';
 import Timeline from 'views/HomePage/Timeline';
-import Gallery from './gallery';
+import Gallery from '../views/HomePage/Gallery';
 
 export default function Homepage() {
   return (

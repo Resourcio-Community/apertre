@@ -16,7 +16,7 @@ const navItems: NavItems = [
   { title: 'Leaderboard', href: '/leaderboard' },
   { title: 'FAQ', href: '/#faq' },
   { title: 'Contact', href: '/contact' },
-  { title: 'Gallery', href: '/gallerypage' },
+  { title: 'Gallery', href: '/gallery' },
 ];
 
 

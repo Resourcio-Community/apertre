@@ -1,5 +1,5 @@
 export type ProductCard = {
-    page:string;
+    page: string;
     mainImage: string;
     title: string;
     briefText: string;
@@ -8,10 +8,10 @@ export type ProductCard = {
     para?: string;
 }
 
-export const productCards1:ProductCard[] = [
+export const productCards1: ProductCard[] = [
     {
-        page:"days1",
-        para:"This is a paragraph for Product 1.",
+        page: "days1",
+        para: "This is a paragraph for Product 1.",
         mainImage: "main-image-url-1.jpg",
         title: "Product Title 1",
         briefText: "Brief description of Product 1.",
@@ -25,8 +25,8 @@ export const productCards1:ProductCard[] = [
         ]
     },
     {
-        page:"days1",
-        para:"This is a paragraph for Product 1.",
+        page: "days1",
+        para: "This is a paragraph for Product 1.",
         mainImage: "main-image-url-2.jpg",
         title: "Product Title 2",
         briefText: "Brief description of Product 2.",
@@ -40,8 +40,8 @@ export const productCards1:ProductCard[] = [
         ]
     },
     {
-        page:"days1",
-        para:"This is a paragraph for Product 1.",
+        page: "days1",
+        para: "This is a paragraph for Product 1.",
         mainImage: "main-image-url-3.jpg",
         title: "Product Title 3",
         briefText: "Brief description of Product 3.",
@@ -55,8 +55,8 @@ export const productCards1:ProductCard[] = [
         ]
     },
     {
-        page:"days1",
-        para:"This is a paragraph for Product 1.",
+        page: "days1",
+        para: "This is a paragraph for Product 1.",
         mainImage: "main-image-url-4.jpg",
         title: "Product Title 4",
         briefText: "Brief description of Product 4.",
@@ -70,8 +70,8 @@ export const productCards1:ProductCard[] = [
         ]
     },
     {
-        page:"days1",
-        para:"This is a paragraph for Product 1.",
+        page: "days1",
+        para: "This is a paragraph for Product 1.",
         mainImage: "main-image-url-5.jpg",
         title: "Product Title 5",
         briefText: "Brief description of Product 5.",
@@ -88,8 +88,8 @@ export const productCards1:ProductCard[] = [
 
 export const productCards2:ProductCard[] = [
     {
-        page:"days2",
-        para:"This is a paragraph for Product 1.",
+        page: "days2",
+        para: "This is a paragraph for Product 1.",
         mainImage: "main-image-url-16.jpg",
         title: "Product Title 16",
         briefText: "Brief description of Product 16.",
@@ -103,8 +103,8 @@ export const productCards2:ProductCard[] = [
         ]
     },
     {
-        page:"days2",
-        para:"This is a paragraph for Product 1.",
+        page: "days2",
+        para: "This is a paragraph for Product 1.",
         mainImage: "main-image-url-17.jpg",
         title: "Product Title 17",
         briefText: "Brief description of Product 17.",
@@ -118,8 +118,8 @@ export const productCards2:ProductCard[] = [
         ]
     },
     {
-        page:"days2",
-        para:"This is a paragraph for Product 1.",
+        page: "days2",
+        para: "This is a paragraph for Product 1.",
         mainImage: "main-image-url-18.jpg",
         title: "Product Title 18",
         briefText: "Brief description of Product 18.",
@@ -133,8 +133,8 @@ export const productCards2:ProductCard[] = [
         ]
     },
     {
-        page:"days2",
-        para:"This is a paragraph for Product 1.",
+        page: "days2",
+        para: "This is a paragraph for Product 1.",
         mainImage: "main-image-url-19.jpg",
         title: "Product Title 19",
         briefText: "Brief description of Product 19.",
@@ -148,8 +148,8 @@ export const productCards2:ProductCard[] = [
         ]
     },
     {
-        page:"days2",
-        para:"This is a paragraph for Product 1.",
+        page: "days2",
+        para: "This is a paragraph for Product 1.",
         mainImage: "main-image-url-20.jpg",
         title: "Product Title 20",
         briefText: "Brief description of Product 20.",
@@ -163,4 +163,3 @@ export const productCards2:ProductCard[] = [
         ]
     }
 ];
-
