@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import styled from 'styled-components';
-import { productCards1, productCards2 } from 'views/Gallerypage/data';
+import { productCards1, productCards2 } from 'views/GalleryPage/data';
 
 export default function IDs() {
     const router = useRouter();
