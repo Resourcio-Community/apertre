@@ -3,6 +3,7 @@ import { BsBookHalf } from 'react-icons/bs';
 import styled from 'styled-components';
 import { media } from 'utils/media';
 import Button from './Button';
+import Link from 'next/link';
 
 interface BasicCardProps {
   title: string;
@@ -19,11 +20,11 @@ export default function BasicCard({ title, description, imageUrl, buttonText, bu
       <NextImage src={imageUrl} width={128} height={128} alt={title} style={{ borderRadius: '45% 45% 60% 85%' }} />
       <Div>
         <Title>{title}</Title>
-        {manual && <A href={manual} target='_blank'><BsBookHalf /></A>}
+        {manual && <Link href={manual} passHref><BsBookHalf /></Link>}
       </Div>
       <Description>{description}</Description>
       <RegisterButton>
-        <A href={buttonhref} target='_blank'>{buttonText}</A>
+        <Link href={buttonhref} passHref>{buttonText}</Link>
       </RegisterButton>
     </Card>
   );

@@ -15,7 +15,8 @@ const navItems: NavItems = [
   { title: 'Sponsors', href: '/#sponsors' },
   { title: 'Leaderboard', href: '/leaderboard' },
   { title: 'FAQ', href: '/#faq' },
-  { title: 'Contact', href: '/contact' }
+  { title: 'Contact', href: '/contact' },
+  { title: 'Gallery', href: '/gallerypage' },
 ];
 
 
