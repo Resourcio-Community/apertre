@@ -3,13 +3,13 @@ import styled from 'styled-components';
 import { EnvVars } from 'env';
 import About from 'views/HomePage/About';
 import FaqSection from 'views/HomePage/FaqSection';
+import Gallery from 'views/HomePage/Gallery';
 import Hero from 'views/HomePage/Hero';
 import Event from 'views/HomePage/JoinEvent';
 import Partners from 'views/HomePage/Partners';
 import Prizes from 'views/HomePage/Prizes';
 import Sponsors from 'views/HomePage/Sponsors';
 import Timeline from 'views/HomePage/Timeline';
-import Gallery from '../views/HomePage/Gallery';
 
 export default function Homepage() {
   return (

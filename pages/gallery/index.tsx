@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Project } from 'models/gallery.model';
-import GalleryCard from 'views/Gallerypage/GalleryCard';
+import GalleryCard from 'views/GalleryPage/GalleryCard';
 
 const dummyData: Project[] = [
     {
