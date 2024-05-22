@@ -2,9 +2,6 @@ name: Workflow Dispatch
 
 on:
   workflow_dispatch:
-  # schedule:
-  #   # At every 4 hours
-  #   - cron: "0 */4 * * *"
 
 
 jobs:
