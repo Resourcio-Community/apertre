@@ -9,7 +9,7 @@ import { media } from 'utils/media';
 import LeaderboardTable from 'views/LeaderboardPage/LeaderboardTable';
 import TopThree from 'views/LeaderboardPage/TopThee';
 import { modalState } from '../atoms/modalAtom';
-import data from '../leaderBoard.json';
+import data from '../leaderBoard1.0.json';
 import { Contributor } from '../models/leaderboard.model';
 import PRModal from '../views/LeaderboardPage/PRModal';
 

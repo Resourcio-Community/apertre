@@ -6,15 +6,14 @@ on:
 
 jobs:
   fetch:
-    name: FetchLeaderBoard
+    name: Fetch LeaderBoard
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-
-      - name: Setup Node.js 18.x
-        uses: actions/setup-node@v4
+      - uses: actions/checkout@v4.1.7
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v4.0.3
         with:
-          node-version: 18
+          node-version: 20
       - run: yarn install
       - run: yarn fetch:leaderboard
         env:
@@ -22,6 +21,6 @@ jobs:
           REDIS_PORT: ${{ secrets.REDIS_PORT }}
           REDIS_PASSWORD: ${{ secrets.REDIS_PASSWORD }}
 
-      - uses: stefanzweifel/git-auto-commit-action@v5.0.0
+      - uses: stefanzweifel/git-auto-commit-action@v5.0.1
         with:
           commit_message: "feat: updated leaderboard using GitHub workflow"
